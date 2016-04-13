@@ -1,0 +1,87 @@
+<section class="content">
+    <div class="row">
+        <div class="col-sm-12" ng-controller="serviciosCtrl">
+
+            <div class="box-tools">
+                <div class="input-group" style="float: right">
+                    <a href="" class="btn btn-primary">
+                        <i class="fa fa-plus-circle"></i> Agregar servicio
+                    </a>
+                </div>
+            </div>
+            <br><br>
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Servicios</h3>
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Inicio</th>
+                                <th>Descripción</th>
+                                <th>Próximo</th>
+                                <th>Refacciones</th>
+                                <th>Tipo</th>
+                                <th>Técnico</th>
+                                <th>Final</th>
+                                <th>No. de servicio</th>
+                                <th>Equipo</th>
+                                <th>Realizado</th>
+                                <th>Cliente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ts in tblServicio">
+                                <td>{{ts.fechaInicio}}</td>
+                                <td>{{ts.descripcion|uppercase}}</td>
+                                <td>{{ts.proximo}}</td>
+                                <td>{{ts.refacciones|uppercase}}</td>
+                                <td>{{ts.tipo|uppercase}}</td>
+                                <td>{{ts.tecnico|uppercase}}</td>
+                                <td>{{ts.fFinal}}</td>
+                                <td>{{ts.noServicio}}</td>
+                                <td>{{ts.equipo|uppercase}}</td>
+                                <td>{{ts.realizado}}</td>
+                                <td>{{ts.nombre|uppercase}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+
+                <!--  <div class="col-sm-7">
+                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                          <ul class="pagination">
+                              <li class="paginate_button previous disabled" id="example2_previous">
+                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                              </li>
+                              <li class="paginate_button active">
+                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
+                              </li>
+                              <li class="paginate_button next" id="example2_next">
+                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>-->
+
+            </div><!-- /.box -->
+        </div>    
+    </div>
+</section>

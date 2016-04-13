@@ -1,0 +1,87 @@
+<section class="content">
+    <div class="row">
+        <div class="col-sm-12" ng-controller="equiposCtrl">
+
+            <div class="box-tools">
+                <div class="input-group" style="float: right">
+                    <a href="" class="btn btn-primary">
+                        <i class="fa fa-plus-circle"></i> Agregar equipo
+                    </a>
+                </div>
+            </div>
+            <br><br>
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Equipos</h3>
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Equipo</th>
+                                <th>Características</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Serie</th>
+                                <th>Propietario</th>
+                                <th>Cliente</th>
+                                <th>Fecha de Venta</th>
+                                <th>Transferir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="te in tblEquipo">
+                                <td>{{te.equipo|uppercase}}</td>
+                                <td>{{te.cara|uppercase}}</td>
+                                <td>{{te.marca|uppercase}}</td>
+                                <td>{{te.modelo|uppercase}}</td>
+                                <td>{{te.serie|uppercase}}</td>
+                                <td>{{te.propietario|uppercase}}</td>
+                                <td>{{te.nombre|uppercase}}</td>
+                                <td>{{te.fventa|uppercase}}</td>
+                                <td style="text-align: center">
+                                    <a ng-click="" class="btn btn-success">
+                                        <i class=" fa fa-exchange"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+
+                <!--  <div class="col-sm-7">
+                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                          <ul class="pagination">
+                              <li class="paginate_button previous disabled" id="example2_previous">
+                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                              </li>
+                              <li class="paginate_button active">
+                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
+                              </li>
+                              <li class="paginate_button ">
+                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
+                              </li>
+                              <li class="paginate_button next" id="example2_next">
+                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>-->
+
+            </div><!-- /.box -->
+        </div>    
+    </div>
+</section>

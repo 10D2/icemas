@@ -1,0 +1,42 @@
+/* == General ==*/
+.iconos{
+    margin-left: 20px;
+    color: white;
+   /* background: #31b0d5;*/
+    background: #f39c12;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 35px;
+    padding: 11px;
+
+}
+.espacio{
+    margin-top: 80px;
+}
+.marcas{
+    margin: auto;
+    width: 180px;
+    height: 70px;
+}
+.txtmarcas{
+    max-height: 180px;
+    overflow: hidden;
+}
+#myCarousel{
+    background: none;
+    max-width: 1000px;
+    max-height: 400px;
+}
+.carousel{
+    padding: 30px;
+    max-width: 800px;
+    max-height: 250px;
+    margin: auto;
+}
+.thumbnail{
+    background: none;
+}
+.letras{
+     color: #f39c12;
+}
