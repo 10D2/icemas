@@ -1,10 +1,10 @@
 <section class="content">
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3" ng-controller="sucCtrl">
+        <div class="col-sm-6 col-sm-offset-3" ng-controller="tblSuc">
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a href="" class="btn btn-primary">
+                    <a href="#/formularioSuc/nuevo" class="btn btn-primary">
                         <i class="fa fa-plus-circle"></i> Agregar sucursal
                     </a>
                 </div>
@@ -31,7 +31,7 @@
                                 <td>{{suc.sucursal|uppercase}}</td>
                                 <td>{{suc.nombre|uppercase}}</td>
                                 <td style="text-align: center">
-                                    <a href="#/sucursalesForm" class="btn btn-warning">
+                                    <a href="#/formularioSuc/{{suc.idSucursal}}" class="btn btn-warning">
                                             <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
@@ -49,9 +49,7 @@
                     </ul>
                 </div>
             </div><!-- /.box -->
-            
-            <div ng-include="'template/modal_sucursales.html'" ></div>
-            
+     
         </div>    
     </div>
 </section>

@@ -140,6 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- CONTROLADORES -->
         <script src="controladores-navegacion/principalAdmin.js"></script>
         <script src="controladores-navegacion/navegacion.js"></script>
+        <script src="controladores-navegacion/tablaSucursales.js"></script>
         <script src="controladores-navegacion/sucCtrl.js"></script>
         <script src="controladores-navegacion/clientesCtrl.js"></script>
         <script src="controladores-navegacion/ciudadesCtrl.js"></script>

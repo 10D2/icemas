@@ -33,5 +33,5 @@ while ($row = mysql_fetch_array($result)) {
     
 }
 
-echo $json_response = json_encode($arraySuc);
+echo $json_response = json_encode($infoSuc);
 ?>

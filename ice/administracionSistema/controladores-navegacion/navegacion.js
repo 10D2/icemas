@@ -10,8 +10,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/sucursales', {
                     templateUrl: 'sucursales.html'
                 })
-                .when('/sucursalesForm/:idSucursal', {
-                    templateUrl: 'formularios/sucursalesForm.html'
+                .when('/formularioSuc/:idSucursal', {
+                    templateUrl: 'formularios/formularioSuc.html'
                 })
                 .when('/ciudades', {
                     templateUrl: 'ciudades.html'
