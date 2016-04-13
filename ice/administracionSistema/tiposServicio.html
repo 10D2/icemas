@@ -20,12 +20,18 @@
                         <thead>
                             <tr>
                                 <th>Tipo de Servicio</th>
+                                <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="st in tipoServ">
                                 <td>{{st.tipo|uppercase}}</td>
+                                <td style="text-align: center">
+                                    <a ng-click="" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
                                 <td style="text-align: center">
                                     <a ng-click="borrarTserv(st.idTipo)" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>

@@ -23,6 +23,7 @@
                                 <th>Usuario</th>
                                 <th>Contraseña</th>
                                 <th>Perfil</th>
+                                <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -32,6 +33,11 @@
                                 <td>{{u.usuario|uppercase}}</td>
                                 <td>{{u.contrasena}}</td>
                                 <td>{{u.perfil|uppercase}}</td>
+                                <td style="text-align: center">
+                                    <a ng-click="" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
                                 <td style="text-align: center">
                                     <a ng-click="" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>

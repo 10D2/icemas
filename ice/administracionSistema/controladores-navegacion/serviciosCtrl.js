@@ -9,6 +9,18 @@ app.controller('serviciosCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.tblServicio = arrayTblServ;
 
         });
+        
+        //================================================================
+        // MOSTRAR MODAL 
+        //================================================================
+
+        $scope.mostralModalServicios = function () {
+
+            $("#modal_servicios").modal();
+
+        };
+        
+        
 
         
     }]);

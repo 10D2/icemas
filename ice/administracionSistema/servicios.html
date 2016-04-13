@@ -22,32 +22,39 @@
                                 <th>Inicio</th>
                                 <th>Descripción</th>
                                 <th>Próximo</th>
-                                <th>Refacciones</th>
-                                <th>Tipo</th>
-                                <th>Técnico</th>
-                                <th>Final</th>
-                                <th>No. de servicio</th>
-                                <th>Equipo</th>
-                                <th>Realizado</th>
+                                <!-- <th>Refacciones</th>
+                                 <th>Tipo</th>
+                                 <th>Técnico</th>
+                                 <th>Final</th>
+                                 <th>No. de servicio</th>
+                                 <th>Equipo</th>
+                                 <th>Realizado</th>-->
                                 <th>Cliente</th>
+                                <th>Ver <i class="fa fa-plus"></i></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="ts in tblServicio">
+                            <tr ng-repeat="ts in tblServicio" class="texto">
                                 <td>{{ts.fechaInicio}}</td>
                                 <td>{{ts.descripcion|uppercase}}</td>
                                 <td>{{ts.proximo}}</td>
-                                <td>{{ts.refacciones|uppercase}}</td>
-                                <td>{{ts.tipo|uppercase}}</td>
-                                <td>{{ts.tecnico|uppercase}}</td>
+                                <!-- <td>{{ts.refacciones|uppercase}}</td>
+                                 <td>{{ts.tipo|uppercase}}</td>
+                                 <td>{{ts.tecnico|uppercase}}</td>
                                 <td>{{ts.fFinal}}</td>
-                                <td>{{ts.noServicio}}</td>
-                                <td>{{ts.equipo|uppercase}}</td>
-                                <td>{{ts.realizado}}</td>
+                                 <td>{{ts.noServicio}}</td>
+                                 <td>{{ts.equipo|uppercase}}</td>
+                                 <td>{{ts.realizado}}</td>-->
                                 <td>{{ts.nombre|uppercase}}</td>
+                                <td>
+                                    <a ng-click="mostralModalServicios()" class="btn btn-info">
+                                        <i class="fa fa-mail-forward"></i>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                    
                 </div><!-- /.box-body -->
 
                 <!--  <div class="col-sm-7">
@@ -82,6 +89,9 @@
                   </div>-->
 
             </div><!-- /.box -->
+            
+            <div ng-include=" './template/modal_servicios.html' "></div>
+            
         </div>    
     </div>
 </section>
