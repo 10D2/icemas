@@ -10,6 +10,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/sucursales', {
                     templateUrl: 'sucursales.html'
                 })
+                .when('/sucursalesForm/:idSucursal', {
+                    templateUrl: 'formularios/sucursalesForm.html'
+                })
                 .when('/ciudades', {
                     templateUrl: 'ciudades.html'
                 })

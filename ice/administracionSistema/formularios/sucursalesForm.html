@@ -1,0 +1,37 @@
+
+<section class="content">
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2" ng-controller="sucCtrl">
+
+            <form ng-submit="">
+
+                <div class="form-group">
+                    <label>Sucursal</label>
+                    <input type="text" 
+                           class="form-control" 
+                           ng-model="infoSuc.sucursal" 
+                           placeholder="Título" 
+                           required="required"/>
+                </div>
+                <br>
+                <div class="form-group form-inline">
+                    <label>Cliente:</label>
+                    <select  
+                        ng-model="clienteSel" 
+                        class="form-control" 
+                        ng-options="opt as opt.menus for opt in menu track by opt.idMenus"> 
+                    </select>
+                </div>  
+                <button value="enviar" class="btn btn-info"> Guardar</button>
+                
+                <h4 class="text-info animated fadeIn fast" ng-show="actualiza">Registro realizado  
+                <a href=""><i class="text-info fa fa-reply-all fa-2x" title="REGRESAR A SUCURSALES"></i></a>
+                </h4>
+                
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>
