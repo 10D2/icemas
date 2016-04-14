@@ -1,0 +1,58 @@
+<section class="content">
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 texto" ng-controller="usuarioCtrl">
+
+            <form ng-submit="guardarUsuario()">
+                <div class="panel panel-body">
+                    <div class="form-group">
+                        <label>Cliente</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoUsuario.nombre" 
+                               placeholder="Nombre del cliente" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoUsuario.usuario" 
+                               placeholder="Nombre del usuario" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoUsuario.contrasena" 
+                               placeholder="Contraseña del usuario" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Perfil</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoUsuario.perfil" 
+                               placeholder="Perfil del usuario" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <button value="enviar" class="btn btn-primary" style="float: right">
+                        <i class="fa fa-save"></i> Guardar
+                    </button>
+
+                    <h4 class="text-info animated fadeIn fast" ng-show="actualiza">Registro realizado  
+                        <a href="#/usuarios"><i class="text-info fa fa-reply-all fa-2x" title="REGRESAR A USUARIOS"></i></a>
+                    </h4>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <section class="content">
     <div class="row">
-        <div class="col-sm-12" ng-controller="serviciosCtrl">
+        <div class="col-sm-12 texto" ng-controller="serviciosCtrl">
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
@@ -11,34 +11,34 @@
             </div>
             <br><br>
             <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Servicios</h3>
+                <div class="box-header with-border ali">
+                    <h3 class="box-title">SERVICIOS</h3>
 
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Inicio</th>
-                                <th>Descripción</th>
-                                <th>Próximo</th>
-                                <!-- <th>Refacciones</th>
+                                <th>FECHA</th>
+                                <th>DESCRIPCION</th>
+                                <!--<th>Próximo</th>
+                                <th>Refacciones</th>
                                  <th>Tipo</th>
                                  <th>Técnico</th>
                                  <th>Final</th>
                                  <th>No. de servicio</th>
                                  <th>Equipo</th>
                                  <th>Realizado</th>-->
-                                <th>Cliente</th>
-                                <th>Ver <i class="fa fa-plus"></i></th>
+                                <th>CLIENTE</th>
+                                <th>DETALLES</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="ts in tblServicio" class="texto">
                                 <td>{{ts.fechaInicio}}</td>
                                 <td>{{ts.descripcion|uppercase}}</td>
-                                <td>{{ts.proximo}}</td>
-                                <!-- <td>{{ts.refacciones|uppercase}}</td>
+                                <!--<td>{{ts.proximo}}</td>
+                                 <td>{{ts.refacciones|uppercase}}</td>
                                  <td>{{ts.tipo|uppercase}}</td>
                                  <td>{{ts.tecnico|uppercase}}</td>
                                 <td>{{ts.fFinal}}</td>
@@ -46,9 +46,9 @@
                                  <td>{{ts.equipo|uppercase}}</td>
                                  <td>{{ts.realizado}}</td>-->
                                 <td>{{ts.nombre|uppercase}}</td>
-                                <td>
-                                    <a ng-click="mostralModalServicios()" class="btn btn-info">
-                                        <i class="fa fa-mail-forward"></i>
+                                <td style="text-align: center">
+                                    <a ng-click="mostralModalServicios(ts.idServicio)" class="btn btn-info">
+                                        <i class="fa fa-plus-square"></i>
                                     </a>
                                 </td>
                             </tr>

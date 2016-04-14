@@ -7,6 +7,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/clientes', {
                     templateUrl: 'clientes.html'
                 })
+                .when('/formCliente/:idCliente', {
+                    templateUrl: 'formularios/formCliente.html'
+                })
                 .when('/sucursales', {
                     templateUrl: 'sucursales.html'
                 })
@@ -42,6 +45,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 })
                 .when('/direcciones', {
                     templateUrl: 'direcciones.html'
+                })
+                .when('/formDirecciones/:idDireccion', {
+                    templateUrl: 'formularios/formDirecciones.html'
                 })
                 .otherwise({
                     redirectTo: '/'

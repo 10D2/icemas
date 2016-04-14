@@ -6,7 +6,7 @@ $cn->Conectarse();
 
 //$query = 'SELECT idcliente,cliente,ciudad,sucursal,direccion,telefono,contacto FROM clientes1 ORDER BY cliente ASC';
 
-$query = 'SELECT c.idCliente, c.nombre, a.ciudad, s.sucursal, d.direccion ,c.telefono, c.contacto, c.correo, u.usuario FROM clientes c INNER JOIN ciudades a ON a.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal = c.idSucursal INNER JOIN direcciones d ON d.idDireccion = c.idDireccion INNER JOIN usuarios u ON u.idUsuario = c.idUsuario ORDER BY c.nombre ASC';
+$query = 'SELECT c.idCliente, c.nombre, a.ciudad, s.sucursal, c.direccion ,c.telefono, c.contacto, c.correo FROM clientes c INNER JOIN ciudades a ON a.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal = c.idSucursal ORDER BY c.nombre ASC';
 
 
 $result = mysql_query($query);
@@ -23,7 +23,6 @@ while ($row = mysql_fetch_array($result)) {
     $tblCliente->telefono = $row["telefono"];
     $tblCliente->contacto = utf8_encode($row["contacto"]);
     $tblCliente->correo = utf8_encode($row["correo"]);
-    $tblCliente->usuario = utf8_encode($row["usuario"]);
     $arrayTablaCliente[] = $tblCliente;
 }
 

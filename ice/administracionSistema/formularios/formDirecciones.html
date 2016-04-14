@@ -1,0 +1,86 @@
+<section class="content">
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 texto" ng-controller="direccionCtrl">
+
+            <form ng-submit="guardarDireccion()">
+                <div class="panel panel-body">
+                    <div class="form-group form-inline">
+                        <label>Cliente</label>
+                        <br>
+                        <select  
+                            ng-model="selCliente" 
+                            class="form-control" 
+                            ng-options="cliente as cliente.nombre for cliente in nomCliente track by cliente.idCliente"> 
+                        </select>
+                    </div>  
+                    <br>
+                    <div class="form-group">
+                        <label>Calle</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoDireccion.calle" 
+                               placeholder="Calle" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Número</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoDireccion.numero" 
+                               placeholder="Número" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Cruzamientos</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoDireccion.cruzamientos" 
+                               placeholder="Cruzamientos" 
+                               required="required"/>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Colonia</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoDireccion.colonia" 
+                               placeholder="Colonia / Fraccionamiento" 
+                               required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Código Postal</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoDireccion.cP" 
+                               placeholder="Código Postal" 
+                               required="required"/>
+                    </div>
+                    <br>
+                     <div class="form-group form-inline">
+                        <label>Ciudad</label>
+                        <br>
+                        <select  
+                            ng-model="selCiudad" 
+                            class="form-control" 
+                            ng-options="nombre as nombre.ciudad for nombre in nomCiudad track by nombre.idCiudad"> 
+                        </select>
+                    </div> 
+                    <br>
+                    <button value="enviar" class="btn btn-primary" style="float: right">
+                        <i class="fa fa-save"></i> Guardar
+                    </button>
+
+                    <h4 class="text-info animated fadeIn fast" ng-show="actualiza">Registro realizado  
+                        <a href="#/direcciones"><i class="text-info fa fa-reply-all fa-2x" title="REGRESAR A DIRECCIONES"></i></a>
+                    </h4>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

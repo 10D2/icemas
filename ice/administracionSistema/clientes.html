@@ -1,31 +1,32 @@
 <section class="content">
     <div class="row">
-        <div class="col-sm-12" ng-controller="clientesCtrl">
+        <div class="col-sm-12 texto" ng-controller="clientesCtrl">
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a href="" class="btn btn-primary">
+                    <a href="#/formCliente/nuevo" class="btn btn-primary">
                         <i class="fa fa-user-plus"></i> Agregar cliente
                     </a>
                 </div>
             </div>
             <br><br>
             <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Clientes</h3>
+                <div class="box-header with-border ali">
+                    <h3 class="box-title">CLIENTES</h3>
 
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Ciudad</th>
-                                <th>Sucursal</th>
-                                <th>Dirección</th>
-                                <th>Teléfono</th>
-                                <th>Contacto</th>
-                                <th>Correo</th>
+                                <th>NOMBRE</th>
+                                <th>CIUDAD</th>
+                                <th>SUCURSAL</th>
+                                <th>DIRECCION</th>
+                                <th>TELEFONO</th>
+                                <th>CONTACTO</th>
+                                <th>CORREO</th>
+                                <th>EDITAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +38,11 @@
                                 <td>{{tc.telefono}}</td>
                                 <td>{{tc.contacto | uppercase}}</td>
                                 <td>{{tc.correo}}</td>
+                                <td>
+                                    <a href="#/formCliente/{{tc.idCliente}}" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

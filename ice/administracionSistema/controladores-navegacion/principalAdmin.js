@@ -1,4 +1,4 @@
-var app = angular.module('icemasAdminApp', ['ngRoute', 'jcs-autoValidate', 'icemasAdminApp.clientes']);
+var app = angular.module('icemasAdminApp', ['ngRoute', 'jcs-autoValidate']);
 
 angular.module('jcs-autoValidate')
         .run([
