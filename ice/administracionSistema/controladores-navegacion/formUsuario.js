@@ -40,29 +40,29 @@ app.controller('usuarioCtrl', ['$scope', '$http', '$routeParams', function ($sco
 
 
 
-        $scope.guardarCliente = function () {
-            if ($scope.creando) {
-                // $scope.infoSuc.idCliente = $scope.menuSeleccionado.idmunicipio;
-                $scope.infoCliente.idCiudad= $scope.ciudadSel.idCiudad;
-                $scope.infoCliente.idSucursal = $scope.sucSel.idSucursal;
-               
-                $http.post('./php/insertarSucursal.php', $scope.infoSuc).success(function () {
-                  
-                });
-
-                $scope.actualiza = true;
-
-            } else {
-             
-                $scope.infoSuc.idCliente= $scope.clienteSel.idCliente;
-                $http.post('./php/actualizarSucursal.php', $scope.infoSuc).success(function () {
-                    console.log($scope.infoSuc);
-                });
-
-                $scope.actualiza = true;
-                
-            }
-        };
+//        $scope.guardarCliente = function () {
+//            if ($scope.creando) {
+//                // $scope.infoSuc.idCliente = $scope.menuSeleccionado.idmunicipio;
+//                $scope.infoCliente.idCiudad= $scope.ciudadSel.idCiudad;
+//                $scope.infoCliente.idSucursal = $scope.sucSel.idSucursal;
+//               
+//                $http.post('./php/insertarSucursal.php', $scope.infoSuc).success(function () {
+//                  
+//                });
+//
+//                $scope.actualiza = true;
+//
+//            } else {
+//             
+//                $scope.infoSuc.idCliente= $scope.clienteSel.idCliente;
+//                $http.post('./php/actualizarSucursal.php', $scope.infoSuc).success(function () {
+//                    console.log($scope.infoSuc);
+//                });
+//
+//                $scope.actualiza = true;
+//                
+//            }
+//        };
 
 
     }]);

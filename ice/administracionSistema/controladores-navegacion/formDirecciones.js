@@ -1,4 +1,4 @@
-app.controller('direccionCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+app.controller('fDireccion', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 
 
         var codigo = $routeParams.idDireccion;
@@ -15,12 +15,12 @@ app.controller('direccionCtrl', ['$scope', '$http', '$routeParams', function ($s
         } else
         {
             $scope.infoDireccion = {};
-            $http.get('./php/getFormularioDirecciones.php?c=' + codigo).success(function (data) {
+            $http.get('./php/getFormularioDireccion.php?c=' + codigo).success(function (data) {
                 $scope.infoDireccion = data;
                 console.log($scope.infoDireccion);
             });
         }
-
+        
         $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
             console.log($scope.nomCliente);
@@ -33,7 +33,6 @@ app.controller('direccionCtrl', ['$scope', '$http', '$routeParams', function ($s
             $scope.nomCiudad = arrayCiudades;
         });
 
-       
 
 
         //=================================================================
@@ -44,11 +43,12 @@ app.controller('direccionCtrl', ['$scope', '$http', '$routeParams', function ($s
 
         $scope.guardarDireccion = function () {
             if ($scope.creando) {
-                // $scope.infoSuc.idCliente = $scope.menuSeleccionado.idmunicipio;
-                $scope.infoDireccion.idCliente= $scope.selCliente.idCliente;
-                $scope.infoDireccion.idCiudad = $scope.selCiudad.idCiudad;
                
-                $http.post('./php/insertarSucursal.php', $scope.infoDireccion).success(function () {
+                $scope.infoDireccion.idCliente = $scope.selCliente.idCliente;
+                $scope.infoDireccion.idCiudad  = $scope.selCiudad.idCiudad;
+                
+               
+                $http.post('./php/insertarDireccion.php', $scope.infoDireccion).success(function () {
                   
                 });
 
@@ -56,9 +56,11 @@ app.controller('direccionCtrl', ['$scope', '$http', '$routeParams', function ($s
 
             } else {
              
-                $scope.infoSuc.idCliente= $scope.clienteSel.idCliente;
-                $http.post('./php/actualizarSucursal.php', $scope.infoDireccion).success(function () {
-                    console.log($scope.infoSuc);
+                $scope.infoDireccion.idCliente = $scope.selCliente.idCliente;
+                $scope.infoDireccion.idCiudad  = $scope.selCiudad.idCiudad;
+               
+                $http.post('./php/actualizarDireccion.php', $scope.infoDireccion).success(function () {
+                    console.log($scope.infoDireccion);
                 });
 
                 $scope.actualiza = true;
@@ -68,6 +70,7 @@ app.controller('direccionCtrl', ['$scope', '$http', '$routeParams', function ($s
 
 
     }]);
+
 
 
 

@@ -1,14 +1,30 @@
-app.controller('ciudadesCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', function ($scope, $http, Ciudades, $routeParams) {
+
+        var pag = $routeParams.pag;
+
 
         $scope.activar('mCiudades');
+        $scope.ciudades = {};
 
-        $scope.infoCd = {};
-        $scope.tablaCd = {};
-        $http.get('./php/consultaTablaCiudades.php').success(function (arrayTablaCd) {
-            console.log($scope.tablaCd);
-            $scope.tablaCd = arrayTablaCd;
 
-        });
+
+        $scope.moverA = function (pag) {
+            Ciudades.cargarPagina(pag).then(function () {
+                $scope.ciudades = Ciudades;
+
+            });
+        };
+
+        $scope.moverA(pag);
+
+
+//        $scope.infoCd = {};
+//        $scope.tablaCd = {};
+//        $http.get('./php/consultaTablaCiudades.php').success(function (arrayTablaCd) {
+//            console.log($scope.tablaCd);
+//            $scope.tablaCd = arrayTablaCd;
+//
+//        });
 
         //================================================================
         // MOSTRAR MODAL 
@@ -41,9 +57,9 @@ app.controller('ciudadesCtrl', ['$scope', '$http', function ($scope, $http) {
             });
 
         };
-        
-        
-        
+
+
+
         $scope.borrarCd = function (idCiudad) {
             console.log(idCiudad);
             $http.get('./php/eliminarCiudad.php?id=' + idCiudad).success(function () {

@@ -10,13 +10,16 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/formCliente/:idCliente', {
                     templateUrl: 'formularios/formCliente.html'
                 })
+                .when('/prueba/:idCliente', {
+                    templateUrl: 'template/prueba.html'
+                })
                 .when('/sucursales', {
                     templateUrl: 'sucursales.html'
                 })
                 .when('/formularioSuc/:idSucursal', {
                     templateUrl: 'formularios/formularioSuc.html'
                 })
-                .when('/ciudades', {
+                .when('/ciudades/:pag', {
                     templateUrl: 'ciudades.html'
                 })
                 .when('/servicios', {
@@ -46,8 +49,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/direcciones', {
                     templateUrl: 'direcciones.html'
                 })
-                .when('/formDirecciones/:idDireccion', {
-                    templateUrl: 'formularios/formDirecciones.html'
+                .when('/formDireccion/:idDireccion', {
+                    templateUrl: 'formularios/formDireccion.html'
                 })
                 .otherwise({
                     redirectTo: '/'

@@ -1,7 +1,7 @@
 <section class="content">
 
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 texto" ng-controller="direccionCtrl">
+        <div class="col-sm-8 col-sm-offset-2 texto" ng-controller="fDireccion">
 
             <form ng-submit="guardarDireccion()">
                 <div class="panel panel-body">
@@ -13,7 +13,7 @@
                             class="form-control" 
                             ng-options="cliente as cliente.nombre for cliente in nomCliente track by cliente.idCliente"> 
                         </select>
-                    </div>  
+                    </div> 
                     <br>
                     <div class="form-group">
                         <label>Calle</label>
@@ -50,16 +50,17 @@
                                placeholder="Colonia / Fraccionamiento" 
                                required="required"/>
                     </div>
+                    <br>
                     <div class="form-group">
                         <label>Código Postal</label>
                         <input type="text" 
                                class="form-control" 
-                               ng-model="infoDireccion.cP" 
+                               ng-model="infoDireccion.codigoPostal" 
                                placeholder="Código Postal" 
                                required="required"/>
                     </div>
                     <br>
-                     <div class="form-group form-inline">
+                    <div class="form-group form-inline">
                         <label>Ciudad</label>
                         <br>
                         <select  
@@ -67,7 +68,7 @@
                             class="form-control" 
                             ng-options="nombre as nombre.ciudad for nombre in nomCiudad track by nombre.idCiudad"> 
                         </select>
-                    </div> 
+                    </div>  
                     <br>
                     <button value="enviar" class="btn btn-primary" style="float: right">
                         <i class="fa fa-save"></i> Guardar

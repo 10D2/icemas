@@ -1,0 +1,52 @@
+<section class="content">
+    <div class="panel panel-default" ng-controller="clientesCtrl">
+        <div class="row">
+        <div class="col-sm-8 col-sm-2">
+            <div class="panel-title texto">
+                <h3>CLIENTES</h3>
+            </div>
+            <br>
+            <div class="panel-body texto">
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>CLIENTE:  </label>
+                        {{cliente.nombre|uppercase}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>CIUDAD:  </label>
+                        {{cliente.ciudad|uppercase}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>SUCURSAL:  </label>
+                        {{cliente.sucursal|uppercase}}
+                    </div>
+                </div>
+                <div class="row">    
+                    <div class="col-sm-12">
+                        <label>TELEFONO:  </label>
+                        {{tbc.telefono|uppercase}}
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>CONTACTO:  </label>
+                        {{tbc.contacto|uppercase}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>COREO:   </label>
+                        {{tbc.correo|uppercase}}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

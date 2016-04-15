@@ -18,7 +18,7 @@ $telefonoC= $request['telefono'];
 $contactoC = utf8_decode($request['contacto']);
 $correoC = utf8_decode($request['correo']);
 
-$sql = "INSERT INTO clientes (nombre, idCiudad, idSucursal, direccion, telefono, contacto, correo) VALUES ('$nombreC', '$idCiudadC', '$idSucursalC', '$direccionC', '$telefonoC', '$contactoC', '$correoC');";
+$sql = "INSERT INTO clientes (nombre, idCiudad, idSucursal, direccion, telefono, contacto, correo) VALUES ('$nombreC', '$idCiudadC', '$idSucursalC', '$direccionC', '$telefonoC', '$contactoC', '$correoC')";
 
 
 if (mysql_query($sql) === TRUE) {

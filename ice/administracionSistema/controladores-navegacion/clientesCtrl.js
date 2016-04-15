@@ -7,28 +7,30 @@ app.controller('clientesCtrl', ['$scope', '$http', function ($scope, $http) {
             console.log($scope.tblCliente);
             $scope.tblCliente = arrayTablaCliente;
 
-//            var cont = 10;
-//            $scope.totalNoticias = $scope.tablaNota.length;
-//            $scope.posicion = cont;
-//            $scope.siguientes = function () {
-//                if ($scope.tablaNota.length > $scope.posicion) {
-//                    $scope.posicion += cont;
-//                }
-//                ;
-//            };
-//            $scope.anteriores = function () {
-//                if ($scope.posicion > cont) {
-//                    $scope.posicion -= cont;
-//                }
-//                ;
-//            };
+
         });
         
-//        $scope.nomCliente = {};
-//        $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
-//            console.log($scope.nomCliente);
-//            $scope.nomCliente = arrayClientes;
-//        });
+        $scope.cliente = {};
+        $http.get('./php/modalCliente.php').success(function (data) {
+            console.log($scope.cliente);
+            $scope.cliente = data;
+
+
+        });
+        
+        
+        
+        
+        
+         //================================================================
+        // MOSTRAR MODAL 
+        //================================================================
+
+        $scope.mostralModalClientes = function () {
+
+            $("#modal_clientes").modal();
+
+        };
 
     }]);
 

@@ -148,7 +148,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="controladores-navegacion/clientesCtrl.js"></script>
         <script src="controladores-navegacion/formCliente.js"></script>
         <script src="controladores-navegacion/ciudadesCtrl.js"></script>
-        <script src="controladores-navegacion/formDireccion.js"></script>
         <script src="controladores-navegacion/serviciosCtrl.js"></script>
         <script src="controladores-navegacion/marcasCtrl.js"></script>
         <script src="controladores-navegacion/transferenciaCtrl.js"></script>
@@ -158,6 +157,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="controladores-navegacion/usuarioCtrl.js"></script>
         <script src="controladores-navegacion/perfilCtrl.js"></script>
         <script src="controladores-navegacion/direccionCtrl.js"></script>
+        <script src="controladores-navegacion/formDirecciones.js"></script>
+        
+        <script src="servicios/ciudades_servicio.js"></script>
         
         <!-- SWEET ALERT -->
         <script src="../../angular/librerias/sweetalert.min.js"></script>

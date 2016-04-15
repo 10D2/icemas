@@ -1,26 +1,25 @@
 
 <?php
+//
+//include_once '../../../conexiones/class.Database.php';
+//$nc = new Database();
+//
+//$query = 'SELECT idCiudad, ciudad FROM ciudades ORDER BY ciudad ASC';
+//$result = $nc->get_json_rows($query);
+//
+//echo $json_response = $result;
 
-include_once '../../../conexiones/conexion.php';
-$cn = new conexion();
-$cn->Conectarse();
 
-$query = 'SELECT idCiudad, ciudad FROM ciudades ORDER BY ciudad ASC';
+include_once '../../../conexiones/class.Database.php';
 
-
-
-$result = mysql_query($query);
-
-$arrayTablaCd = array();
-
-while ($row = mysql_fetch_array($result)) {
-    $tablaCd = new stdClass();
-    $tablaCd->idCiudad = $row["idCiudad"];
-    $tablaCd->ciudad = utf8_encode($row["ciudad"]);
-    
-    $arrayTablaCd[] = $tablaCd;
+if( isset( $_GET["pag"])){
+    $pag = $_GET["pag"];
+}else{
+    $pag = 1;
 }
 
-# JSON-encode the response
-echo $json_response = json_encode($arrayTablaCd);
 
+$respuesta = Database::get_todo_paginado('ciudades', $pag);
+
+echo json_encode($respuesta);
+?>

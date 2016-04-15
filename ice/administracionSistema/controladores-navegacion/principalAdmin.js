@@ -1,4 +1,8 @@
-var app = angular.module('icemasAdminApp', ['ngRoute', 'jcs-autoValidate']);
+var app = angular.module('icemasAdminApp', [
+    'ngRoute',
+    'jcs-autoValidate',
+    'icemasAdminApp.ciudades'
+]);
 
 angular.module('jcs-autoValidate')
         .run([
@@ -29,9 +33,9 @@ app.controller('iceCtrl', ['$scope', function ($scope) {
             $scope.mTecnico = "";
             $scope.mTipoS = "";
             $scope.mUsuarios = "";
-            $scope.mPerfiles = "";        
+            $scope.mPerfiles = "";
             $scope.mCalle = "";
-            
+
             $scope[menu] = 'active';
 
 
