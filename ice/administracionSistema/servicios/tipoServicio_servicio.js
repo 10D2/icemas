@@ -1,11 +1,11 @@
-var app = angular.module('icemasAdminApp.ciudades', []);
-app.factory('Ciudades', ['$http', '$q', function ($http, $q) {
+var app = angular.module('icemasAdminApp.tServicio', []);
+app.factory('TipoServicio', ['$http', '$q', function ($http, $q) {
 
         var self = {
             'cargando': false,
             'err': false,
             'conteo': 0,
-            'ciudades': [],
+            'tiposervicio': [],
             'pag_actual': 1,
             'pag_siguiente': 1,
             'pag_anterior': 1,
@@ -13,10 +13,10 @@ app.factory('Ciudades', ['$http', '$q', function ($http, $q) {
             'paginas': [],
             
            
-            guardar : function (ciudad){
+            guardarTipo : function (tipo){
                 
                 var d = $q.defer();
-                $http.post('./php/guardarCiudades.php', ciudad).success(function(respuesta){
+                $http.post('./php/guardarTipoServicio.php', tipo).success(function(respuesta){
                     
                     self.cargarPagina( self.pag_actual );
                     
@@ -25,17 +25,17 @@ app.factory('Ciudades', ['$http', '$q', function ($http, $q) {
                 return d.promise;
                 
             },
-            
+//            
             
             cargarPagina : function (pag){
                 
                 var d = $q.defer();
                 
-                $http.get('./php/consultaTablaCiudades.php?pag=' + pag).success(function(data){
+                $http.get('./php/tablaTipoServicios.php?pag=' + pag).success(function(data){
                     
                     self.err           = data.err;
                     self.conteo        = data.conteo;
-                    self.ciudades      = data.ciudades;
+                    self.tiposervicio  = data.tiposervicio;
                     self.pag_actual    = data.pag_actual;
                     self.pag_siguiente = data.pag_siguiente;
                     self.pag_anterior  = data.pag_anterior;

@@ -1,7 +1,7 @@
 var app = angular.module('icemasAdminApp', [
-    'ngRoute',
-    'jcs-autoValidate',
-    'icemasAdminApp.ciudades'
+    'ngRoute',    
+    'icemasAdminApp.ciudades',
+    'icemasAdminApp.tServicio'
 ]);
 
 angular.module('jcs-autoValidate')

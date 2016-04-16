@@ -1,68 +1,60 @@
-app.controller('tipoServ', ['$scope', '$http', function ($scope, $http) {
+app.controller('tipoServ', ['$scope', '$http', 'TipoServicio', '$routeParams', function ($scope, $http, TipoServicio, $routeParams) {
+
+        var pag = $routeParams.pag;
 
         $scope.activar('mTipos');
-
+        $scope.tipos = {};
         $scope.infoTserv = {};
 
-        $scope.tipoServ = {};
-        $http.get('./php/tablaTipoServicios.php').success(function (arrayTipoServ) {
-            console.log($scope.tipoServ);
-            $scope.tipoServ = arrayTipoServ;
+        $scope.moverA = function (pag) {
+            TipoServicio.cargarPagina(pag).then(function () {
+                $scope.tipos = TipoServicio;
 
-        });
+            });
+        };
+
+        $scope.moverA(pag);
 
         //================================================================
         // MOSTRAR MODAL 
         //================================================================
 
-        $scope.modalTservicios = function () {
+        $scope.modalTservicios = function (tipo) {
 
+            angular.copy(tipo, $scope.infoTserv);
             $("#modal_tServicios").modal();
 
         };
-
 
         //=================================================================
         // FUNCION GUARDAR DATOS
         //=================================================================
 
 
+        $scope.guardartipo = function (tipo) {
 
-        $scope.guardartipo = function () {
-            $http.post('./php/insertarTipoServicio.php', $scope.infoTserv).success(function () {
-
-                $http.get('./php/tablaTipoServicios.php').success(function (arrayTipoServ) {
-                    console.log($scope.tipoServ);
-                    $scope.tipoServ = arrayTipoServ;
-
-                });
-
+            TipoServicio.guardarTipo(tipo).then(function () {
                 $("#modal_tServicios").modal('hide');
                 $scope.infoTserv = {};
-
             });
 
         };
 
-        //=================================================================
-        // FUNCION BORRAR
-        //=================================================================
+        //=====================================================
+        //  FUNCION BORRAR
+        //=====================================================
 
 
         $scope.borrarTserv = function (idTipo) {
-
             $http.get('./php/borrarTipoServicio.php?id=' + idTipo).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
+                $scope.moverA(pag);
 
-                $http.get('./php/tablaTipoServicios.php').success(function (arrayTipoServ) {
-                    console.log($scope.tipoServ);
-                    $scope.tipoServ = arrayTipoServ;
-
-                });
 
             });
         };
+
 
     }]);
 

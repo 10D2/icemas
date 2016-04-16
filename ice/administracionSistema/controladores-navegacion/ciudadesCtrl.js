@@ -5,7 +5,7 @@ app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', f
 
         $scope.activar('mCiudades');
         $scope.ciudades = {};
-
+        $scope.infoCd = {};
 
 
         $scope.moverA = function (pag) {
@@ -30,7 +30,9 @@ app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', f
         // MOSTRAR MODAL 
         //================================================================
 
-        $scope.mostrarModalCd = function () {
+        $scope.mostrarModalCd = function (ciudad) {
+            //console.log(ciudad);
+            angular.copy(ciudad, $scope.infoCd);
 
             $("#modal_ciudades").modal();
 
@@ -42,21 +44,31 @@ app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', f
 
 
 
-        $scope.guardarCd = function () {
-            //    $scope.infoSuc.idcliente = 
-            $http.post('./php/insertarCiudad.php', $scope.infoCd).success(function () {
-                console.log($scope.infoCd);
-                $http.get('./php/consultaTablaCiudades.php').success(function (arrayTablaCd) {
-                    console.log($scope.tablaCd);
-                    $scope.tablaCd = arrayTablaCd;
+//        $scope.guardarCd = function () {
+//            //    $scope.infoSuc.idcliente = 
+//            $http.post('./php/insertarCiudad.php', $scope.infoCd).success(function () {
+//                console.log($scope.infoCd);
+//                $http.get('./php/consultaTablaCiudades.php').success(function (arrayTablaCd) {
+//                    console.log($scope.tablaCd);
+//                    $scope.tablaCd = arrayTablaCd;
+//
+//                });
+//                $("#modal_ciudades").modal('hide');
+//                $scope.infoCd = {};
+//
+//            });
+//
+//        };
 
-                });
+        $scope.guardarCd = function (ciudad) {
+
+            Ciudades.guardar(ciudad).then(function () {
                 $("#modal_ciudades").modal('hide');
                 $scope.infoCd = {};
-
             });
 
         };
+
 
 
 
@@ -65,16 +77,11 @@ app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', f
             $http.get('./php/eliminarCiudad.php?id=' + idCiudad).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
-                $http.get('./php/consultaTablaCiudades.php').success(function (arrayTablaCd) {
-                    console.log($scope.tablaCd);
-                    $scope.tablaCd = arrayTablaCd;
+                $scope.moverA(pag);
 
-                });
 
             });
         };
-
-
 
     }]);
 

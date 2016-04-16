@@ -309,8 +309,8 @@ class Database {
             case 'ciudades':
                $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
                 break;
-            case 'clientes':
-               $sql = "SELECT count(*) as cuantos from $tabla";
+            case 'tiposervicio':
+               $sql = "SELECT * from $tabla ORDER BY tipo ASC limit $desde, $por_pagina ";
                 break;
             
             default:

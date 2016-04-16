@@ -37,7 +37,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/equipos', {
                     templateUrl: 'equipos.html'
                 })
-                .when('/tiposServicio', {
+                .when('/tiposServicio/:pag', {
                     templateUrl: 'tiposServicio.html'
                 })
                 .when('/usuarios', {
