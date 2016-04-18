@@ -7,14 +7,14 @@ $request = json_decode($postdata);
 $request =  (array) $request;
 
 
-$tipoC =  $request['tipo'];
-$idTipo = $request['idTipo'];
+$tecnicoC =  $request['tecnico'];
+$idTecnico = $request['idTecnico'];
 
 
-if(isset($request['idTipo'])){ //ACTUALIZAR
+if(isset($request['idCiudad'])){ //ACTUALIZAR
     
-    $sql ="UPDATE tiposervicio SET tipo = '$tipoC' WHERE tiposervicio.idTipo = $idTipo";
-        
+    $sql ="UPDATE tecnicos SET tecnico = '$tecnicoC' WHERE tecnicos.idTecnico = $idTecnico";
+   
     $hecho = Database::ejecutar_idu($sql);
     
     if(is_numeric($hecho) OR $hecho == true){
@@ -25,7 +25,7 @@ if(isset($request['idTipo'])){ //ACTUALIZAR
     
 }else{ //INSERTAR
     
-    $sql = "INSERT INTO tiposervicio (tipo) VALUES ('$tipoC');";
+    $sql = "INSERT INTO `tecnicos` (`tecnico`) VALUES ('$tecnicoC');";
     $hecho = Database::ejecutar_idu($sql);
     
     if(is_numeric($hecho) OR $hecho == true){

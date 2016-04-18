@@ -7,14 +7,15 @@ $request = json_decode($postdata);
 $request =  (array) $request;
 
 
-$tipoC =  $request['tipo'];
-$idTipo = $request['idTipo'];
+$sucursalC =  $request['sucursal'];
+$idC = $request['idCliente'];
+$idsucursal = $request['idSucursal'];
 
 
-if(isset($request['idTipo'])){ //ACTUALIZAR
+if(isset($request['idCiudad'])){ //ACTUALIZAR
     
-    $sql ="UPDATE tiposervicio SET tipo = '$tipoC' WHERE tiposervicio.idTipo = $idTipo";
-        
+    $sql = "UPDATE sucursales SET sucursal='$sucursalC', idCliente = '$idC' WHERE sucursales.idSucursal = $idsucursal";
+    
     $hecho = Database::ejecutar_idu($sql);
     
     if(is_numeric($hecho) OR $hecho == true){
@@ -25,7 +26,7 @@ if(isset($request['idTipo'])){ //ACTUALIZAR
     
 }else{ //INSERTAR
     
-    $sql = "INSERT INTO tiposervicio (tipo) VALUES ('$tipoC');";
+    $sql = "INSERT INTO sucursales (sucursal, idCliente) VALUES ('$sucursalC', '$idC')";
     $hecho = Database::ejecutar_idu($sql);
     
     if(is_numeric($hecho) OR $hecho == true){

@@ -1,11 +1,11 @@
-var app = angular.module('icemasAdminApp.tiposServicio', []);
-app.factory('Tipos', ['$http', '$q', function ($http, $q) {
+var app = angular.module('icemasAdminApp.tecnicos', []);
+app.factory('Tecnicos', ['$http', '$q', function ($http, $q) {
 
         var self = {
             'cargando': false,
             'err': false,
             'conteo': 0,
-            'tiposervicio': [],
+            'tecnicos': [],
             'pag_actual': 1,
             'pag_siguiente': 1,
             'pag_anterior': 1,
@@ -13,12 +13,12 @@ app.factory('Tipos', ['$http', '$q', function ($http, $q) {
             'paginas': [],
             
            
-            guardarTipos : function (tipo){
+            guardarTecnico : function (tecnico){
                 
                 var d = $q.defer();
-                $http.post('./php/guardarTipoServicio.php', tipo).success(function(respuesta){
+                $http.post('./php/guardarTecnicos.php', tecnico).success(function(respuesta){
                     
-                    self.paginaCargar( self.pag_actual );
+                    self.pagina( self.pag_actual );
                     
                     d.resolve();
                 });
@@ -27,15 +27,15 @@ app.factory('Tipos', ['$http', '$q', function ($http, $q) {
             },
             
             
-            paginaCargar : function (pag){
+            pagina : function (pag){
                 
                 var d = $q.defer();
                 
-                $http.get('./php/tablaTipoServicios.php?pag=' + pag).success(function(data){
+                $http.get('./php/consultaTablaTecnico.php?pag=' + pag).success(function(data){
                     
                     self.err           = data.err;
                     self.conteo        = data.conteo;
-                    self.tiposervicio  = data.tiposervicio;
+                    self.tecnicos      = data.tecnicos;
                     self.pag_actual    = data.pag_actual;
                     self.pag_siguiente = data.pag_siguiente;
                     self.pag_anterior  = data.pag_anterior;

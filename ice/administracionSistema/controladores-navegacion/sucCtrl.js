@@ -1,29 +1,37 @@
-app.controller('sucCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', function ($scope, $http, Sucursales, $routeParams) {
+
+        var pag = $routeParams.pag;
+
+        $scope.activar('mSucursales');
+        $scope.sucursales = {};
+        $scope.infoSuc = {};
 
 
-        var codigo = $routeParams.idSucursal;
+        $scope.moverD = function (pag) {
+            Sucursales.cargar(pag).then(function () {
+                $scope.sucursales = Sucursales;
 
-        //=================================================================
-        // FUNCION EDITAR/CREAR SUCURSAL
-        //=================================================================
-
-
-        $scope.creando = false;
-
-        if (codigo === "nuevo") {
-            $scope.creando = true;
-        } else
-        {
-            $scope.infoSuc = {};
-            $http.get('./php/getFormularioSucursal.php?c=' + codigo).success(function (data) {
-                $scope.infoSuc = data;
-                console.log($scope.infoSuc);
             });
-        }
+        };
 
-        $scope.nomCliente = {};
+        $scope.moverD(pag);
+
+
+        //================================================================
+        // MOSTRAR MODAL 
+        //================================================================
+
+        $scope.mostrarSucursal = function (sucursal) {
+            //console.log(ciudad);
+            angular.copy(sucursal, $scope.infoSuc);
+
+            $("#modal_sucursales").modal();
+
+        };
+
+          $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
-            console.log($scope.nomCliente);
+          //  console.log($scope.nomCliente);
             $scope.nomCliente = arrayClientes;
         });
 
@@ -33,45 +41,33 @@ app.controller('sucCtrl', ['$scope', '$http', '$routeParams', function ($scope, 
         // FUNCION GUARDAR DATOS
         //=================================================================
 
+        $scope.guardarSuc = function (sucursal) {
 
+            Sucursales.guardarSucursal(sucursal).then(function () {
+                $("#modal_sucursales").modal('hide');
+                $scope.infoSuc = {};
+            });
 
-        $scope.guardarSuc = function () {
-            if ($scope.creando) {
-                // $scope.infoSuc.idCliente = $scope.menuSeleccionado.idmunicipio;
-                $scope.infoSuc.idCliente= $scope.clienteSel.idCliente;
-                alert($scope.infoSuc.idCliente);
-                $http.post('./php/insertarSucursal.php', $scope.infoSuc).success(function () {
-                    console.log($scope.infoSuc);
-                });
-
-                $scope.actualiza = true;
-
-            } else {
-             
-                $scope.infoSuc.idCliente= $scope.clienteSel.idCliente;
-                $http.post('./php/actualizarSucursal.php', $scope.infoSuc).success(function () {
-                    console.log($scope.infoSuc);
-                });
-
-                $scope.actualiza = true;
-                
-            }
         };
-
-
-
-        //    $scope.infoSuc.idcliente = 
-//            $http.post('./php/actualizarSucursal.php', $scope.infoSuc).success(function () {
-//                console.log($scope.infoSuc);
-//                $scope.infoSuc.idcliente = $scope.menuSeleccionado.idcliente;
-//                //$("#modal_sucrusal").modal('hide');
-//                $scope.infoSuc = {};
-//                frmSucursal.autoValidateFormOptions.resetForm();
-//                
+//
+//        //=================================================================
+//        // FUNCION BORRAR
+//        //=================================================================
+//
+//
+//        $scope.borrarCd = function (idSucu) {
+//            console.log(idCiudad);
+//            $http.get('./php/eliminarCiudad.php?id=' + idCiudad).success(function () {
+//
+//                swal("Excelente!", "Registro eliminado!", "success");
+//                $scope.moverB(pag);
+//
+//
 //            });
-
+//        };
 
     }]);
+
 
 
 

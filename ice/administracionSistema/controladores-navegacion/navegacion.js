@@ -10,10 +10,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/formCliente/:idCliente', {
                     templateUrl: 'formularios/formCliente.html'
                 })
-                .when('/prueba/:idCliente', {
-                    templateUrl: 'template/prueba.html'
-                })
-                .when('/sucursales', {
+                .when('/sucursales/:pag', {
                     templateUrl: 'sucursales.html'
                 })
                 .when('/formularioSuc/:idSucursal', {
@@ -21,6 +18,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 })
                 .when('/ciudades/:pag', {
                     templateUrl: 'ciudades.html'
+                })
+                .when('/tiposServicio/:pag', {
+                    templateUrl: 'tiposServicio.html'
                 })
                 .when('/servicios', {
                     templateUrl: 'servicios.html'
@@ -31,14 +31,11 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/transferencias', {
                     templateUrl: 'transferencias.html'
                 })
-                .when('/tecnicos', {
+                .when('/tecnicos/:pag', {
                     templateUrl: 'tecnicos.html'
                 })
                 .when('/equipos', {
                     templateUrl: 'equipos.html'
-                })
-                .when('/tiposServicio/:pag', {
-                    templateUrl: 'tiposServicio.html'
                 })
                 .when('/usuarios', {
                     templateUrl: 'usuarios.html'

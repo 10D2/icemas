@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>ice/administracionSistema/servicios/tipoServicio_servicio.js</url>
+            <bookmark id="1">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/servicios/ciudades_servicio.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/consultaTablaCiudades.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/conexiones/class.Database.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/eliminarCiudad.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/servicios/tipoServicio_servicio.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/tiposServicio.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/tablaTipoServicios.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/navegacion.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/tServCtrl.js</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/ciudades.html</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/ciudadesCtrl.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/principalAdmin.js</file>
         </group>
     </open-files>
 </project-private>

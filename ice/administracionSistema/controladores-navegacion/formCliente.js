@@ -2,7 +2,7 @@ app.controller('fClienteCtrl', ['$scope', '$http', '$routeParams', function ($sc
 
 
         var codigo = $routeParams.idCliente;
-
+        
         //=================================================================
         // FUNCION EDITAR/CREAR SUCURSAL
         //=================================================================
@@ -20,7 +20,13 @@ app.controller('fClienteCtrl', ['$scope', '$http', '$routeParams', function ($sc
                 console.log($scope.infoCliente);
             });
         }
-
+        
+        $scope.nomCliente = {};
+        $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
+            console.log($scope.nomCliente);
+            $scope.nomCliente = arrayClientes;
+        });
+        
         $scope.nomCiudad = {};
         $http.get('./php/nombresCiudades.php').success(function (arrayCiudades) {
             console.log($scope.nomCiudad);
@@ -64,6 +70,18 @@ app.controller('fClienteCtrl', ['$scope', '$http', '$routeParams', function ($sc
                 
             }
         };
+        
+        
+        //================================================================
+        // MOSTRAR MODAL 
+        //================================================================
+
+        $scope.modalEditCalle = function () {
+
+            $("#modal_direccion").modal();
+
+        };
+
 
 
     }]);

@@ -1,4 +1,4 @@
-app.controller('tipoServ', ['$scope', '$http', 'TipoServicio', '$routeParams', function ($scope, $http, TipoServicio, $routeParams) {
+app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function ($scope, $http, Tipos, $routeParams) {
 
         var pag = $routeParams.pag;
 
@@ -6,14 +6,16 @@ app.controller('tipoServ', ['$scope', '$http', 'TipoServicio', '$routeParams', f
         $scope.tipos = {};
         $scope.infoTserv = {};
 
-        $scope.moverA = function (pag) {
-            TipoServicio.cargarPagina(pag).then(function () {
-                $scope.tipos = TipoServicio;
+
+
+        $scope.moverC = function (pag) {
+            Tipos.paginaCargar(pag).then(function () {
+                $scope.tipos = Tipos;
 
             });
         };
 
-        $scope.moverA(pag);
+        $scope.moverC(pag);
 
         //================================================================
         // MOSTRAR MODAL 
@@ -31,9 +33,9 @@ app.controller('tipoServ', ['$scope', '$http', 'TipoServicio', '$routeParams', f
         //=================================================================
 
 
-        $scope.guardartipo = function (tipo) {
+        $scope.guardartipoS = function (tipo) {
 
-            TipoServicio.guardarTipo(tipo).then(function () {
+            Tipos.guardarTipos(tipo).then(function () {
                 $("#modal_tServicios").modal('hide');
                 $scope.infoTserv = {};
             });

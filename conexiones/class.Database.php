@@ -304,19 +304,20 @@ class Database {
 
         
         
+		$sql = "SELECT * from $tabla limit $desde, $por_pagina";
         
-        switch ($tabla) {
-            case 'ciudades':
-               $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
-                break;
-            case 'tiposervicio':
-               $sql = "SELECT * from $tabla ORDER BY tipo ASC limit $desde, $por_pagina ";
-                break;
-            
-            default:
-               echo "Hola";
-                break;
-        }
+//        switch ($tabla) {
+//            case 'ciudades':
+//               $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
+//                break;
+////            case 'tiposervicio':
+////               $sql = "SELECT * from $tabla ORDER BY idTipo ASC limit $desde, $por_pagina ";
+////                break;
+//            
+//            default:
+//               echo "Hola";
+//                break;
+//        }
 
         $datos = Database::get_arreglo($sql);
 

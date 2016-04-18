@@ -1,0 +1,55 @@
+<section class="content">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 texto" ng-controller="tblSuc">
+
+            <div class="box-tools">
+                <div class="input-group" style="float: right">
+                    <a href="#/formularioSuc/nuevo" class="btn btn-primary">
+                        <i class="fa fa-plus-circle"></i> Agregar sucursal
+                    </a>
+                </div>
+            </div>
+            <br><br>
+            <div class="box">
+                <div class="box-header with-border ali">
+                    <h3 class="box-title">SUCURSALES</h3>
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>SUCURSAL</th>
+                                <th>CLIENTE</th>
+                                <th>EDITAR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="suc in tablaSuc">
+                                <td></td>
+                                <td>{{suc.sucursal|uppercase}}</td>
+                                <td>{{suc.nombre|uppercase}}</td>
+                                <td style="text-align: center">
+                                    <a href="#/formularioSuc/{{suc.idSucursal}}" class="btn btn-warning">
+                                            <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="">«</a></li>
+                        <li><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">»</a></li>
+                    </ul>
+                </div>
+            </div><!-- /.box -->
+     
+        </div>    
+    </div>
+</section>

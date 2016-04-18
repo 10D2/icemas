@@ -1,50 +1,48 @@
-app.controller('tecnicoCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('tecnicoCtrl', ['$scope', '$http', 'Tecnicos', '$routeParams', function ($scope, $http, Tecnicos, $routeParams) {
+
+        var pag = $routeParams.pag;
 
         $scope.activar('mTecnico');
-
+        $scope.tecnicos = {};
         $scope.infoTec = {};
-        $scope.tblTecnico = {};
-        $http.get('./php/consultaTablaTecnico.php').success(function (arrayTablatnico) {
-            console.log($scope.tblTecnico);
-            $scope.tblTecnico = arrayTablatnico;
 
-        });
+
+        $scope.moverB = function (pag) {
+            Tecnicos.pagina(pag).then(function () {
+                $scope.tecnicos = Tecnicos;
+
+            });
+        };
+
+        $scope.moverB(pag);
+
 
         //================================================================
         // MOSTRAR MODAL 
         //================================================================
 
-        $scope.mostrarModalTec = function () {
+        $scope.mostrarModalTec = function (tecnico) {
+            angular.copy(tecnico, $scope.infoTec);
 
             $("#modal_tecnicos").modal();
 
         };
-
 
         //=================================================================
         // FUNCION GUARDAR DATOS
         //=================================================================
 
 
+        $scope.guardarTec = function (tecnico) {
 
-        $scope.guardarTec = function () {
-            $http.post('./php/insertarTecnico.php', $scope.infoTec).success(function () {
-                console.log($scope.infoTec);
-                $http.get('./php/consultaTablaTecnico.php').success(function (arrayTablatnico) {
-                    console.log($scope.tblTecnico);
-                    $scope.tblTecnico = arrayTablatnico;
-
-                });
+            Tecnicos.guardarTecnico(tecnico).then(function () {
                 $("#modal_tecnicos").modal('hide');
                 $scope.infoTec = {};
-
             });
 
         };
-        
-        //=================================================================
-        // FUNCION BORRAR
-        //=================================================================
+
+
 
 
         $scope.borrarTec = function (idTecnico) {
@@ -52,12 +50,8 @@ app.controller('tecnicoCtrl', ['$scope', '$http', function ($scope, $http) {
             $http.get('./php/eliminarTecnico.php?id=' + idTecnico).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
+                $scope.moverB(pag);
 
-                $http.get('./php/consultaTablaTecnico.php').success(function (arrayTablatnico) {
-                    console.log($scope.tblTecnico);
-                    $scope.tblTecnico = arrayTablatnico;
-
-                });
 
             });
         };
