@@ -13,11 +13,11 @@ app.factory('Sucursales', ['$http', '$q', function ($http, $q) {
             'paginas': [],
             
             guardarSucursal: function (sucursal) {
-
+                
                 var d = $q.defer();
                 $http.post('./php/guardarSucursal.php', sucursal).success(function (respuesta) {
-                    //this.infoSuc.idCliente = this.seleccion.idCliente;
-                    self.cargarPagina(self.pag_actual);
+                 
+                    self.cargar(self.pag_actual);
 
                     d.resolve();
                 });

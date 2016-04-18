@@ -27,9 +27,9 @@
                         <label>Cliente</label>
                         <br>
                         <select  
-                            ng-model="seleccion" 
+                            ng-model="infoSuc.idCliente" 
                             class="form-control" 
-                            ng-options="cli as cli.nombre for cli in nomCliente track by cli.idCliente"> 
+                            ng-options="client as client.nombre for client in nomCliente track by client.idCliente"> 
                         </select>
                     </div> 
 
@@ -38,10 +38,10 @@
                             <i class="fa fa-save"></i> Guardar
                         </button>
                     </div>
-                    
+                    {{infoSuc|json}}
                 </div><!-- /.modal-content -->
             </form>
-            {{seleccion}}
+            
         </div><!-- /.modal-dialog -->
     </div>
 </div>

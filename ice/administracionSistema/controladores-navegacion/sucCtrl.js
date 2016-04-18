@@ -29,9 +29,9 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
 
         };
 
-          $scope.nomCliente = {};
+        $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
-          //  console.log($scope.nomCliente);
+            //  console.log($scope.nomCliente);
             $scope.nomCliente = arrayClientes;
         });
 
@@ -42,10 +42,14 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         //=================================================================
 
         $scope.guardarSuc = function (sucursal) {
-
+           
             Sucursales.guardarSucursal(sucursal).then(function () {
                 $("#modal_sucursales").modal('hide');
+                
+                
                 $scope.infoSuc = {};
+                // console.log(seleccion);
+                console.log(sucursal);
             });
 
         };
