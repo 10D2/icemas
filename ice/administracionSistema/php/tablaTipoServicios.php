@@ -9,7 +9,10 @@ if( isset( $_GET["pag"])){
 }
 
 
-$respuesta = Database::get_todo_paginado('tiposervicio', $pag );
+$respuesta = Database::get_todo_paginado('tiposervicio', $pag);
 
 echo json_encode($respuesta);
+
 ?>
+
+

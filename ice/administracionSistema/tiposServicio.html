@@ -1,11 +1,11 @@
 <section class="content">
     <div class="row">
-        <div class="col-sm-4 col-sm-offset-4 texto" ng-controller="tipoServ">
+        <div class="col-sm-6 col-sm-offset-3 texto" ng-controller="tipoServ">
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
                     <a ng-click="modalTservicios({})" class="btn btn-primary" >
-                        <i class="fa fa-plus-circle"></i> Agregar tipo de servicio
+                        <i class="fa fa-user-plus"></i> Agregar tipo de servicio
                     </a>
                 </div>
             </div>
@@ -25,9 +25,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="tipo in tipos.tipos">
+                            <tr ng-repeat="tipo in tipos">
                                 <td>{{tipo.tipo}}</td>
-                                <td style="text-align: center">
+                                <td>
                                     <a ng-click="modalTservicios(tipo)" class="btn btn-warning">
                                         <i class="fa fa-edit"></i>
                                     </a>
@@ -40,8 +40,7 @@
                             </tr>
                         </tbody>
                     </table>
-                
-                 <div class="box-footer clearfix">
+                    <div class="box-footer clearfix">
                         <ul class="pagination pagination-sm no-margin pull-right">
                             <li><a ng-click="moverD(1)">«</a></li>
                             <li 
@@ -51,15 +50,12 @@
                                 }">
                                 <a ng-click="moverD(pag)">{{pag}}</a>
                             </li>
-                           <!-- <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>-->
                             <li><a ng-click="moverD(tipos.total_paginas)">»</a></li>
                         </ul>
                     </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
-             <div ng-include="'template/modal_tServicios.html'" ></div>
-            
+            <div ng-include="'template/modal_tServicios.html'" ></div>
         </div>    
     </div>
 </section>
