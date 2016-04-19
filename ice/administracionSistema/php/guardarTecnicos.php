@@ -11,7 +11,7 @@ $tecnicoC =  $request['tecnico'];
 $idTecnico = $request['idTecnico'];
 
 
-if(isset($request['idCiudad'])){ //ACTUALIZAR
+if(isset($request['idTecnico'])){ //ACTUALIZAR
     
     $sql ="UPDATE tecnicos SET tecnico = '$tecnicoC' WHERE tecnicos.idTecnico = $idTecnico";
    

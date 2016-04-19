@@ -2,14 +2,13 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
 
         var pag = $routeParams.pag;
 
-        $scope.activar('mTipos');
+        $scope.activar('mTipoS');
         $scope.tipos = {};
         $scope.infoTserv = {};
 
 
-
         $scope.moverD = function (pag) {
-            Tipos.paginaCargar(pag).then(function () {
+            Tipos.cargarPag(pag).then(function () {
                 $scope.tipos = Tipos;
 
             });
@@ -17,13 +16,14 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
 
         $scope.moverD(pag);
 
+
         //================================================================
         // MOSTRAR MODAL 
         //================================================================
 
         $scope.modalTservicios = function (tipo) {
-
             angular.copy(tipo, $scope.infoTserv);
+
             $("#modal_tServicios").modal();
 
         };
@@ -35,28 +35,26 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
 
         $scope.guardartipoS = function (tipo) {
 
-            Tipos.guardarTipos(tipo).then(function () {
+            Tipos.guardarTServicio(tipo).then(function () {
                 $("#modal_tServicios").modal('hide');
                 $scope.infoTserv = {};
             });
 
         };
 
-        //=====================================================
-        //  FUNCION BORRAR
-        //=====================================================
+
 
 
         $scope.borrarTserv = function (idTipo) {
-            $http.get('./php/borrarTipoServicio.php?id=' + idTipo).success(function () {
+            console.log(idTipo);
+            $http.get('./php/borrarPerfil.php?id=' + idTipo).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
-                $scope.moverA(pag);
+                $scope.moverD(pag);
 
 
             });
         };
-
 
     }]);
 

@@ -13,12 +13,12 @@ app.factory('Tipos', ['$http', '$q', function ($http, $q) {
             'paginas': [],
             
            
-            guardarTipos : function (tipo){
+            guardarTServicio : function (tipo){
                 
                 var d = $q.defer();
                 $http.post('./php/guardarTipoServicio.php', tipo).success(function(respuesta){
                     
-                    self.paginaCargar( self.pag_actual );
+                    self.cargarPag( self.pag_actual );
                     
                     d.resolve();
                 });
@@ -27,7 +27,7 @@ app.factory('Tipos', ['$http', '$q', function ($http, $q) {
             },
             
             
-            paginaCargar : function (pag){
+            cargarPag : function (pag){
                 
                 var d = $q.defer();
                 
