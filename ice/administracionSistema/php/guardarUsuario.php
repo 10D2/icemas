@@ -8,21 +8,17 @@ $request = json_decode($postdata);
 $request = (array) $request;
 
 
-$sucursalC = $request['sucursal'];
-$idC = $request['seleccionado'];
-$idSucursal = $request['idSucursal'];
-
-
-//foreach ($idC as $clave => $valor) {
-//     if($clave=='idCliente'){
-//         $id=$valor;
-//     }
-//}
-
+$usuarioC = $request['usuario'];
+$contrasenaC = $request['contrasena'];
+$idPerfil = $request['seleccionar'];
+$idC = $request['selecciona'];
+$idUsuario = $request['idUsuario'];
 
 $id=$idC->idCliente;
-if (isset($request['idSucursal'])) { //ACTUALIZAR
-    $sql = "UPDATE sucursales SET sucursal='$sucursalC', idCliente = '$id' WHERE sucursales.idSucursal = $idSucursal";
+$idP=$idPerfil->idPerfil;
+
+if (isset($request['idUsuario'])) { //ACTUALIZAR
+    $sql = "UPDATE usuarios SET usuario='$usuarioC', contrasena = '$contrasenaC', idPerfil = '$idP', idCliente = '$id'  WHERE usuarios.idUsuario = $idUsuario";
 
     $hecho = Database::ejecutar_idu($sql);
 
@@ -32,7 +28,9 @@ if (isset($request['idSucursal'])) { //ACTUALIZAR
         $respuesta = array('err' => true, 'Mensaje' => $hecho);
     }
 } else { //INSERTAR
-    $sql = "INSERT INTO sucursales (sucursal, idCliente) VALUES ('$sucursalC', '$id')";
+    
+    $sql = "INSERT INTO usuarios (usuario, contrasena, idPerfil, idCliente) VALUES ('$usuarioC', '$contrasenaC', '$idP', '$id')";    
+    
     $hecho = Database::ejecutar_idu($sql);
 
     if (is_numeric($hecho) OR $hecho == true) {

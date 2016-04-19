@@ -1,51 +1,48 @@
-app.controller('perfilCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('perfilCtrl', ['$scope', '$http', 'Perfiles', '$routeParams', function ($scope, $http, Perfiles, $routeParams) {
+
+        var pag = $routeParams.pag;
 
         $scope.activar('mPerfiles');
-
-        $scope.infoPerfil = {};
         $scope.perfiles = {};
-        $http.get('./php/consultaTblPerfiles.php').success(function (arrayPerfiles) {
-            console.log($scope.perfiles);
-            $scope.perfiles = arrayPerfiles;
+        $scope.infoPerfil = {};
 
-        });
+
+        $scope.moverE = function (pag) {
+            Perfiles.cargan(pag).then(function () {
+                $scope.perfiles = Perfiles;
+
+            });
+        };
+
+        $scope.moverE(pag);
+
 
         //================================================================
         // MOSTRAR MODAL 
         //================================================================
 
-        $scope.mostrarModalPerfil = function () {
+        $scope.mostrarModalPerfil = function (perfil) {
+            angular.copy(perfil, $scope.infoPerfil);
 
             $("#modal_perfil").modal();
 
         };
-
 
         //=================================================================
         // FUNCION GUARDAR DATOS
         //=================================================================
 
 
+        $scope.guardarPerfil = function (perfil) {
 
-        $scope.guardarPerfil = function () {
-            $http.post('./php/insertarPerfil.php', $scope.infoPerfil).success(function () {
-
-                $http.get('./php/consultaTblPerfiles.php').success(function (arrayPerfiles) {
-                    console.log($scope.perfiles);
-                    $scope.perfiles = arrayPerfiles;
-
-                });
+            Perfiles.guardarPerfil(perfil).then(function () {
                 $("#modal_perfil").modal('hide');
-                
                 $scope.infoPerfil = {};
-
             });
 
         };
 
-        //=================================================================
-        // FUNCION BORRAR
-        //=================================================================
+
 
 
         $scope.borrarPerfil = function (idPerfil) {
@@ -53,17 +50,11 @@ app.controller('perfilCtrl', ['$scope', '$http', function ($scope, $http) {
             $http.get('./php/borrarPerfil.php?id=' + idPerfil).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
+                $scope.moverE(pag);
 
-                $http.get('./php/consultaTblPerfiles.php').success(function (arrayPerfiles) {
-                    console.log($scope.perfiles);
-                    $scope.perfiles = arrayPerfiles;
-
-                });
 
             });
         };
-
-
 
     }]);
 

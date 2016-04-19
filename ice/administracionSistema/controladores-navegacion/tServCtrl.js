@@ -8,14 +8,14 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
 
 
 
-        $scope.moverC = function (pag) {
+        $scope.moverD = function (pag) {
             Tipos.paginaCargar(pag).then(function () {
                 $scope.tipos = Tipos;
 
             });
         };
 
-        $scope.moverC(pag);
+        $scope.moverD(pag);
 
         //================================================================
         // MOSTRAR MODAL 

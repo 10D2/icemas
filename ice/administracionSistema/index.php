@@ -143,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- CONTROLADORES -->
         <script src="controladores-navegacion/principalAdmin.js"></script>
         <script src="controladores-navegacion/navegacion.js"></script>
-        <script src="controladores-navegacion/tablaSucursales.js"></script>
+<!--        <script src="controladores-navegacion/tablaSucursales.js"></script>-->
         <script src="controladores-navegacion/sucCtrl.js"></script>
         <script src="controladores-navegacion/clientesCtrl.js"></script>
         <script src="controladores-navegacion/formCliente.js"></script>
@@ -163,6 +163,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="servicios/tipoServicio_servicio.js"></script>
         <script src="servicios/sucursales_servicio.js"></script>
         <script src="servicios/tecnicos_servicio.js"></script>
+        <script src="servicios/perfiles_servicio.js"></script>
+        <script src="servicios/usuarios_servicio.js"></script>
         
         <!-- SWEET ALERT -->
         <script src="../../angular/librerias/sweetalert.min.js"></script>

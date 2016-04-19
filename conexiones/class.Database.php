@@ -274,9 +274,9 @@ class Database {
         $mysqli = $db->getConnection();
 
         //
-        
+
         $sql = "SELECT  count(*) as cuantos  from $tabla";
-        
+
 
         $cuantos = Database::get_valor_query($sql, 'cuantos');
         $total_paginas = ceil($cuantos / $por_pagina);
@@ -302,22 +302,30 @@ class Database {
         }
 
 
-        
-        
-		$sql = "SELECT * from $tabla limit $desde, $por_pagina";
-        
-//        switch ($tabla) {
-//            case 'ciudades':
-//               $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
-//                break;
-////            case 'tiposervicio':
-////               $sql = "SELECT * from $tabla ORDER BY idTipo ASC limit $desde, $por_pagina ";
-////                break;
-//            
-//            default:
-//               echo "Hola";
-//                break;
-//        }
+
+
+        //$sql = "SELECT * from $tabla limit $desde, $por_pagina";//
+
+        switch ($tabla) {
+            case 'ciudades':
+                $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
+                break;
+            case 'sucursales':
+                $sql = 'SELECT s.idSucursal,s.sucursal, c.nombre, c.idCliente FROM sucursales s INNER JOIN clientes c ON s.idCliente = c.idCliente ORDER BY sucursal ASC';
+                 break;
+            case 'tecnicos':
+                $sql = "SELECT * from $tabla ORDER BY tecnico ASC limit $desde, $por_pagina ";
+                break;
+            case 'perfiles':
+                $sql = "SELECT * from $tabla ORDER BY perfil ASC limit $desde, $por_pagina ";
+                break;
+            case 'usuarios':
+                $sql = 'SELECT u.idUsuario, u.usuario, u.contrasena, p.perfil, c.nombre FROM usuarios u INNER JOIN perfiles p ON p.idPerfil = u.idPerfil INNER JOIN clientes c ON c.idCliente = u.idCliente ORDER BY c.nombre ASC';
+                break;
+            default:
+                echo "Hola";
+                break;
+        }
 
         $datos = Database::get_arreglo($sql);
 

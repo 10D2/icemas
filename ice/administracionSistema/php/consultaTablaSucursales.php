@@ -6,7 +6,7 @@
 //$cn->Conectarse();
 //
 //$query = 'SELECT s.idSucursal,s.sucursal, c.nombre, c.idCliente FROM sucursales s INNER JOIN clientes c ON s.idCliente = c.idCliente ORDER BY sucursal ASC';
-//
+
 ////$query = 'SELECT idsucursal,sucursal FROM sucursales ORDER BY sucursal ASC';
 //
 //

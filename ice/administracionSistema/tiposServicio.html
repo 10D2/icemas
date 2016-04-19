@@ -43,17 +43,17 @@
                 
                  <div class="box-footer clearfix">
                         <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a ng-click="moverC(1)">«</a></li>
+                            <li><a ng-click="moverD(1)">«</a></li>
                             <li 
                                 ng-repeat="pag in tipos.paginas"
                                 ng-class="{
                                     'active': tipos.pag_actual == pag
                                 }">
-                                <a ng-click="moverC(pag)">{{pag}}</a>
+                                <a ng-click="moverD(pag)">{{pag}}</a>
                             </li>
                            <!-- <li><a href="">2</a></li>
                             <li><a href="">3</a></li>-->
-                            <li><a ng-click="moverC(tipos.total_paginas)">»</a></li>
+                            <li><a ng-click="moverD(tipos.total_paginas)">»</a></li>
                         </ul>
                     </div>
                 </div><!-- /.box-body -->

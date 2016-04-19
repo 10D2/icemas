@@ -42,17 +42,17 @@
                     </table>
                     <div class="box-footer clearfix">
                         <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a ng-click="moverB(1)">«</a></li>
+                            <li><a ng-click="moverC(1)">«</a></li>
                             <li 
                                 ng-repeat="pag in tecnicos.paginas"
                                 ng-class="{
                                     'active': tecnicos.pag_actual == pag
                                 }">
-                                <a ng-click="moverB(pag)">{{pag}}</a>
+                                <a ng-click="moverC(pag)">{{pag}}</a>
                             </li>
                             <!-- <li><a href="">2</a></li>
                              <li><a href="">3</a></li>-->
-                            <li><a ng-click="moverB(tecnicos.total_paginas)">»</a></li>
+                            <li><a ng-click="moverC(tecnicos.total_paginas)">»</a></li>
                         </ul>
                     </div>
                 </div><!-- /.box-body -->

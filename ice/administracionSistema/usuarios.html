@@ -4,7 +4,7 @@
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a ng-click="" class="btn btn-primary" >
+                    <a ng-click="mostrarModalUsuario({})" class="btn btn-primary" >
                         <i class="fa fa-user-plus"></i> Agregar usuario
                     </a>
                 </div>
@@ -28,59 +28,42 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="u in usuario">
-                                <td>{{u.nombre|uppercase}}</td>
-                                <td>{{u.usuario|uppercase}}</td>
-                                <td>{{u.contrasena}}</td>
-                                <td>{{u.perfil|uppercase}}</td>
+                            <tr ng-repeat="usuario in usuarios.usuarios">
+                                <td>{{usuario.nombre|uppercase}}</td>
+                                <td>{{usuario.usuario|uppercase}}</td>
+                                <td>{{usuario.contrasena}}</td>
+                                <td>{{usuario.perfil|uppercase}}</td>
                                 <td style="text-align: center">
-                                    <a ng-click="" class="btn btn-warning">
+                                    <a ng-click="mostrarModalUsuario(usuario)" class="btn btn-warning">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
                                 <td style="text-align: center">
-                                    <a ng-click="" class="btn btn-danger">
+                                    <a ng-click="borrarUser(usuario.idUsuario)" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a ng-click="moverF(1)">«</a></li>
+                            <li 
+                                ng-repeat="pag in usuarios.paginas"
+                                ng-class="{
+                                    'active': usuarios.pag_actual == pag
+                                }">
+                                <a ng-click="moverF(pag)">{{pag}}</a>
+                            </li>
+                            <!-- <li><a href="">2</a></li>
+                             <li><a href="">3</a></li>-->
+                            <li><a ng-click="moverF(usuarios.total_paginas)">»</a></li>
+                        </ul>
+                    </div>
                 </div><!-- /.box-body -->
-
-                <!--  <div class="col-sm-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                          <ul class="pagination">
-                              <li class="paginate_button previous disabled" id="example2_previous">
-                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
-                              </li>
-                              <li class="paginate_button active">
-                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
-                              </li>
-                              <li class="paginate_button next" id="example2_next">
-                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>-->
-
             </div><!-- /.box -->
-            <div ng-include="'template/modal_ciudades.html'" ></div>
+            <div ng-include="'template/modal_usuarios.html'" ></div>
 
         </div>    
     </div>

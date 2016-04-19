@@ -7,14 +7,14 @@ app.controller('tecnicoCtrl', ['$scope', '$http', 'Tecnicos', '$routeParams', fu
         $scope.infoTec = {};
 
 
-        $scope.moverB = function (pag) {
+        $scope.moverC = function (pag) {
             Tecnicos.pagina(pag).then(function () {
                 $scope.tecnicos = Tecnicos;
 
             });
         };
 
-        $scope.moverB(pag);
+        $scope.moverC(pag);
 
 
         //================================================================
@@ -50,7 +50,7 @@ app.controller('tecnicoCtrl', ['$scope', '$http', 'Tecnicos', '$routeParams', fu
             $http.get('./php/eliminarTecnico.php?id=' + idTecnico).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
-                $scope.moverB(pag);
+                $scope.moverC(pag);
 
 
             });
