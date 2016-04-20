@@ -4,7 +4,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/', {
                     templateUrl: 'sucursales.html'
                 })
-                .when('/clientes', {
+                .when('/clientes/:pag', {
                     templateUrl: 'clientes.html'
                 })
                 .when('/formCliente/:idCliente', {

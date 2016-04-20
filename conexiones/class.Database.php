@@ -325,6 +325,9 @@ class Database {
             case 'tiposervicio':
                 $sql = "SELECT * from $tabla ORDER BY tipo ASC limit $desde, $por_pagina ";
                 break;
+            case 'clientes':
+                $sql = 'SELECT c.idCliente, c.nombre, a.ciudad, s.sucursal, d.calle, d.numero, d.cruzamientos, d.colonia, d.codigoPostal ,c.telefono, c.contacto, c.correo FROM clientes c INNER JOIN ciudades a ON a.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal = c.idSucursal INNER JOIN direcciones d ON d.idDireccion = c.idDireccion ORDER BY c.nombre ASC';
+                break;
             default:
                 echo "Hola";
                 break;

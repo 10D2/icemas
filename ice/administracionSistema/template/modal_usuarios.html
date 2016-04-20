@@ -7,16 +7,15 @@
                 <h4 class="modal-title">Usuarios:</h4>
             </div>
 
-            <form name="frmSucursal"
-                  novalidate="novalidate"
-                  ng-submit="guardarUser(infoUser)">
+            <form ng-submit="guardarUser(infoUser)">
 
                 <div class="modal-body">
 
                     <div class="form-group form-inline">
                         <label>Cliente</label>
                         <br>
-                        <select  
+                        <select 
+                            type="text"
                             ng-model="infoUser.selecciona" 
                             class="form-control" 
                             ng-options="clnt as clnt.nombre for clnt in nomCliente track by clnt.idCliente"> 

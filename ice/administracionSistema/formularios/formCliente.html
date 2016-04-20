@@ -2,9 +2,9 @@
 <section class="content">
 
     <div class="row">
-        <div class="col-sm-12 texto" ng-controller="fClienteCtrl">
+        <div class="col-sm-12 texto" ng-controller="clientesCtrl">
 
-            <form ng-submit="guardarCliente()">
+            <form ng-submit="guardarSuc(infoCliente)">
                 <div class="panel panel-body">
                     <div class="row">
                         <div class="col-sm-4">
@@ -20,10 +20,10 @@
                         <div class="col-sm-4">
                             <div class="form-group-sm form-inline">
                                 <label>Sucursal</label>
-                                <select type="text" 
-                                        ng-model="sucSel" 
-                                        class="form-control" 
-                                        ng-options="s as s.sucursal for s in nomSucursal track by s.idSucursal"> 
+                                <select  
+                                    ng-model="infoCliente.sucursalSel" 
+                                    class="form-control" 
+                                    ng-options="sucur as sucur.sucursal for sucur in nomSucursal track by sucur.idSucursal"> 
                                 </select>
                             </div>  
                         </div>
@@ -31,58 +31,47 @@
                         <div class="col-sm-4">
                             <div class="form-group-sm form-inline">
                                 <label>Ciudad</label>
-                                <select type="text" 
-                                        ng-model="ciudadSel" 
-                                        class="form-control" 
-                                        ng-options="ciu as ciu.ciudad for ciu in nomCiudad track by ciu.idCiudad"> 
+                                <select  
+                                    ng-model="infoCliente.ciudadSel" 
+                                    class="form-control" 
+                                    ng-options="ciud as ciud.ciudad for ciud in nomCiudad track by ciud.idCiudad"> 
                                 </select>
                             </div>  
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <!--<div class="col-sm-4">
-                            <div class="form-group">
-                                <label>Dirección</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       ng-model="infoCliente.direccion" 
-                                       placeholder="Dirección completa" 
-                                       required="required"/>
-                            </div>
-                        </div>-->
-                        <div class="col-sm-4">
-                            <div class="form-group-sm form-inline">
-                                <label>Correo</label>
-                                <input type="email" 
-                                       class="form-control" 
-                                       ng-model="infoCliente.correo" 
-                                       placeholder="Correo electrónico" 
-                                       required="required"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group-sm form-inline">
-                                <label>Teléfono</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       ng-model="infoCliente.telefono" 
-                                       placeholder="Teléfono del cliente" 
-                                       required="required"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group-sm form-inline">
-                                <label>Contacto</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       ng-model="infoCliente.contacto" 
-                                       placeholder="Nombre del contacto" 
-                                       required="required"/>
-                            </div>
+                    <div class="col-sm-4">
+                        <div class="form-group-sm form-inline">
+                            <label>Correo</label>
+                            <input type="email" 
+                                   class="form-control" 
+                                   ng-model="infoCliente.correo" 
+                                   placeholder="Correo Eléctronico" 
+                                   required="required"/>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group-sm form-inline">
+                        <label>Teléfono</label>
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="infoCliente.telefono" 
+                               placeholder="Télefono" 
+                               required="required"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group-sm form-inline">
+                            <label>Contacto</label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   ng-model="infoCliente.contacto" 
+                                   placeholder="Nombre del contacto" 
+                                   required="required"/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" ng-hide="creando">
                         <div class="col-xs-4">
                             <div class="form-group-sm form-inline">
                                 <!-- <label>Dirección</label>-->
@@ -123,7 +112,7 @@
                             </div>    
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" ng-hide="creando">
                         <div class="col-xs-4">
                             <div class="form-group-sm form-inline">
                                 <!-- <label>Dirección</label>-->
@@ -150,112 +139,23 @@
                                        readonly="readonly"/>
                             </div>    
                         </div><br><br>
-                        <a  class="btn btn-warning">
+                        <a ng-click="mostrarModalDireccion()" class="btn btn-warning">
                             <i class="fa fa-edit"></i> Editar Dirección
                         </a>          
                     </div>
                     <br>
-
-                    <br>
-                    <button value="enviar" class="btn btn-primary" style="float: right">
-                        <i class="fa fa-save"></i> Guardar
-                    </button>
-
-                    <h4 class="text-info animated fadeIn fast" ng-show="actualiza">Registro realizado  
-                        <a href="#/clientes"><i class="text-info fa fa-reply-all fa-2x" title="REGRESAR A SUCURSALES"></i></a>
-                    </h4>
                 </div>
+                <br>
+                <button value="enviar" class="btn btn-primary" style="float: right">
+                    <i class="fa fa-save"></i> Guardar
+                </button>
+
+                <h4 class="text-info animated fadeIn fast" ng-show="actualiza">Registro realizado  
+                    <a href="#/clientes"><i class="text-info fa fa-reply-all fa-2x" title="REGRESAR A SUCURSALES"></i></a>
+                </h4>
             </form>
-
-            <form>
-                <div class="row">
-                    <div class="col-xs-4">
-
-                        <div class="form-group-sm form-inline">
-                            <label>Cliente</label>
-                            <br>
-                            <select  
-                                ng-model="clienteSel" 
-                                class="form-control" 
-                                ng-options="cli as cli.nombre for cli in nomCliente track by cli.idCliente"> 
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="form-group-sm form-inline">
-                            <!-- <label>Dirección</label>-->
-                            <br>
-                            <label>Calle:</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   ng-model="infoCliente.calle" 
-                                   placeholder="Calle" 
-                                   required="required"/>
-                        </div>    
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="form-group-sm form-inline">
-                            <!-- <label>Dirección</label>-->
-                            <br>
-                            <label>Cruzamientos:</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   ng-model="infoCliente.cruzamientos" 
-                                   placeholder="Cruzamientos" 
-                                   required="required"/>
-                        </div>    
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="form-group-sm form-inline">
-                            <!-- <label>Dirección</label>-->
-                            <br>
-                            <label>Número:</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   ng-model="infoCliente.numero" 
-                                   placeholder="Número" 
-                                   required="required"/>
-                        </div>    
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <div class="form-group-sm form-inline">
-                            <!-- <label>Dirección</label>-->
-                            <br>
-                            <label>Colonia</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   ng-model="infoCliente.colonia" 
-                                   placeholder="Colonia" 
-                                   required="required"/>
-                        </div>    
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="form-group-sm form-inline">
-                            <!-- <label>Dirección</label>-->
-                            <br>
-                            <label>C.P.</label>
-                            <input type="text" 
-                                   class="form-control" 
-                                   ng-model="infoCliente.codigoPostal" 
-                                   placeholder="Código Postal" 
-                                   required="required"/>
-                        </div>    
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group-sm form-inline">
-                            <label>Ciudad</label>
-                            <select type="text" 
-                                    ng-model="ciudadSel" 
-                                    class="form-control" 
-                                    ng-options="ciu as ciu.ciudad for ciu in nomCiudad track by ciu.idCiudad"> 
-                            </select>
-                        </div>  
-                    </div>
-                </div>
-            </form>
-
+             <div ng-include="'template/modal_direccion.html'" ></div>
         </div>
     </div>
+
 </section>

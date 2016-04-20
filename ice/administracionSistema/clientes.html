@@ -4,7 +4,7 @@
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a href="#/formCliente/nuevo" class="btn btn-primary">
+                    <a href="#/formCliente/nuevo" class="btn btn-primary" >
                         <i class="fa fa-user-plus"></i> Agregar cliente
                     </a>
                 </div>
@@ -19,68 +19,58 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>NOMBRE</th>
-                                <th>CIUDAD</th>
+                                <th>CLIENTE</th>
                                 <th>SUCURSAL</th>
                                 <th>DIRECCION</th>
+                                <th>CIUDAD</th>
                                 <th>TELEFONO</th>
-                                <th>CONTACTO</th>
                                 <th>CORREO</th>
+                                <th>CONTACTO</th>
                                 <th>EDITAR</th>
+                                <th>ELIMINAR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="tc in tblCliente" class="texto">
-                                <td>{{tc.nombre | uppercase}}</td>
-                                <td>{{tc.ciudad | uppercase}}</td>
-                                <td>{{tc.sucursal | uppercase}}</td>
-                                <td>{{tc.direccion | uppercase}}</td>
-                                <td>{{tc.telefono}}</td>
-                                <td>{{tc.contacto | uppercase}}</td>
-                                <td>{{tc.correo}}</td>
+                            <tr ng-repeat="cliente in clientes.clientes">
+                                <td>{{cliente.nombre}}</td>
+                                <td>{{cliente.sucursal}}</td>
                                 <td>
-                                    <a href="#/formCliente/{{tc.idCliente}}" class="btn btn-warning">
+                                    {{cliente.calle}} {{cliente.numero}} {{cliente.cruzamientos}} 
+                                    {{cliente.colonia}} {{cliente.codigoPostal}}
+                                </td>
+                                <td>{{cliente.ciudad}}</td>
+                                <td>{{cliente.telefono}}</td>
+                                <td>{{cliente.correo}}</td>
+                                <td>{{cliente.contacto}}</td>
+                                <td>
+                                    <a href="#/formCliente/{{cliente.idCliente}}" class="btn btn-warning">
                                         <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td style="text-align: center">
+                                    <a ng-click="borrarCliente(cliente.idCliente)" class="btn btn-danger">
+                                        <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a ng-click="moverG(1)">«</a></li>
+                            <li 
+                                ng-repeat="pag in clientes.paginas"
+                                ng-class="{
+                                    'active': clientes.pag_actual == pag
+                                }">
+                                <a ng-click="moverG(pag)">{{pag}}</a>
+                            </li>
+                            <li><a ng-click="moverG(clientes.total_paginas)">»</a></li>
+                        </ul>
+                    </div>
                 </div><!-- /.box-body -->
-
-                <!--  <div class="col-sm-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                          <ul class="pagination">
-                              <li class="paginate_button previous disabled" id="example2_previous">
-                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
-                              </li>
-                              <li class="paginate_button active">
-                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
-                              </li>
-                              <li class="paginate_button next" id="example2_next">
-                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>-->
-
             </div><!-- /.box -->
-            <!--<div ng-include="'template/modal_clientes.html'" ></div>-->
+            <div ng-include="'template/modal_clientes.html'" ></div>
         </div>    
     </div>
 </section>

@@ -15,9 +15,9 @@
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/servicios/tipoServicio_servicio.js</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/tiposServicio.html</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/tablaTipoServicios.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/navegacion.js</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/tServCtrl.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/ciudades.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/index.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/conexiones/class.Database.php</file>
         </group>
     </open-files>
 </project-private>

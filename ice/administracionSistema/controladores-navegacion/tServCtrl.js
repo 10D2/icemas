@@ -2,15 +2,18 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
 
         var pag = $routeParams.pag;
 
-        $scope.activar('mTecnico');
+        $scope.activar('mTipoS');
         $scope.tipos = {};
         $scope.infoTserv = {};
+        $scope.ti = {};
 
 
         $scope.moverD = function (pag) {
             Tipos.cargarPag(pag).then(function () {
                 $scope.tipos = Tipos.tiposervicio;
+                $scope.ti = Tipos;
                 console.log($scope.tipos);
+                
             });
         };
 
@@ -39,7 +42,7 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
                 $("#modal_tServicios").modal('hide');
                 $scope.infoTserv = {};
             });
-
+            $scope.moverD(pag);
         };
 
 
@@ -47,7 +50,7 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
 
         $scope.borrarTserv = function (idTipo) {
             console.log(idTipo);
-            $http.get('./php/eliminarTecnico.php?id=' + idTipo).success(function () {
+            $http.get('./php/borrarTipoServicio.php?id=' + idTipo).success(function () {
 
                 swal("Excelente!", "Registro eliminado!", "success");
                 $scope.moverD(pag);

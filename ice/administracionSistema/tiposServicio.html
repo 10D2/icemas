@@ -5,7 +5,7 @@
             <div class="box-tools">
                 <div class="input-group" style="float: right">
                     <a ng-click="modalTservicios({})" class="btn btn-primary" >
-                        <i class="fa fa-user-plus"></i> Agregar tipo de servicio
+                        <i class="fa fa-plus"></i> Agregar tipo de servicio
                     </a>
                 </div>
             </div>
@@ -44,13 +44,13 @@
                         <ul class="pagination pagination-sm no-margin pull-right">
                             <li><a ng-click="moverD(1)">«</a></li>
                             <li 
-                                ng-repeat="pag in tipos.paginas"
+                                ng-repeat="pag in ti.paginas"
                                 ng-class="{
-                                    'active': tipos.pag_actual == pag
+                                    'active': ti.pag_actual == pag
                                 }">
                                 <a ng-click="moverD(pag)">{{pag}}</a>
                             </li>
-                            <li><a ng-click="moverD(tipos.total_paginas)">»</a></li>
+                            <li><a ng-click="moverD(ti.total_paginas)">»</a></li>
                         </ul>
                     </div>
                 </div><!-- /.box-body -->
