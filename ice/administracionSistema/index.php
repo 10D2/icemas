@@ -143,10 +143,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- CONTROLADORES -->
         <script src="controladores-navegacion/principalAdmin.js"></script>
         <script src="controladores-navegacion/navegacion.js"></script>
-<!--        <script src="controladores-navegacion/tablaSucursales.js"></script>-->
         <script src="controladores-navegacion/sucCtrl.js"></script>
         <script src="controladores-navegacion/clientesCtrl.js"></script>
-        <script src="controladores-navegacion/formCliente.js"></script>
         <script src="controladores-navegacion/ciudadesCtrl.js"></script>
         <script src="controladores-navegacion/serviciosCtrl.js"></script>
         <script src="controladores-navegacion/marcasCtrl.js"></script>
@@ -156,8 +154,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="controladores-navegacion/tServCtrl.js"></script>
         <script src="controladores-navegacion/usuarioCtrl.js"></script>
         <script src="controladores-navegacion/perfilCtrl.js"></script>
-        <script src="controladores-navegacion/direccionCtrl.js"></script>
-        <script src="controladores-navegacion/formDirecciones.js"></script>
+
+        
         
         <script src="servicios/ciudades_servicio.js"></script>
         <script src="servicios/tipoServicio_servicio.js"></script>
@@ -166,8 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="servicios/perfiles_servicio.js"></script>
         <script src="servicios/usuarios_servicio.js"></script>
         <script src="servicios/clientes_servicio.js"></script>
-        <script src="servicios/direcciones_servicio.js"></script>
-        
+       
         <!-- SWEET ALERT -->
         <script src="../../angular/librerias/sweetalert.min.js"></script>
         

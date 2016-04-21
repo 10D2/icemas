@@ -7,21 +7,23 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $request = (array) $request;
 
+//echo var_dump($request);
 
-$calleC       = $request['calle'];
-$numeroC      = $request['numero'];
-$cruzamientos = $request['cruzamientos'];
-$coloniaC     = $request['colonia'];
-$codigo       = $request['codigoPostal'];
-$idCiudad     = $request['ciudadSel'];
-$idCliente    = $request['clienteSel'];
-$idDireccion  = $request['idDireccion'];
+$nombre = $request['nombre'];
+$idCiudad = $request['eligeCd'];
+$idSucursal = $request['elige'];
+$direccion = $request['direccion'];
+$telefono = $request['telefono'];
+$contacto = $request['contacto'];
+$correo = $request['correo'];
 
-$id  = $idCliente->idCliente;
+$idCliente = $request['idCliente'];
+
 $idC = $idCiudad->idCiudad;
+$idS = $idSucursal->idSucursal;
 
-if (isset($request['idDireccion'])) { //ACTUALIZAR
-    $sql = "UPDATE direcciones SET calle='$calleC', numero = '$numeroC', cruzamientos = '$cruzamientos', colonia = '$coloniaC', codigoPostal = '$codigo', idCiudad = '$idC', idCliente = '$id',  WHERE direcciones.idDireccion = $idDireccion";
+if (isset($request['idCliente'])) { //ACTUALIZAR
+    $sql = "UPDATE clientes SET nombre='$nombre', idCiudad='$idC', idSucursal='$idS', direccion='$direccion', telefono='$telefono', contacto='$contacto', correo='$correo' WHERE clientes.idCliente=$idCliente";
 
     $hecho = Database::ejecutar_idu($sql);
 
@@ -31,8 +33,7 @@ if (isset($request['idDireccion'])) { //ACTUALIZAR
         $respuesta = array('err' => true, 'Mensaje' => $hecho);
     }
 } else { //INSERTAR
-    
-    $sql = "INSERT INTO usuarios (usuario, contrasena, idPerfil, idCliente) VALUES ('$usuarioC', '$contrasenaC', '$idP', '$id')";    
+    $sql = "INSERT INTO clientes (nombre, idCiudad, idSucursal, direccion, telefono, contacto, correo) VALUES ('$nombre', '$idC', '$idS', '$direccion', '$telefono', '$contacto', '$correo')";
     
     $hecho = Database::ejecutar_idu($sql);
 

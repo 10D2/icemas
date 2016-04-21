@@ -311,8 +311,8 @@ class Database {
                 $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
                 break;
             case 'sucursales':
-                $sql = 'SELECT s.idSucursal,s.sucursal, c.nombre, c.idCliente FROM sucursales s INNER JOIN clientes c ON s.idCliente = c.idCliente ORDER BY sucursal ASC';
-                 break;
+                $sql = "SELECT s.idSucursal,s.sucursal, c.nombre, c.idCliente FROM sucursales s INNER JOIN clientes c ON s.idCliente = c.idCliente ORDER BY sucursal ASC limit $desde, $por_pagina";
+                break;
             case 'tecnicos':
                 $sql = "SELECT * from $tabla ORDER BY tecnico ASC limit $desde, $por_pagina ";
                 break;
@@ -320,13 +320,13 @@ class Database {
                 $sql = "SELECT * from $tabla ORDER BY perfil ASC limit $desde, $por_pagina ";
                 break;
             case 'usuarios':
-                $sql = 'SELECT u.idUsuario, u.usuario, u.contrasena, p.perfil, c.nombre FROM usuarios u INNER JOIN perfiles p ON p.idPerfil = u.idPerfil INNER JOIN clientes c ON c.idCliente = u.idCliente ORDER BY c.nombre ASC';
+                $sql = "SELECT u.idUsuario, u.usuario, u.contrasena, p.perfil, c.nombre FROM usuarios u INNER JOIN perfiles p ON p.idPerfil = u.idPerfil INNER JOIN clientes c ON c.idCliente = u.idCliente ORDER BY c.nombre ASC limit $desde, $por_pagina";
                 break;
             case 'tiposervicio':
                 $sql = "SELECT * from $tabla ORDER BY tipo ASC limit $desde, $por_pagina ";
                 break;
             case 'clientes':
-                $sql = 'SELECT c.idCliente, c.nombre, a.ciudad, s.sucursal, d.calle, d.numero, d.cruzamientos, d.colonia, d.codigoPostal ,c.telefono, c.contacto, c.correo FROM clientes c INNER JOIN ciudades a ON a.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal = c.idSucursal INNER JOIN direcciones d ON d.idDireccion = c.idDireccion ORDER BY c.nombre ASC';
+                $sql = "SELECT c.idCliente, c.nombre, d.ciudad, s.sucursal, c.direccion, c.telefono, c.contacto, c.correo FROM clientes c INNER JOIN ciudades d ON d.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal= c.idSucursal ORDER BY c.nombre ASC limit $desde, $por_pagina";
                 break;
             default:
                 echo "Hola";

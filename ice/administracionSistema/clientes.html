@@ -4,7 +4,7 @@
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a href="#/formCliente/nuevo" class="btn btn-primary" >
+                    <a ng-click="modalCliente({})" class="btn btn-primary">
                         <i class="fa fa-user-plus"></i> Agregar cliente
                     </a>
                 </div>
@@ -19,7 +19,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>CLIENTE</th>
+                                <th>NOMBRE</th>
                                 <th>SUCURSAL</th>
                                 <th>DIRECCION</th>
                                 <th>CIUDAD</th>
@@ -27,50 +27,46 @@
                                 <th>CORREO</th>
                                 <th>CONTACTO</th>
                                 <th>EDITAR</th>
-                                <th>ELIMINAR</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="cliente in clientes.clientes">
                                 <td>{{cliente.nombre}}</td>
                                 <td>{{cliente.sucursal}}</td>
-                                <td>
-                                    {{cliente.calle}} {{cliente.numero}} {{cliente.cruzamientos}} 
-                                    {{cliente.colonia}} {{cliente.codigoPostal}}
-                                </td>
+                                <td>{{cliente.direccion}}</td>
                                 <td>{{cliente.ciudad}}</td>
                                 <td>{{cliente.telefono}}</td>
                                 <td>{{cliente.correo}}</td>
                                 <td>{{cliente.contacto}}</td>
-                                <td>
-                                    <a href="#/formCliente/{{cliente.idCliente}}" class="btn btn-warning">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                </td>
                                 <td style="text-align: center">
-                                    <a ng-click="borrarCliente(cliente.idCliente)" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i>
+                                    <a ng-click="modalCliente(cliente)" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
                     <div class="box-footer clearfix">
                         <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a ng-click="moverG(1)">«</a></li>
+                            <li><a ng-click="moverZ(1)">«</a></li>
                             <li 
                                 ng-repeat="pag in clientes.paginas"
                                 ng-class="{
                                     'active': clientes.pag_actual == pag
                                 }">
-                                <a ng-click="moverG(pag)">{{pag}}</a>
+                                <a ng-click="moverZ(pag)">{{pag}}</a>
                             </li>
-                            <li><a ng-click="moverG(clientes.total_paginas)">»</a></li>
+                            <!-- <li><a href="">2</a></li>
+                             <li><a href="">3</a></li>-->
+                            <li><a ng-click="moverZ(clientes.total_paginas)">»</a></li>
                         </ul>
                     </div>
+
                 </div><!-- /.box-body -->
+
             </div><!-- /.box -->
-            <div ng-include="'template/modal_clientes.html'" ></div>
+            <div ng-include="'template/modal_cliente.html'" ></div>
         </div>    
     </div>
 </section>

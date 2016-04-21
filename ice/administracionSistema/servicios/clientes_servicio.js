@@ -12,41 +12,44 @@ app.factory('Clientes', ['$http', '$q', function ($http, $q) {
             'total_paginas': 1,
             'paginas': [],
             
-            guardaCliente: function (cliente) {
+           
+            clientesGuardar : function (cliente){
                 
                 var d = $q.defer();
-                $http.post('./php/guardarSucursal.php', cliente).success(function (respuesta) {
-                 
-                    self.paginaC(self.pag_actual);
-
+                $http.post('./php/guardarCliente.php', cliente).success(function(respuesta){
+                    
+                    self.paginaCliente( self.pag_actual );
+                    
                     d.resolve();
                 });
                 return d.promise;
-
+                
             },
-            paginaC: function (pag) {
-
+            
+            
+            paginaCliente : function (pag){
+                
                 var d = $q.defer();
-
-                $http.get('./php/consultaTablaClientes.php?pag=' + pag).success(function (data) {
-
-                    self.err = data.err;
-                    self.conteo = data.conteo;
-                    self.clientes = data.clientes;
-                    self.pag_actual = data.pag_actual;
+                
+                $http.get('./php/consultaTablaClientes.php?pag=' + pag).success(function(data){
+                    
+                    self.err           = data.err;
+                    self.conteo        = data.conteo;
+                    self.clientes      = data.clientes;
+                    self.pag_actual    = data.pag_actual;
                     self.pag_siguiente = data.pag_siguiente;
-                    self.pag_anterior = data.pag_anterior;
+                    self.pag_anterior  = data.pag_anterior;
                     self.total_paginas = data.total_paginas;
-                    self.paginas = data.paginas;
-
+                    self.paginas       = data.paginas;
+                    
                     console.log(data);
                     return d.resolve();
                 });
-
+                
                 return d.promise;
-
+                
             }
-
+            
         };
         return self;
     }]);

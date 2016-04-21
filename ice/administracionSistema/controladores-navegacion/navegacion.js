@@ -43,12 +43,6 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/perfiles/:pag', {
                     templateUrl: 'perfiles.html'
                 })
-                .when('/direcciones', {
-                    templateUrl: 'direcciones.html'
-                })
-                .when('/formDireccion/:idDireccion', {
-                    templateUrl: 'formularios/formDireccion.html'
-                })
                 .otherwise({
                     redirectTo: '/'
                 });
