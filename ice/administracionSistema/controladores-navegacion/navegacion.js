@@ -22,7 +22,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/tiposServicio/:pag', {
                     templateUrl: 'tiposServicio.html'
                 })
-                .when('/servicios', {
+                .when('/servicios/:pag', {
                     templateUrl: 'servicios.html'
                 })
                 .when('/marcas', {
@@ -34,7 +34,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/tecnicos/:pag', {
                     templateUrl: 'tecnicos.html'
                 })
-                .when('/equipos', {
+                .when('/equipos/:pag', {
                     templateUrl: 'equipos.html'
                 })
                 .when('/usuarios/:pag', {

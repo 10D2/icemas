@@ -4,7 +4,7 @@
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a href="" class="btn btn-primary">
+                    <a ng-click="mostrarModalEquipo({})" class="btn btn-primary">
                         <i class="fa fa-plus-circle"></i> Agregar equipo
                     </a>
                 </div>
@@ -27,61 +27,49 @@
                                 <th>PROPIETARIO</th>
                                 <th>CLIENTE</th>
                                 <th>FECHA DE VENTA</th>
-                                <th>TRANSFEERIR</th>
+                                <th>EDITAR</th>
+                               <!-- <th>TRANSFEERIR</th>-->
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="te in tblEquipo">
-                                <td>{{te.equipo|uppercase}}</td>
-                                <td>{{te.cara|uppercase}}</td>
-                                <td>{{te.marca|uppercase}}</td>
-                                <td>{{te.modelo|uppercase}}</td>
-                                <td>{{te.serie|uppercase}}</td>
-                                <td>{{te.propietario|uppercase}}</td>
-                                <td>{{te.nombre|uppercase}}</td>
-                                <td>{{te.fventa|uppercase}}</td>
-                                <td style="text-align: center">
+                            <tr ng-repeat="equipo in equipos.equipos">
+                                <td>{{equipo.equipo|uppercase}}</td>
+                                <td>{{equipo.caracteristicas|uppercase}}</td>
+                                <td>{{equipo.marca|uppercase}}</td>
+                                <td>{{equipo.modelo|uppercase}}</td>
+                                <td>{{equipo.serie|uppercase}}</td>
+                                <td>{{equipo.propietario|uppercase}}</td>
+                                <td>{{equipo.nombre|uppercase}}</td>
+                                <td>{{equipo.fechaVenta|uppercase}}</td>
+                                <td>
+                                    <a ng-click="mostrarModalEquipo(equipo)" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                                <!--<td style="text-align: center">
                                     <a ng-click="" class="btn btn-success">
                                         <i class=" fa fa-exchange"></i>
                                     </a>
-                                </td>
+                                </td>-->
                             </tr>
                         </tbody>
                     </table>
-                </div><!-- /.box-body -->
-
-                <!--  <div class="col-sm-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                          <ul class="pagination">
-                              <li class="paginate_button previous disabled" id="example2_previous">
-                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
-                              </li>
-                              <li class="paginate_button active">
-                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
-                              </li>
-                              <li class="paginate_button next" id="example2_next">
-                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>-->
-
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a ng-click="moverY(1)">«</a></li>
+                            <li 
+                                ng-repeat="pag in equipos.paginas"
+                                ng-class="{
+                                    'active': equipos.pag_actual == pag
+                                }">
+                                <a ng-click="moverY(pag)">{{pag}}</a>
+                            </li>
+                            <li><a ng-click="moverY(equipos.total_paginas)">»</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.box-body -->   
             </div><!-- /.box -->
+            <div ng-include="'template/modal_equipo.html'" ></div>
         </div>    
     </div>
 </section>

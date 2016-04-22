@@ -41,8 +41,9 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
             Tipos.guardarTServicio(tipo).then(function () {
                 $("#modal_tServicios").modal('hide');
                 $scope.infoTserv = {};
+                 $scope.moverD(pag);
             });
-            $scope.moverD(pag);
+           
         };
 
 

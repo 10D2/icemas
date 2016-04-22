@@ -1,76 +1,114 @@
 <div class="modal fade" id="modal_servicios">
     <div class="modal-dialog">
-        <div class="modal-content" ng-controller="serviciosCtrl">
+        <div class="modal-content">
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h3 class="modal-title texto">SERVICIOS</h3>
+                <h4 class="modal-title">Servicios:</h4>
             </div>
 
-            <div class="modal-body texto" ng-repeat="tbs in tblServicio" >
+            <form ng-submit="guardarServicio(infoServicio)">
+                <div class="modal-body">
+                    <div class="form-group-sm form-inline">
+                        <label>Fecha de Inicio</label>
+                        <input 
+                            type="date" 
+                            name="date_control" 
+                            required="required"
+                            ng-model="infoServicio.fechaInicio"/>
+                    </div>
+                    <br>
+                    <div class="form-group-sm form-inline">
+                        <label>Fecha de Finalización</label>
+                        <input 
+                            type="date" 
+                            name="date_control" 
+                            required="required"
+                            ng-model="infoServicio.fechaFinalizacion"/>
+                  
+                        <label>Folio</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Número de folio"
+                            required="required"
+                            ng-model="infoServicio.folio"/>
+                    </div>
+                    <br>
+                    <div class="form-group-sm">
+                        <p style="text-align: center"><b>Descripción</b></p>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Número de folio"
+                            required="required"
+                            ng-model="infoServicio.descripcion"/>
+                    </div>
+                    <br>
+                    <div class="form-group-sm">
+                        <label>Próximo servicio</label>
+                        <input 
+                            type="date" 
+                            name="date_control" 
+                            required="required"
+                            ng-model="infoServicio.proximo"/>
+                    </div>
+                    <br>
+                    <div class="form-group-sm">
+                        <p style="text-align: center"><b>Refacciones</b></p>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Refacciones"
+                            required="required"
+                            ng-model="infoServicio.refacciones"/>
+                    </div>
+                    <br>
+                    <div class="form-group-sm form-inline">
+                        <label>Tipo de servicio</label>
+                        <select  
+                            ng-model="infoServicio.tipoSel" 
+                            class="form-control" 
+                            ng-options="tS as tS.tipo for tS in nomTservicio track by tS.idTipo"> 
+                        </select>
+                   
+                        <label>Técnico</label>
+                        <select  
+                            ng-model="infoServicio.tecnicoSel" 
+                            class="form-control" 
+                            ng-options="tec as tec.tecnico for tec in nomTecnicos track by tec.idTecnico"> 
+                        </select>
+                    </div> 
+                    <br>
+                    <div class="form-group-sm form-inline">
+                        <label>Equipo</label>
+                        <select  
+                            ng-model="infoServicio.equipoSel" 
+                            class="form-control" 
+                            ng-options="equipo as equipo.equipo for equipo in nomEquipo track by equipo.idEquipo"> 
+                        </select>
+                        <label>Realizado</label>
+                        <select  
+                            ng-model="infoServicio.selecSiNo" 
+                            class="form-control" 
+                            ng-options="item as item.name for item in items track by item.id"> 
+                        </select>
+                        <label>Cliente</label>
+                        <select  
+                            ng-model="infoServicio.nombreSel" 
+                            class="form-control" 
+                            ng-options="nombreS as nombreS.nombre for nombreS in nomCliente track by nombreS.idCliente"> 
+                        </select>
+                    </div>
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>FECHA DE INICIO:  </label>
-                        {{tbs.fechaInicio}}
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-save"></i> Guardar
+                        </button>
                     </div>
-                </div> 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>CLIENTE:  </label>
-                        {{tbs.nombre|uppercase}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>EQUIPO:  </label>
-                        {{tbs.equipo|uppercase}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>TIPO DE SERVICIO:  </label>
-                        {{tbs.tipo|uppercase}}
-                    </div>
-                </div>
-                <div class="row">    
-                    <div class="col-sm-12">
-                        <label>DESCRIPCION:  </label>
-                        {{tbs.descripcion|uppercase}}
-                    </div>
-                </div>    
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>REFACCIONES:  </label>
-                        {{tbs.refacciones|uppercase}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>TECNICO:</label>
-                        {{tbs.tecnico|uppercase}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>FECHA DEL PROXIMO SERVICIO:  </label>
-                        {{tbs.proximo}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>FECHA DE FINALIZACION:  </label>
-                        {{tbs.fFinal}}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>NUMERO DE SERVICIO:  </label>
-                        {{tbs.noServicio}}
-                    </div>
-                </div>
-            </div><!-- /.modal-content -->
 
+                </div><!-- /.modal-content -->
+            </form>
         </div><!-- /.modal-dialog -->
     </div>
 </div>

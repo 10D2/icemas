@@ -7,14 +7,14 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         $scope.infoSuc = {};
 
 
-        $scope.moverD = function (pag) {
+        $scope.moverP = function (pag) {
             Sucursales.cargar(pag).then(function () {
                 $scope.sucursales = Sucursales;
 
             });
         };
 
-        $scope.moverD(pag);
+        $scope.moverP(pag);
 
 
         //================================================================

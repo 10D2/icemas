@@ -12,11 +12,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/clientesCtrl.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/conexiones/class.Database.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/guardarCliente.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/servicios/clientes_servicio.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/clientes.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/perfilCtrl.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/template/modal_servicios.html</file>
         </group>
     </open-files>
 </project-private>

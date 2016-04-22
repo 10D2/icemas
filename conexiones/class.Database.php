@@ -328,6 +328,12 @@ class Database {
             case 'clientes':
                 $sql = "SELECT c.idCliente, c.nombre, d.ciudad, s.sucursal, c.direccion, c.telefono, c.contacto, c.correo FROM clientes c INNER JOIN ciudades d ON d.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal= c.idSucursal ORDER BY c.nombre ASC limit $desde, $por_pagina";
                 break;
+            case 'equipos':
+                $sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, e.fechaVenta FROM equipos e INNER JOIN clientes c ON c.idCliente = e.idCliente ORDER BY fechaVenta DESC limit $desde, $por_pagina";
+                break;
+            case 'servicios':
+                $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, c.tecnico, s.fechaFinalizacion, e.equipo, s.realizado, l.nombre FROM servicios s INNER JOIN tiposervicio t ON t.idTipo = s.idTipo INNER JOIN tecnicos c ON c.idTecnico = s.idTecnico INNER JOIN equipos e ON e.idEquipo = s.idEquipo INNER JOIN clientes l ON l.idCliente = s.idCliente ORDER BY s.fechaInicio DESC limit $desde, $por_pagina";
+                break;
             default:
                 echo "Hola";
                 break;

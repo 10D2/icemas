@@ -2,7 +2,6 @@ app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', f
 
         var pag = $routeParams.pag;
 
-
         $scope.activar('mCiudades');
         $scope.ciudades = {};
         $scope.infoCd = {};
@@ -17,14 +16,6 @@ app.controller('ciudadesCtrl', ['$scope', '$http', 'Ciudades', '$routeParams', f
 
         $scope.moverA(pag);
 
-
-//        $scope.infoCd = {};
-//        $scope.tablaCd = {};
-//        $http.get('./php/consultaTablaCiudades.php').success(function (arrayTablaCd) {
-//            console.log($scope.tablaCd);
-//            $scope.tablaCd = arrayTablaCd;
-//
-//        });
 
         //================================================================
         // MOSTRAR MODAL 

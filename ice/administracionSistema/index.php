@@ -164,7 +164,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="servicios/perfiles_servicio.js"></script>
         <script src="servicios/usuarios_servicio.js"></script>
         <script src="servicios/clientes_servicio.js"></script>
-       
+        <script src="servicios/equipos_servicio.js"></script>
+        <script src="servicios/servicios_servicio.js"></script> 
         <!-- SWEET ALERT -->
         <script src="../../angular/librerias/sweetalert.min.js"></script>
         

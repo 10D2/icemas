@@ -4,7 +4,7 @@
 
             <div class="box-tools">
                 <div class="input-group" style="float: right">
-                    <a href="" class="btn btn-primary">
+                    <a ng-click="mostrarModalServicio({})" class="btn btn-primary">
                         <i class="fa fa-plus-circle"></i> Agregar servicio
                     </a>
                 </div>
@@ -20,78 +20,69 @@
                         <thead>
                             <tr>
                                 <th>FECHA</th>
+                                <!--<th>folio</th>-->
+                                <th>CLIENTE</th>
+                                <th>EQUIPO</th>
                                 <th>DESCRIPCION</th>
                                 <!--<th>Próximo</th>
                                 <th>Refacciones</th>
-                                 <th>Tipo</th>
-                                 <th>Técnico</th>
-                                 <th>Final</th>
-                                 <th>No. de servicio</th>
-                                 <th>Equipo</th>
-                                 <th>Realizado</th>-->
-                                <th>CLIENTE</th>
-                                <th>DETALLES</th>
+                                <th>Tipo</th>
+                                <th>Técnico</th>
+                                <th>Final</th>-->
+                                <!-- <th>Realizado</th>-->
+                                <!-- <th>DETALLES</th>-->
+                                <th>EDITAR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="ts in tblServicio" class="texto">
-                                <td>{{ts.fechaInicio}}</td>
-                                <td>{{ts.descripcion|uppercase}}</td>
-                                <!--<td>{{ts.proximo}}</td>
-                                 <td>{{ts.refacciones|uppercase}}</td>
-                                 <td>{{ts.tipo|uppercase}}</td>
-                                 <td>{{ts.tecnico|uppercase}}</td>
-                                <td>{{ts.fFinal}}</td>
-                                 <td>{{ts.noServicio}}</td>
-                                 <td>{{ts.equipo|uppercase}}</td>
-                                 <td>{{ts.realizado}}</td>-->
-                                <td>{{ts.nombre|uppercase}}</td>
+                            <tr ng-repeat="servicio in servicios.servicios" class="texto">
+                                <td>{{servicio.fechaInicio}}</td>
+                                <!-- <td>{{servicio.folio}}</td>-->
+                                <td>{{servicio.nombre|uppercase}}</td>
+                                <td>{{servicio.equipo|uppercase}}</td>
+                                <td>{{servicio.descripcion|uppercase}}</td>
+                                <!--  <td>{{servicio.proximo}}</td>
+                                  <td>{{servicio.refacciones|uppercase}}</td>
+                                  <td>{{servicio.tipo|uppercase}}</td>
+                                  <td>{{servicio.tecnico|uppercase}}</td>
+                                  <td>{{servicio.fechaFinalizacion}}</td>-->
+
+                                <!-- <td>{{servicio.realizado}}</td>-->
+
+                                <!--  <td style="text-align: center">
+                                      <a ng-click="mostralModalServicios(ts.idServicio)" class="btn btn-info">
+                                          <i class="fa fa-plus-square"></i>
+                                      </a>
+                                  </td>-->
                                 <td style="text-align: center">
-                                    <a ng-click="mostralModalServicios(ts.idServicio)" class="btn btn-info">
-                                        <i class="fa fa-plus-square"></i>
+                                    <a ng-click="mostrarModalServicio(servicio)" class="btn btn-warning">
+                                        <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a ng-click="moverX(1)">«</a></li>
+                            <li 
+                                ng-repeat="pag in servicios.paginas"
+                                ng-class="{
+                                            'active': servicios.pag_actual == pag
+                                        }">
+                                <a ng-click="moverX(pag)">{{pag}}</a>
+                            </li>
+                            <!-- <li><a href="">2</a></li>
+                             <li><a href="">3</a></li>-->
+                            <li><a ng-click="moverX(servicios.total_paginas)">»</a></li>
+                        </ul>
+                    </div>
                 </div><!-- /.box-body -->
 
-                <!--  <div class="col-sm-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                          <ul class="pagination">
-                              <li class="paginate_button previous disabled" id="example2_previous">
-                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
-                              </li>
-                              <li class="paginate_button active">
-                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
-                              </li>
-                              <li class="paginate_button next" id="example2_next">
-                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>-->
-
             </div><!-- /.box -->
-            
-            <div ng-include=" './template/modal_servicios.html' "></div>
-            
+
+            <div ng-include="'template/modal_servicios.html'" ></div>
+
         </div>    
     </div>
 </section>

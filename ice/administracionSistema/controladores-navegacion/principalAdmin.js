@@ -6,7 +6,9 @@ var app = angular.module('icemasAdminApp', [
     'icemasAdminApp.tecnicos',
     'icemasAdminApp.perfiles',
     'icemasAdminApp.usuarios',
-    'icemasAdminApp.clientes'
+    'icemasAdminApp.clientes',
+    'icemasAdminApp.equipos',
+    'icemasAdminApp.servicios'
 ]);
 
 angular.module('jcs-autoValidate')
