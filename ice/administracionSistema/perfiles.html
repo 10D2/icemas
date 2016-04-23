@@ -2,38 +2,34 @@
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4 texto" ng-controller="perfilCtrl">
 
-            <div class="box-tools">
-                <div class="input-group" style="float: right">
-                    <a ng-click="mostrarModalPerfil({})" class="btn btn-primary" >
-                        <i class="fa fa-plus-circle"></i> Agregar perfil
-                    </a>
-                </div>
-            </div>
-            <br><br>
-            <div class="box">
+            <div class="box box-solid box-info">
                 <div class="box-header with-border ali">
                     <h3 class="box-title">PERFILES</h3>
-
+                    <div class="input-group" style="float: right">
+                        <a ng-click="mostrarModalPerfil({})" class="btn btn-info" >
+                            <i class="fa fa-plus-circle"></i> Agregar perfil
+                        </a>
+                    </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <table class="table table-bordered">
+                    <table class="table table-striped table-responsive">
                         <thead>
-                            <tr>
+                            <tr class="tblTitulo">
                                 <th>PERFIL</th>
-                                <th>EDITAR</th>
-                                <th>ELIMINAR</th>
+                                <th class="btnEditar">EDITAR</th>
+                                <th class="btnEditar">ELIMINAR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="perfil in perfiles.perfiles">
-                                <td>{{perfil.perfil}}</td>
-                                <td>
-                                    <a ng-click="mostrarModalPerfil(perfil)" class="btn btn-warning">
+                            <tr ng-repeat="perfil in perfiles.perfiles" class="tblLetras">
+                                <td>{{perfil.perfil|uppercase}}</td>
+                                <td class="btnEditar">
+                                    <a ng-click="mostrarModalPerfil(perfil)" class="btn btn-warning btn-xs">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
-                                <td style="text-align: center">
-                                    <a ng-click="borrarPerfil(perfil.idPerfil)" class="btn btn-danger">
+                                <td class="btnEditar">
+                                    <a ng-click="borrarPerfil(perfil.idPerfil)" class="btn btn-danger btn-xs">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>

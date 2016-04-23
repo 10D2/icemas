@@ -2,25 +2,21 @@
     <div class="row">
         <div class="col-sm-12 texto" ng-controller="serviciosCtrl">
 
-            <div class="box-tools">
-                <div class="input-group" style="float: right">
-                    <a ng-click="mostrarModalServicio({})" class="btn btn-primary">
+            <div class="box box-solid box-info">
+                <div class="box-header with-border ali">
+                    <h3 class="box-title">SERVICIOS</h3>
+                    <div class="input-group" style="float: right">
+                    <a ng-click="mostrarModalServicio({})" class="btn btn-info">
                         <i class="fa fa-plus-circle"></i> Agregar servicio
                     </a>
                 </div>
-            </div>
-            <br><br>
-            <div class="box">
-                <div class="box-header with-border ali">
-                    <h3 class="box-title">SERVICIOS</h3>
-
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <table class="table table-bordered">
+                    <table class="table table-striped table-responsive">
                         <thead>
-                            <tr>
-                                <th>FECHA</th>
-                                <!--<th>folio</th>-->
+                            <tr class="tblTitulo">
+                                <th >FECHA</th>
+                                <th>FOLIO</th>
                                 <th>CLIENTE</th>
                                 <th>EQUIPO</th>
                                 <th>DESCRIPCION</th>
@@ -31,13 +27,13 @@
                                 <th>Final</th>-->
                                 <!-- <th>Realizado</th>-->
                                 <!-- <th>DETALLES</th>-->
-                                <th>EDITAR</th>
+                                <th class="btnEditar">EDITAR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="servicio in servicios.servicios" class="texto">
+                            <tr ng-repeat="servicio in servicios.servicios" class="tblLetras">
                                 <td>{{servicio.fechaInicio}}</td>
-                                <!-- <td>{{servicio.folio}}</td>-->
+                                <td class="btnEditar">{{servicio.folio}}</td>
                                 <td>{{servicio.nombre|uppercase}}</td>
                                 <td>{{servicio.equipo|uppercase}}</td>
                                 <td>{{servicio.descripcion|uppercase}}</td>
@@ -54,8 +50,8 @@
                                           <i class="fa fa-plus-square"></i>
                                       </a>
                                   </td>-->
-                                <td style="text-align: center">
-                                    <a ng-click="mostrarModalServicio(servicio)" class="btn btn-warning">
+                                <td class="btnEditar">
+                                    <a ng-click="mostrarModalServicio(servicio)" class="btn btn-warning btn-xs">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>
@@ -72,8 +68,6 @@
                                         }">
                                 <a ng-click="moverX(pag)">{{pag}}</a>
                             </li>
-                            <!-- <li><a href="">2</a></li>
-                             <li><a href="">3</a></li>-->
                             <li><a ng-click="moverX(servicios.total_paginas)">»</a></li>
                         </ul>
                     </div>

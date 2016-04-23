@@ -1,4 +1,5 @@
 /* == General ==*/
+
 .iconos{
     margin-left: 20px;
     color: white;
@@ -40,9 +41,23 @@
 .letras{
      color: #f39c12;
 }
+
+/* == ADMINISTRACION SISTEMA == */
 .texto{
   font-family: 'Open Sans', sans-serif;  
 }
 .ali{
     text-align: center;
 }
+.tblLetras{
+    font-size: 10px;
+}
+.tblTitulo{
+    font-size: 12px;
+    text-align: center;
+    align-content: center;
+}
+.btnEditar{
+    text-align: center;
+}
+
