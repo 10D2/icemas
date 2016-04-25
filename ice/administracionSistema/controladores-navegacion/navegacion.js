@@ -7,8 +7,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/clientes/:pag', {
                     templateUrl: 'clientes.html'
                 })
-                .when('/formCliente/:idCliente', {
-                    templateUrl: 'formularios/formCliente.html'
+                .when('/formularioTrans/:idEquipo', {
+                    templateUrl: 'template/formularioTrans.html'
                 })
                 .when('/sucursales/:pag', {
                     templateUrl: 'sucursales.html'
@@ -28,7 +28,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/marcas', {
                     templateUrl: 'marcas.html'
                 })
-                .when('/transferencias', {
+                .when('/transferencias/:pag', {
                     templateUrl: 'transferencias.html'
                 })
                 .when('/tecnicos/:pag', {
@@ -43,6 +43,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/perfiles/:pag', {
                     templateUrl: 'perfiles.html'
                 })
+                
                 .otherwise({
                     redirectTo: '/'
                 });

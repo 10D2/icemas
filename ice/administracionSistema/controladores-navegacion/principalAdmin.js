@@ -8,7 +8,8 @@ var app = angular.module('icemasAdminApp', [
     'icemasAdminApp.usuarios',
     'icemasAdminApp.clientes',
     'icemasAdminApp.equipos',
-    'icemasAdminApp.servicios'
+    'icemasAdminApp.servicios',
+    'icemasAdminApp.tranferencias'
 ]);
 
 angular.module('jcs-autoValidate')

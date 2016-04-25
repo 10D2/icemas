@@ -28,7 +28,8 @@ app.controller('equiposCtrl', ['$scope', '$http' ,'Equipos', '$routeParams', fun
             $("#modal_equipos").modal();
 
         };
-
+        
+        
         //=================================================================
         // 
         //=================================================================
@@ -37,6 +38,11 @@ app.controller('equiposCtrl', ['$scope', '$http' ,'Equipos', '$routeParams', fun
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
             //  console.log($scope.nomCliente);
             $scope.nomCliente = arrayClientes;
+        });
+        
+        $scope.nomEquipo = {};
+        $http.get('./php/nombresEquipos.php').success(function (arrayEquipos) {
+            $scope.nomEquipo = arrayEquipos;
         });
 
         //=================================================================

@@ -334,6 +334,9 @@ class Database {
             case 'servicios':
                 $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, c.tecnico, s.fechaFinalizacion, e.equipo, s.realizado, l.nombre FROM servicios s INNER JOIN tiposervicio t ON t.idTipo = s.idTipo INNER JOIN tecnicos c ON c.idTecnico = s.idTecnico INNER JOIN equipos e ON e.idEquipo = s.idEquipo INNER JOIN clientes l ON l.idCliente = s.idCliente ORDER BY s.fechaInicio DESC limit $desde, $por_pagina";
                 break;
+            case 'transferencias':
+                $sql = "SELECT t.idTransferencia, e.equipo, e.serie ,c.nombre, t.fechaTransferencia, c.nombre FROM transferencias t INNER JOIN equipos e ON e.idEquipo = t.idEquipo INNER JOIN clientes c ON c.idCliente = t.idCliente ORDER BY t.fechaTransferencia DESC limit $desde, $por_pagina";
+                break;
             default:
                 echo "Hola";
                 break;

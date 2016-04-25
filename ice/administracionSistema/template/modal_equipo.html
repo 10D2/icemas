@@ -35,7 +35,7 @@
                         <input 
                             type="text" 
                             class="form-control" 
-                            placeholder="Nombre de la marca"
+                            placeholder="Marca del equipo"
                             required="required"
                             ng-model="infoEquipo.marca"/>
                     </div>
@@ -45,7 +45,7 @@
                         <input 
                             type="text" 
                             class="form-control" 
-                            placeholder="Nombre del modelo"
+                            placeholder="Modelo del equipo"
                             required="required"
                             ng-model="infoEquipo.modelo"/>
                     </div>
@@ -55,7 +55,7 @@
                         <input 
                             type="text" 
                             class="form-control" 
-                            placeholder="Nombre del equipo"
+                            placeholder="Serie del equipo"
                             required="required"
                             ng-model="infoEquipo.serie"/>
                     </div>
@@ -65,29 +65,27 @@
                         <input 
                             type="text" 
                             class="form-control" 
-                            placeholder="Nombre del equipo"
+                            placeholder="Nombre del propietario"
                             required="required"
                             ng-model="infoEquipo.propietario"/>
                     </div>
-                    
+                    <br>
                     <div class="form-group-sm form-inline">
                         <label>Cliente</label>
-                        <br>
                         <select  
                             ng-model="infoEquipo.eligeCliente" 
                             class="form-control" 
                             ng-options="persona as persona.nombre for persona in nomCliente track by persona.idCliente"> 
                         </select>
-                    </div> 
-                    
-                    <div class="form-group-sm">
                         <label>Fecha de la venta</label>
                         <input 
                             type="date" 
                             name="date_control" 
                             required="required"
                             ng-model="infoEquipo.fechaVenta"/>
-                    </div>
+                    </div> 
+                    
+                   
                     
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">

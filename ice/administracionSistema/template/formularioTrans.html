@@ -1,43 +1,21 @@
-<div class="modal fade" id="modal_trans" >
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">Transferiencias:</h4>
-            </div>
-
+<section class="content">
+    <div class="col-sm-8 col-sm-offset-2" ng-controller="transCtrl">
+        <div class="panel panel-body">
             <form ng-submit="guardarTrans(infoTrans)">
 
                 <div class="modal-body">
 
-                   <div class="form-group-sm">
+                    <div class="form-group-sm">
                         <label>Cliente Actual:  </label>
                         {{infoTrans.nombre}}
-                    
+
                     </div>
-               <!--    <div class="form-group-sm form-inline">
-                        <label>Cliente Anterior</label>
-                        <select  
-                            ng-model="infoTrans.clienteAnt" 
-                            class="form-control" 
-                            ng-options="cant as cant.nombre for cant in nomCliente track by cant.idCliente"> 
-                        </select>
-                    </div> -->
                     <br>
-                   <div class="form-group-sm">
+                    <div class="form-group-sm">
                         <label>Equipo:  </label>
                         {{infoTrans.equipo}}
-                    
+
                     </div>
-          <!--        <div class="form-group-sm form-inline">
-                        <label>Equipo</label>
-                        <select  
-                            ng-model="infoTrans.selecEquipo" 
-                            class="form-control" 
-                            ng-options="selEquipo as selEquipo.equipo for selEquipo in nomEquipo track by selEquipo.idEquipo"> 
-                        </select>
-                  </div>-->
                     <br>
                     <div class="form-group-sm form-inline">
                         <label>Fecha de Transferencia</label>
@@ -62,10 +40,9 @@
                             <i class="fa fa-save"></i> Guardar
                         </button>
                     </div>
-
+{{infoTrans| json}}
                 </div><!-- /.modal-content -->
             </form>
-            
-        </div><!-- /.modal-dialog -->
+        </div>
     </div>
-</div>
+</section>

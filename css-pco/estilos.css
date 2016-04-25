@@ -47,7 +47,8 @@
   font-family: 'Open Sans', sans-serif;  
 }
 .ali{
-    text-align: center;
+    margin:auto;
+    max-height: 35px;
 }
 .tblLetras{
     font-size: 10px;
@@ -60,4 +61,8 @@
 .btnEditar{
     text-align: center;
 }
-
+.btnNuevo{
+    float: right;
+    float: top;
+    margin-top: 0px; 
+}

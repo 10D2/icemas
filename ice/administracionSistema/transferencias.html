@@ -11,60 +11,40 @@
                     <table class="table table-striped table-responsive">
                         <thead>
                             <tr class="tblTitulo">
-                                <th>CLIENT ACTUAL</th>
-                                <th>CLIENTE ANTERIOR</th>
+                                <th>FECHA</th>    
                                 <th>EQUIPO</th>
                                 <th>SERIE</th>
-                                <th>FECHA</th>
+                                <th>CLIENTE ACTUAL</th>
+                                <th>CLIENTE ANTERIOR</th>   
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="tt in tblCTrans" class="tblLetras">
-                                <td>{{tt.nombre|uppercase}}</td>
-                                <td>{{tt.nombre|uppercase}}</td>
-                                <td>{{tt.equipo|uppercase}}</td>
-                                <td>{{tt.serie|uppercase}}</td>
-                                <td>{{tt.fTrans|uppercase}}</td>
+                            <tr ng-repeat="tranferencia in transferencias.transferencias" class="tblLetras">
+                                <td>{{tranferencia.fechaTransferencia|uppercase}}</td>
+                                <td>{{tranferencia.equipo|uppercase}}</td>
+                                <td>{{tranferencia.serie|uppercase}}</td>
+                                <td>{{tranferencia.nombre|uppercase}}</td>
+                                <td>{{tranferencia.nombre|uppercase}}</td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a ng-click="moverK(1)">«</a></li>
+                            <li 
+                                ng-repeat="pag in transferencias.paginas"
+                                ng-class="{
+                                    'active': transferencias.pag_actual == pag
+                                }">
+                                <a ng-click="moverK(pag)">{{pag}}</a>
+                            </li>
+                            <!-- <li><a href="">2</a></li>
+                             <li><a href="">3</a></li>-->
+                            <li><a ng-click="moverK(transferencias.total_paginas)">»</a></li>
+                        </ul>
+                    </div>
                 </div><!-- /.box-body -->
-
-                <!--  <div class="col-sm-7">
-                      <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                          <ul class="pagination">
-                              <li class="paginate_button previous disabled" id="example2_previous">
-                                  <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
-                              </li>
-                              <li class="paginate_button active">
-                                  <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-                              </li>
-                              <li class="paginate_button ">
-                                  <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
-                              </li>
-                              <li class="paginate_button next" id="example2_next">
-                                  <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>-->
-
             </div><!-- /.box -->
-            
-            
-            
         </div>    
     </div>
 </section>
