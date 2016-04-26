@@ -33,16 +33,16 @@ app.controller('clientesCtrl', ['$scope', '$http', 'Clientes', '$routeParams', f
         //================================================================
         //================================================================
 
-        $scope.nomSucursal = {};
-        $http.get('./php/nombresSucursales.php').success(function (arraySucursal) {
-            $scope.nomSucursal = arraySucursal;
-        });
+//        $scope.nomSucursal = {};
+//        $http.get('./php/nombresSucursales.php').success(function (arraySucursal) {
+//            $scope.nomSucursal = arraySucursal;
+//        }); 
 
-        $scope.nomCiudad = {};
-        $http.get('./php/nombresCiudades.php').success(function (arrayCiudades) {
-            $scope.nomCiudad = arrayCiudades;
-        });
-        
+//        $scope.nomCiudad = {};
+//        $http.get('./php/nombresCiudades.php').success(function (arrayCiudades) {
+//            $scope.nomCiudad = arrayCiudades;
+//        });
+//        
         $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
             console.log($scope.nomCliente);

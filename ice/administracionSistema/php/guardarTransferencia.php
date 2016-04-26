@@ -9,9 +9,10 @@ $request = (array) $request;
 
 
 $idEquipo = $request['idEquipo'];
-$idCliente = $request['idCliente'];
-$fechaTrans = $request['fechaTransferencia'];
 $idClienteNvo = $request['clienteNvo'];
+$fechaTrans = $request['fechaTransferencia'];
+$idCliente = $request['idCliente'];
+
 
 $idCnvo = $idClienteNvo->idCliente;
 //if (isset($request['idSucursal'])) { //ACTUALIZAR
@@ -25,12 +26,20 @@ $idCnvo = $idClienteNvo->idCliente;
 //        $respuesta = array('err' => true, 'Mensaje' => $hecho);
 //    }
 //} else { //INSERTAR
-$sql = "INSERT INTO transferencias (idEquipo, idCliente, fechaTransferencia, idClienteAnt) VALUES ('$idEquipo', '$idCliente', '$fechaTrans', '$idCnvo')";
+$sql = "INSERT INTO transferencias (idEquipo, idCliente, fechaTransferencia, idClienteAnt) VALUES ('$idEquipo', '$idCnvo', '$fechaTrans', '$idCliente')";
+$hecho1 = Database::ejecutar_idu($sql);
 
 
-$sql = "UPDATE equipos SET idCliente='$idCnvo' WHERE equipos.idEquipo= $idEquipo";
+if (is_numeric($hecho1) OR $hecho1 == true) {
+    $respuesta = array('err' => false, 'Mensaje' => 'Registro actualizado');
+} else {
+    $respuesta = array('err' => true, 'Mensaje' => $hecho1);
+}
 
-$hecho = Database::ejecutar_idu($sql);
+
+$sql1 = "UPDATE equipos SET idCliente='$idCnvo' WHERE equipos.idEquipo= $idEquipo";
+
+$hecho = Database::ejecutar_idu($sql1);
 
 if (is_numeric($hecho) OR $hecho == true) {
     $respuesta = array('err' => false, 'Mensaje' => 'Registro actualizado');

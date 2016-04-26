@@ -7,32 +7,25 @@ app.controller('transCtrl', ['$scope', '$http', 'Transferencias', '$routeParams'
         $scope.transferencias = {};
 
 
-
         $scope.moverK = function (pag) {
             Transferencias.cargarTrans(pag).then(function () {
                 $scope.transferencias = Transferencias;
-
+                console.log()
             });
         };
 
         $scope.moverK(pag);
 
 
+        //================================================================
+        // MOSTRAR FORMULARIO
+        //================================================================
+
         $scope.infoTrans = {};
         $http.get('./php/getFormularioTrans.php?c=' + codigo).success(function (data) {
             $scope.infoTrans = data;
 
         });
-
-        //================================================================
-        // MOSTRAR MODAL 
-        //================================================================
-//
-//        $scope.mostrarModalTrans = function () {
-//            $("#modal_trans").modal();
-//            $scope.infoTrans ={};
-//        };
-
 
 
         //=================================================================
@@ -53,15 +46,15 @@ app.controller('transCtrl', ['$scope', '$http', 'Transferencias', '$routeParams'
         // FUNCION GUARDAR DATOS
         //=================================================================
 
-        $scope.guardarTrans = function () {
-            $http.post('./php/guardarTransferencia.php', $scope.infoTrans).success(function () {
-//                    
-//                    self.cargarTrans( self.pag_actual );
-//                    
-//                    d.resolve();
-//                });
-            });
+        $scope.actualiza = false;
 
+
+        $scope.guardarTrans = function ( idCliente ) {
+            $http.post('./php/guardarTransferencia.php', $scope.infoTrans).success(function () {
+                console.log($scope.infoTrans);
+            });
+            $scope.actualiza = true;
+            swal("Excelente!", "Transferencia Realizada!", "success")
         };
 
     }]);

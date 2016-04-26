@@ -16,9 +16,9 @@
                         <thead>
                             <tr class="tblTitulo">
                                 <th>VENTA</th>
-                                <th>CLIENTE</th>
-                                <th>PROPIETARIO</th>
                                 <th>EQUIPO</th>
+                                <th>CLIENTE</th>
+                      <!--          <th>PROPIETARIO</th> -->
                                 <th>MARCA</th>
                                 <th>MODELO</th>
                                 <th>SERIE</th>
@@ -30,9 +30,9 @@
                         <tbody>
                             <tr ng-repeat="equipo in equipos.equipos" class="tblLetras">
                                 <td>{{equipo.fechaVenta|uppercase}}</td>
-                                <td>{{equipo.nombre|uppercase}}</td>
-                                <td>{{equipo.propietario|uppercase}}</td>
                                 <td>{{equipo.equipo|uppercase}}</td>
+                                <td>{{equipo.nombre|uppercase}}</td>
+                          <!--      <td>{{equipo.propietario|uppercase}}</td>-->
                                 <td>{{equipo.marca|uppercase}}</td>
                                 <td>{{equipo.modelo|uppercase}}</td>
                                 <td>{{equipo.serie|uppercase}}</td>
@@ -56,8 +56,8 @@
                             <li 
                                 ng-repeat="pag in equipos.paginas"
                                 ng-class="{
-                                    'active': equipos.pag_actual == pag
-                                }">
+                                            'active': equipos.pag_actual == pag
+                                        }">
                                 <a ng-click="moverY(pag)">{{pag}}</a>
                             </li>
                             <li><a ng-click="moverY(equipos.total_paginas)">»</a></li>
@@ -65,7 +65,6 @@
                     </div>
                 </div><!-- /.box-body -->   
             </div><!-- /.box -->
-<!--S            <div ng-include="'template/modal_transferir.html'" ></div>-->
             <div ng-include="'template/modal_equipo.html'" ></div>
         </div>    
     </div>

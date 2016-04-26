@@ -311,7 +311,7 @@ class Database {
                 $sql = "SELECT * from $tabla ORDER BY ciudad ASC limit $desde, $por_pagina ";
                 break;
             case 'sucursales':
-                $sql = "SELECT s.idSucursal,s.sucursal, c.nombre, c.idCliente FROM sucursales s INNER JOIN clientes c ON s.idCliente = c.idCliente ORDER BY sucursal ASC limit $desde, $por_pagina";
+                $sql = "SELECT s.idSucursal,s.sucursal, i.ciudad, i.idCiudad  ,c.nombre, c.idCliente FROM sucursales s INNER JOIN ciudades i ON i.idCiudad = s.idCiudad INNER JOIN clientes c ON s.idCliente = c.idCliente ORDER BY sucursal ASC limit $desde, $por_pagina";
                 break;
             case 'tecnicos':
                 $sql = "SELECT * from $tabla ORDER BY tecnico ASC limit $desde, $por_pagina ";
@@ -326,7 +326,7 @@ class Database {
                 $sql = "SELECT * from $tabla ORDER BY tipo ASC limit $desde, $por_pagina ";
                 break;
             case 'clientes':
-                $sql = "SELECT c.idCliente, c.nombre, d.ciudad, s.sucursal, c.direccion, c.telefono, c.contacto, c.correo FROM clientes c INNER JOIN ciudades d ON d.idCiudad = c.idCiudad INNER JOIN sucursales s ON s.idSucursal= c.idSucursal ORDER BY c.nombre ASC limit $desde, $por_pagina";
+                $sql = "SELECT idCliente, nombre, direccion, telefono, contacto, correo FROM clientes ORDER BY nombre ASC limit $desde, $por_pagina";
                 break;
             case 'equipos':
                 $sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, e.fechaVenta FROM equipos e INNER JOIN clientes c ON c.idCliente = e.idCliente ORDER BY fechaVenta DESC limit $desde, $por_pagina";
@@ -335,9 +335,16 @@ class Database {
                 $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, c.tecnico, s.fechaFinalizacion, e.equipo, s.realizado, l.nombre FROM servicios s INNER JOIN tiposervicio t ON t.idTipo = s.idTipo INNER JOIN tecnicos c ON c.idTecnico = s.idTecnico INNER JOIN equipos e ON e.idEquipo = s.idEquipo INNER JOIN clientes l ON l.idCliente = s.idCliente ORDER BY s.fechaInicio DESC limit $desde, $por_pagina";
                 break;
             case 'transferencias':
-                $sql = "SELECT t.idTransferencia, e.equipo, e.serie ,c.nombre, t.fechaTransferencia, c.nombre FROM transferencias t INNER JOIN equipos e ON e.idEquipo = t.idEquipo INNER JOIN clientes c ON c.idCliente = t.idCliente ORDER BY t.fechaTransferencia DESC limit $desde, $por_pagina";
+//                $sql = "SELECT t.idTransferencia, e.equipo, e.serie ,c.nombre, t.fechaTransferencia, (SELECT nombre FROM clientes WHERE idClienteAnt=c.idCliente) as nombre1 FROM transferencias t"
+//                    . " INNER JOIN equipos e ON e.idEquipo = t.idEquipo "
+//                    . "INNER JOIN clientes c ON c.idCliente = t.idCliente "
+//                    
+//                    . "ORDER BY t.fechaTransferencia "
+//                    . "DESC limit $desde, $por_pagina";
+//                break;
+                $sql = "SELECT t.idTransferencia, e.equipo, e.serie ,c.nombre, t.fechaTransferencia, c1.nombre as nombre1 FROM transferencias t INNER JOIN equipos e ON e.idEquipo = t.idEquipo INNER JOIN clientes c ON c.idCliente = t.idCliente INNER JOIN clientes c1 ON c1.idCliente = t.idClienteAnt ORDER BY t.fechaTransferencia DESC  limit $desde, $por_pagina ";
                 break;
-            default:
+                default:
                 echo "Hola";
                 break;
         }

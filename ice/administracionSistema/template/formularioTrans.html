@@ -1,24 +1,29 @@
-<section class="content">
-    <div class="col-sm-8 col-sm-offset-2" ng-controller="transCtrl">
+<section class="content texto">
+    <div class="col-sm-1">
+    <a href="#/equipos/1" class="text-aqua">
+        <i class="fa fa-arrow-circle-left fa-4x" title="Regresar a Equipos"></i> 
+    </a>
+    </div>
+    <div class="col-sm-8 col-sm-offset-1" ng-controller="transCtrl">
         <div class="panel panel-body">
             <form ng-submit="guardarTrans(infoTrans)">
 
                 <div class="modal-body">
 
                     <div class="form-group-sm">
-                        <label>Cliente Actual:  </label>
-                        {{infoTrans.nombre}}
+                        <label>CLIENTE ACTUAL:   </label>
+                        {{infoTrans.nombre| uppercase}}
 
                     </div>
                     <br>
                     <div class="form-group-sm">
-                        <label>Equipo:  </label>
-                        {{infoTrans.equipo}}
+                        <label>EQUIPO:  </label>
+                        {{infoTrans.equipo | uppercase}}
 
                     </div>
                     <br>
                     <div class="form-group-sm form-inline">
-                        <label>Fecha de Transferencia</label>
+                        <label>FECHA DE TRANSFERENCIA: </label>
                         <input 
                             type="date" 
                             name="date_control" 
@@ -27,7 +32,7 @@
                     </div>
                     <br>
                     <div class="form-group-sm form-inline">
-                        <label>Cliente Nuevo</label>
+                        <label>CLIENTE NUEVO: </label>
                         <select  
                             ng-model="infoTrans.clienteNvo" 
                             class="form-control" 
@@ -36,12 +41,16 @@
                     </div> 
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i> Guardar
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-exchange"></i> Transferir
                         </button>
                     </div>
-{{infoTrans| json}}
                 </div><!-- /.modal-content -->
+                <!--<h4 class="text-info animated fadeIn fast registro" ng-show="actualiza">Registro realizado </h4> 
+                    <br><br>-->
+                <h4> <a href="#/equipos/1" ng-show="actualiza" style="float: left"><i class="fa fa-arrow-left"></i>  Regresar a Equipos</a>   
+                    <a href="#/transferencias/1" ng-show="actualiza" style="float: right">Ir a Transferencias  <i class="fa fa-arrow-right"></i> </a> </h4>
+                
             </form>
         </div>
     </div>

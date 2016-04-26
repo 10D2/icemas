@@ -20,13 +20,6 @@
                                 <th>CLIENTE</th>
                                 <th>EQUIPO</th>
                                 <th>DESCRIPCION</th>
-                                <!--<th>Próximo</th>
-                                <th>Refacciones</th>
-                                <th>Tipo</th>
-                                <th>Técnico</th>
-                                <th>Final</th>-->
-                                <!-- <th>Realizado</th>-->
-                                <!-- <th>DETALLES</th>-->
                                 <th class="btnEditar">EDITAR</th>
                             </tr>
                         </thead>
@@ -37,19 +30,6 @@
                                 <td>{{servicio.nombre|uppercase}}</td>
                                 <td>{{servicio.equipo|uppercase}}</td>
                                 <td>{{servicio.descripcion|uppercase}}</td>
-                                <!--  <td>{{servicio.proximo}}</td>
-                                  <td>{{servicio.refacciones|uppercase}}</td>
-                                  <td>{{servicio.tipo|uppercase}}</td>
-                                  <td>{{servicio.tecnico|uppercase}}</td>
-                                  <td>{{servicio.fechaFinalizacion}}</td>-->
-
-                                <!-- <td>{{servicio.realizado}}</td>-->
-
-                                <!--  <td style="text-align: center">
-                                      <a ng-click="mostralModalServicios(ts.idServicio)" class="btn btn-info">
-                                          <i class="fa fa-plus-square"></i>
-                                      </a>
-                                  </td>-->
                                 <td class="btnEditar">
                                     <a ng-click="mostrarModalServicio(servicio)" class="btn btn-warning btn-xs">
                                         <i class="fa fa-edit"></i>

@@ -13,31 +13,13 @@
 
                    <div class="form-group-sm">
                         <label>Cliente Actual:  </label>
-                        {{infoTrans.nombre}}
-                    
+                        {{infoTrans.nombre}}               
                     </div>
-               <!--    <div class="form-group-sm form-inline">
-                        <label>Cliente Anterior</label>
-                        <select  
-                            ng-model="infoTrans.clienteAnt" 
-                            class="form-control" 
-                            ng-options="cant as cant.nombre for cant in nomCliente track by cant.idCliente"> 
-                        </select>
-                    </div> -->
                     <br>
                    <div class="form-group-sm">
                         <label>Equipo:  </label>
-                        {{infoTrans.equipo}}
-                    
+                        {{infoTrans.equipo}}                   
                     </div>
-          <!--        <div class="form-group-sm form-inline">
-                        <label>Equipo</label>
-                        <select  
-                            ng-model="infoTrans.selecEquipo" 
-                            class="form-control" 
-                            ng-options="selEquipo as selEquipo.equipo for selEquipo in nomEquipo track by selEquipo.idEquipo"> 
-                        </select>
-                  </div>-->
                     <br>
                     <div class="form-group-sm form-inline">
                         <label>Fecha de Transferencia</label>
@@ -55,17 +37,14 @@
                             class="form-control" 
                             ng-options="cnvo as cnvo.nombre for cnvo in nomCliente track by cnvo.idCliente"> 
                         </select>
-                    </div> 
-
+                    </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-save"></i> Guardar
                         </button>
                     </div>
-
                 </div><!-- /.modal-content -->
             </form>
-            
         </div><!-- /.modal-dialog -->
     </div>
 </div>

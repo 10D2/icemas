@@ -10,8 +10,6 @@ $request = (array) $request;
 //echo var_dump($request);
 
 $nombre = $request['nombre'];
-$idCiudad = $request['eligeCd'];
-$idSucursal = $request['elige'];
 $direccion = $request['direccion'];
 $telefono = $request['telefono'];
 $contacto = $request['contacto'];
@@ -19,11 +17,9 @@ $correo = $request['correo'];
 
 $idCliente = $request['idCliente'];
 
-$idC = $idCiudad->idCiudad;
-$idS = $idSucursal->idSucursal;
 
 if (isset($request['idCliente'])) { //ACTUALIZAR
-    $sql = "UPDATE clientes SET nombre='$nombre', idCiudad='$idC', idSucursal='$idS', direccion='$direccion', telefono='$telefono', contacto='$contacto', correo='$correo' WHERE clientes.idCliente=$idCliente";
+    $sql = "UPDATE clientes SET nombre='$nombre', direccion='$direccion', telefono='$telefono', contacto='$contacto', correo='$correo' WHERE clientes.idCliente=$idCliente";
 
     $hecho = Database::ejecutar_idu($sql);
 
@@ -33,7 +29,7 @@ if (isset($request['idCliente'])) { //ACTUALIZAR
         $respuesta = array('err' => true, 'Mensaje' => $hecho);
     }
 } else { //INSERTAR
-    $sql = "INSERT INTO clientes (nombre, idCiudad, idSucursal, direccion, telefono, contacto, correo) VALUES ('$nombre', '$idC', '$idS', '$direccion', '$telefono', '$contacto', '$correo')";
+    $sql = "INSERT INTO clientes (nombre, direccion, telefono, contacto, correo) VALUES ('$nombre', '$direccion', '$telefono', '$contacto', '$correo')";
     
     $hecho = Database::ejecutar_idu($sql);
 

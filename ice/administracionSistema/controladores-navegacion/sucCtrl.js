@@ -42,17 +42,24 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         //=================================================================
 
         $scope.guardarSuc = function (sucursal) {
-           
+
             Sucursales.guardarSucursal(sucursal).then(function () {
                 $("#modal_sucursales").modal('hide');
-                
-                
+
+
                 $scope.infoSuc = {};
                 // console.log(seleccion);
                 console.log(sucursal);
             });
 
         };
+
+
+        $scope.nomCiudad = {};
+        $http.get('./php/nombresCiudades.php').success(function (arrayCiudades) {
+            $scope.nomCiudad = arrayCiudades;
+        });
+//        
 //
 //        //=================================================================
 //        // FUNCION BORRAR

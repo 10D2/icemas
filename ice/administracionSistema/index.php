@@ -21,9 +21,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link href="../../css/sweetalert.css" rel="stylesheet" type="text/css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        
+
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        
+
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -65,25 +65,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">Toggle navigation</span>
                     </a>
-                    <!-- Navbar Menu Derecha -->
-                    <!-- <div class="navbar-custom-menu">
-                         <ul class="nav navbar-nav">
-                    <!-- Mensajes: style can be found in dropdown.less
-                    <li class="dropdown messages-menu"
-                        ng-include=" 'template/mensajes.html'">
-                    </li><!-- /.messages-menu -->
-
-                    <!-- Notificaciones Menu 
-                    <li class="dropdown notifications-menu"
-                        ng-include=" 'template/notificaciones.html'">
-                    </li>
-                    <!-- Menu Cuenta de Usuario 
-                    <li class="dropdown user user-menu"
-                        ng-include=" 'template/usuario.html'">
-                    </li> 
-
-                </ul>
-            </div>-->
                 </nav>
             </header>
             <!-- Left side column. contains the logo and sidebar -->
@@ -93,13 +74,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <!-- <section class="content-header">
-                     <h1>
-                         Page Header
-                         <small>Optional description</small>
-                     </h1>
-                 </section> -->
                 <!-- Main content -->
                 <section class="content" ng-view="">
 
@@ -108,18 +82,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Main Footer -->
             <footer class="main-footer">
-                <!-- To the right -->
-                <!--<div class="pull-right hidden-xs">
-                    <div class="row"> 
-                        <div class="col-sm-4 col-sm-offset-8">
-                            <hr>
-                            <p><i class="fa fa-copyright"></i>
-                                2016 | 10D2. Desarrollos Orientados para TI</p>
-                        </div>
-                    </div> <!-- /.row -->  
-               <!-- </div>-->
-                <!-- Default to the left -->
-                <!--<strong>Copyright &copy; {{config.anio}} <a href="#">Company</a>.</strong> All rights reserved.-->
                 <div ng-include=" 'template/footer.html'"></div>
             </footer>
 
@@ -155,8 +117,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="controladores-navegacion/usuarioCtrl.js"></script>
         <script src="controladores-navegacion/perfilCtrl.js"></script>
 
-        
-        
+
+
         <script src="servicios/ciudades_servicio.js"></script>
         <script src="servicios/tipoServicio_servicio.js"></script>
         <script src="servicios/sucursales_servicio.js"></script>
@@ -167,9 +129,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="servicios/equipos_servicio.js"></script>
         <script src="servicios/servicios_servicio.js"></script> 
         <script src="servicios/transferencias_servicio.js"></script> 
-        
+
         <!-- SWEET ALERT -->
         <script src="../../angular/librerias/sweetalert.min.js"></script>
-        
+
     </body>
 </html>
