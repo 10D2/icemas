@@ -1,4 +1,7 @@
 /* == General ==*/
+body{
+    cursor: default;
+}
 
 .iconos{
     margin-left: 20px;

@@ -18,7 +18,7 @@
                             ng-model="infoServicio.fechaInicio"/>
                     </div>
                     <br>
-                    <div class="form-group-xs form-inline">
+                    <div class="form-group-sm form-inline">
                         <label>Fecha de Finalización</label>
                         <input 
                             type="date" 
@@ -41,9 +41,6 @@
                             placeholder="Descripción del servicio"
                             required="required"
                             ng-model="infoServicio.descripcion"></textarea>
-                <!--        <input 
-                            type="text" 
-                            /> -->
                     </div>
                     <br>
                     <div class="form-group-sm">
@@ -62,8 +59,6 @@
                             placeholder="Refacciones utilizadas"
                             required="required"
                             ng-model="infoServicio.refacciones"></textarea>
-                      <!--  <input 
-                            /> -->
                     </div>
                     <br>
                     <div class="form-group-sm form-inline">
@@ -87,8 +82,10 @@
                         <select  
                             ng-model="infoServicio.equipoSel" 
                             class="form-control" 
-                            ng-options="equipo as '(' +equipo.equipo + ')'+ '  ' + equipo.caracteristicas +'  '+ '('+ equipo.serie+ ')' for equipo in nomEquipo track by equipo.idEquipo"> 
+                            ng-options="equipo as '' +equipo.equipo +'  '+'|'+ '  ' + equipo.caracteristicas +' | '+ 'No.Serie:'+ '  '+equipo.serie+ '' for equipo in nomEquipo track by equipo.idEquipo"> 
                         </select>
+                    </div>
+                    <br>
                     <div class="form-group-sm form-inline">
                         <label>Realizado</label>
                         <select  

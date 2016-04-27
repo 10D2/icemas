@@ -6,12 +6,15 @@
                 <div class="box-header with-border ali">
                     <h3 class="box-title">TIPOS DE SERVICIOS</h3>
                     <div class="input-group" style="float: right">
-                        <a ng-click="modalTservicios({})" class="btn btn-info  btnNuevo btn-xs" >
+                        <a ng-click="modalTservicios({})" class="btn btn-info btnNuevo btn-xs hidden-xs hidden-sm visible-lg visible-md">
                             <i class="fa fa-plus"></i> Agregar
+                        </a>
+                        <a ng-click="modalTservicios({})" class="btn btn-info  btnNuevo btn-xs visible-xs visible-sm hidden-lg hidden-md">
+                            <i class="fa fa-plus fa-2" title="Agregar"></i>
                         </a>
                     </div>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div class="box-body table-responsive no-padding">
                     <table class="table table-striped table-responsive">
                         <thead>
                             <tr class="tblTitulo">
