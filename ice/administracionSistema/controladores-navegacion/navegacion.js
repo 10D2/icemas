@@ -2,48 +2,53 @@ app.config(['$routeProvider', function ($routeProvider) {
 
         $routeProvider
                 .when('/', {
-                    templateUrl: 'sucursales.html'
+                    templateUrl: 'servicios.html'
                 })
-                .when('/clientes/:pag', {
+                .when('/clientes', {
                     templateUrl: 'clientes.html'
                 })
                 .when('/formularioTrans/:idEquipo', {
                     templateUrl: 'template/formularioTrans.html'
                 })
-                .when('/sucursales/:pag', {
+                .when('/sucursales', {
                     templateUrl: 'sucursales.html'
                 })
                 .when('/formularioSuc/:idSucursal', {
                     templateUrl: 'formularios/formularioSuc.html'
                 })
-                .when('/ciudades/:pag', {
+                .when('/ciudades', {
                     templateUrl: 'ciudades.html'
                 })
-                .when('/tiposServicio/:pag', {
+                .when('/tiposServicio', {
                     templateUrl: 'tiposServicio.html'
                 })
-                .when('/servicios/:pag', {
+                .when('/servicios', {
                     templateUrl: 'servicios.html'
                 })
                 .when('/marcas', {
                     templateUrl: 'marcas.html'
                 })
-                .when('/transferencias/:pag', {
+                .when('/transferencias', {
                     templateUrl: 'transferencias.html'
                 })
-                .when('/tecnicos/:pag', {
+                .when('/tecnicos', {
                     templateUrl: 'tecnicos.html'
                 })
-                .when('/equipos/:pag', {
+                .when('/equipos', {
                     templateUrl: 'equipos.html'
                 })
-                .when('/usuarios/:pag', {
+                .when('/usuarios', {
                     templateUrl: 'usuarios.html'
                 })
-                .when('/perfiles/:pag', {
+                .when('/perfiles', {
                     templateUrl: 'perfiles.html'
                 })
-                
+                .when('/subirPdf1/:idServicio', {
+                    templateUrl: 'template/subirPdf1.html'
+                })
+                .when('/visor', {
+                    templateUrl: 'template/visor.html'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

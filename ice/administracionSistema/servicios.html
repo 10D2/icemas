@@ -1,7 +1,7 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12 texto" ng-controller="serviciosCtrl">
-             <div class="box-tools col-sm-4 col-xs-4 visible-lg visible-md hidden-sm hidden-xs" style="float: right">
+            <div class="box-tools col-sm-4 col-xs-4 visible-lg visible-md hidden-sm hidden-xs" style="float: right">
                 <div class="input-group" style="width: 300px;">
                     <input type="text" ng-model="busqueda1" class="form-control input-sm pull-right" placeholder="Ingrese lo que desea buscar">
                     <div class="input-group-btn">
@@ -11,9 +11,9 @@
             </div>
             <div class="box-tools col-sm-4 col-xs-4 visible-xs visible-sm hidden-md hidden-lg">
                 <div class="input-group" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Buscar">
+                    <input type="text" ng-model="busqueda1" class="form-control input-sm pull-right" placeholder="Buscar">
                     <div class="input-group-btn">
-                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-sm btn-info"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -23,44 +23,53 @@
                 <div class="box-header with-border ali">
                     <h3 class="box-title">SERVICIOS</h3>
                     <div class="input-group" style="float: right">
-                    <a ng-click="mostrarModalServicio({})" class="btn btn-info  btnNuevo btn-xs">
-                        <i class="fa fa-plus-circle"></i> Agregar 
-                    </a>
-                </div>
+                        <a ng-click="mostrarModalServicio({})" class="btn btn-info  btnNuevo btn-xs">
+                            <i class="fa fa-plus-circle"></i> Agregar 
+                        </a>
+                    </div>
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-striped table-responsive">
                         <thead>
                             <tr class="tblTitulo">
-                                <th>FECHA
-                                    <a ng-click="columna2='fechaInicio'; reverse = !reverse;">
-                                        <i class="fa fa-unsorted"></i>
-                                    </a>
+                                <th class="btnEditar col-sm-1 text-primary">FOLIO  
                                 </th>
-                                <th class="btnEditar col-sm-1">FOLIO
-                                    <a ng-click="columna2='folio'; reverse = !reverse;">
+                                <th> VER</th>
+                                <th class="col-sm-1">FECHA
+                                    <a ng-click="columna2 = 'fechaInicio'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
                                     </a>
                                 </th>
                                 <th>CLIENTE
-                                    <a ng-click="columna2='nombre'; reverse = !reverse;">
+                                    <a ng-click="columna2 = 'nombre'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
                                     </a>
                                 </th>
                                 <th class="text-primary">EQUIPO</th>
                                 <th class="text-primary">SERIE</th>
                                 <th class="text-primary">DESCRIPCION</th>
+                                <th class="text-primary">PDF</th>
                                 <th class="btnEditar text-primary">EDITAR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="servicio in servicios.servicios | filter:busqueda1 | orderBy:columna2:reverse" class="tblLetras">
-                                <td>{{servicio.fechaInicio}}</td>
+                            <tr ng-repeat="servicio in servicios.servicios| filter:busqueda1 | orderBy:columna2:reverse" class="tblLetras">
                                 <td class="btnEditar">{{servicio.folio}}</td>
+                                <td>
+                                    <a ng-href="{{servicio.nombreArchivo}}" target="_blank">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                    </a>
+                                </td>
+                                <td>{{servicio.fechaInicio}}</td>
                                 <td>{{servicio.nombre|uppercase}}</td>
                                 <td>{{servicio.equipo|uppercase}}</td>
                                 <td>{{servicio.serie|uppercase}}</td>
                                 <td>{{servicio.descripcion|uppercase}}</td>
+                                <td>
+                                    <a href="#/subirPdf1/{{servicio.idServicio}}" class="btn btn-xs btn-primary">
+                                        <i class="fa fa-arrow-circle-up"></i>
+                                    </a>
+                                </td>
                                 <td class="btnEditar">
                                     <a ng-click="mostrarModalServicio(servicio)" class="btn btn-warning btn-xs">
                                         <i class="fa fa-edit"></i>
@@ -69,19 +78,19 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="box-footer clearfix">
-                        <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a ng-click="moverX(1)">«</a></li>
-                            <li 
-                                ng-repeat="pag in servicios.paginas"
-                                ng-class="{
-                                            'active': servicios.pag_actual == pag
-                                        }">
-                                <a ng-click="moverX(pag)">{{pag}}</a>
-                            </li>
-                            <li><a ng-click="moverX(servicios.total_paginas)">»</a></li>
-                        </ul>
-                    </div>
+                    <!--              <div class="box-footer clearfix">
+                                      <ul class="pagination pagination-sm no-margin pull-right">
+                                          <li><a ng-click="moverX(1)">«</a></li>
+                                          <li 
+                                              ng-repeat="pag in servicios.paginas"
+                                              ng-class="{
+                                                          'active': servicios.pag_actual == pag
+                                                      }">
+                                              <a ng-click="moverX(pag)">{{pag}}</a>
+                                          </li>
+                                          <li><a ng-click="moverX(servicios.total_paginas)">»</a></li>
+                                      </ul>
+                                  </div>-->
                 </div><!-- /.box-body -->
 
             </div><!-- /.box -->

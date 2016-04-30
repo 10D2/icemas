@@ -29,7 +29,7 @@ class conexion {
     
     
 //    function Conectarse() {
-//        if (!($link = mysql_connect("localhost", "elvocero", "Oriente65"))) {
+//        if (!($link = mysql_connect("localhost", "darias66", "Oriente65"))) {
 //            echo "Error conectando a la base de datos.";
 //            exit();
 //        }
