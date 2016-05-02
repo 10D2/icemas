@@ -39,7 +39,9 @@
                         <select  
                             ng-model="infoUser.seleccionar" 
                             class="form-control" 
+                            ng-change="obtenerInfoPerfil();"
                             ng-options="per as per.perfil for per in nomPerfil track by per.idPerfil"> 
+                           
                         </select>
                     </div> 
                     <div class="modal-footer">
@@ -47,6 +49,7 @@
                             <i class="fa fa-save"></i> Guardar
                         </button>
                     </div>
+                    {{infoUser.seleccionar}}
                 </div><!-- /.modal-content -->
             </form>
         </div><!-- /.modal-dialog -->

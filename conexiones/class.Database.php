@@ -338,7 +338,7 @@ FROM servicios s
 LEFT JOIN tiposervicio t ON t.idTipo = s.idTipo 
 LEFT JOIN tecnicos c ON c.idTecnico = s.idTecnico 
 LEFT JOIN equipos e ON e.idEquipo = s.idEquipo 
-LEFT JOIN archivospdf p ON p.idImagen = s.idServicio
+LEFT JOIN archivospdf p ON p.idServicio = s.idServicio
 LEFT JOIN clientes l ON l.idCliente = s.idCliente ORDER BY s.folio ASC";
 //                $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, c.tecnico, s.fechaFinalizacion, e.equipo, e.serie , s.realizado, l.nombre FROM servicios s INNER JOIN tiposervicio t ON t.idTipo = s.idTipo INNER JOIN tecnicos c ON c.idTecnico = s.idTecnico INNER JOIN equipos e ON e.idEquipo = s.idEquipo INNER JOIN clientes l ON l.idCliente = s.idCliente ORDER BY s.folio ASC";
                 break;

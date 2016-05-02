@@ -34,7 +34,7 @@
                             <tr class="tblTitulo">
                                 <th class="btnEditar col-sm-1 text-primary">FOLIO  
                                 </th>
-                                <th> VER</th>
+                                <th class="btnEditar text-primary"> VER</th>
                                 <th class="col-sm-1">FECHA
                                     <a ng-click="columna2 = 'fechaInicio'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
@@ -55,9 +55,9 @@
                         <tbody>
                             <tr ng-repeat="servicio in servicios.servicios| filter:busqueda1 | orderBy:columna2:reverse" class="tblLetras">
                                 <td class="btnEditar">{{servicio.folio}}</td>
-                                <td>
-                                    <a ng-href="{{servicio.nombreArchivo}}" target="_blank">
-                                        <i class="fa fa-file-pdf-o"></i>
+                                <td class="btnEditar">
+                                    <a ng-if="servicio.nombreArchivo" ng-href="{{servicio.nombreArchivo}}" target="_blank" class="btn btn-xs btn-default">
+                                        <i class="fa fa-file-pdf-o" ></i> 
                                     </a>
                                 </td>
                                 <td>{{servicio.fechaInicio}}</td>
@@ -66,7 +66,7 @@
                                 <td>{{servicio.serie|uppercase}}</td>
                                 <td>{{servicio.descripcion|uppercase}}</td>
                                 <td>
-                                    <a href="#/subirPdf1/{{servicio.idServicio}}" class="btn btn-xs btn-primary">
+                                    <a ng-if="!servicio.nombreArchivo" href="#/subirPdf/{{servicio.idServicio}}" class="btn btn-xs btn-primary">
                                         <i class="fa fa-arrow-circle-up"></i>
                                     </a>
                                 </td>

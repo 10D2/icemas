@@ -1,5 +1,6 @@
 app.controller('subirPdfCtrl', ['$scope', '$routeParams', '$http', 'subir', function ($scope, $routeParams, $http, subir) {
 
+
         var codigo = $routeParams.idServicio;
         $scope.actualizar = false;
 
@@ -8,17 +9,22 @@ app.controller('subirPdfCtrl', ['$scope', '$routeParams', '$http', 'subir', func
             var file = $scope.file;
             subir.archivo(file, codigo);
 
+            $scope.actualiza = true;
+            swal("Excelente!", "Archivo guardado!", "success");
+            
+            return window.location.href = "#/servicios";
+
         };
 
         $scope.docPdf = {};
 
 
 //        $scope.visualizar = function (codigo) {
-            $http.get('./php/getDocumentoPdf.php?c=' + codigo).success(function (data) {
-                alert(data);
+        $http.get('./php/getDocumentoPdf.php?c=' + codigo).success(function (data) {
 
-                $scope.docPdf = data;
-            });
+
+            $scope.docPdf = data;
+        });
 //        };
 
     }])

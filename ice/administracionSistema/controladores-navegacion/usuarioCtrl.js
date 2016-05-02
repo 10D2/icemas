@@ -39,16 +39,27 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
         });
 
 
+
+        $scope.obtenerInfoPerfil = function () {
+            $scope.idPerfil = $scope.infoUser.seleccionar.idPerfil;
+            console.log($scope.idPerfil);
+            $http.post("./php/getPerfilesModal.php?idPerfil=" + $scope.idPerfil).success(function (info) {
+                $scope.arrayPerfiles1 = info;
+            });
+        };
+
+
+
         //=================================================================
         // FUNCION GUARDAR DATOS
         //=================================================================
 
         $scope.guardarUser = function (usuario) {
-           
+
             Usuarios.guardarUsuarios(usuario).then(function () {
                 $("#modal_usuarios").modal('hide');
-                
-                
+
+
                 $scope.infoUser = {};
                 console.log(usuario);
             });
@@ -72,6 +83,9 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
         };
 
     }]);
+
+
+
 
 
 

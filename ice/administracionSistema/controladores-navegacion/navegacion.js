@@ -43,8 +43,8 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/perfiles', {
                     templateUrl: 'perfiles.html'
                 })
-                .when('/subirPdf1/:idServicio', {
-                    templateUrl: 'template/subirPdf1.html'
+                .when('/subirPdf/:idServicio', {
+                    templateUrl: 'template/subirPdf.html'
                 })
                 .when('/visor', {
                     templateUrl: 'template/visor.html'
