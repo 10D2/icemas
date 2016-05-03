@@ -32,6 +32,7 @@
                     <table class="table table-striped table-responsive">
                         <thead>
                             <tr class="tblTitulo">
+                                <th class="btnEditar text-primary">No.</th>
                                 <th>CLIENTE
                                     <a ng-click="columna4 = 'nombre'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
@@ -46,6 +47,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="usuario in usuarios.usuarios | filter:busqueda4 | orderBy:columna4:reverse" class="tblLetras">
+                                <td class="btnEditar text-primary"><b>{{$index+1}}</b></td>
                                 <td>{{usuario.nombre|uppercase}}</td>
                                 <td>{{usuario.usuario|uppercase}}</td>
                                 <td>{{usuario.contrasena}}</td>

@@ -67,6 +67,7 @@
                             ng-model="infoServicio.tipoSel" 
                             class="form-control" 
                             ng-options="tS as tS.tipo for tS in nomTservicio track by tS.idTipo"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                    
                         <label>Técnico</label>
@@ -74,6 +75,7 @@
                             ng-model="infoServicio.tecnicoSel" 
                             class="form-control" 
                             ng-options="tec as tec.tecnico for tec in nomTecnicos track by tec.idTecnico"> 
+                            <option value="" selected hidden> <option>    
                         </select>
                     </div> 
                     <br>
@@ -83,6 +85,7 @@
                             ng-model="infoServicio.equipoSel" 
                             class="form-control" 
                             ng-options="equipo as '' +equipo.equipo +'  '+'|'+ '  ' + equipo.caracteristicas +' | '+ 'No.Serie:'+ '  '+equipo.serie+ '' for equipo in nomEquipo track by equipo.idEquipo"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                     </div>
                     <br>
@@ -92,12 +95,14 @@
                             ng-model="infoServicio.selecSiNo" 
                             class="form-control" 
                             ng-options="item as item.name for item in items track by item.id"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                         <label>Cliente</label>
                         <select  
                             ng-model="infoServicio.nombreSel" 
                             class="form-control" 
                             ng-options="nombreS as nombreS.nombre for nombreS in nomCliente track by nombreS.idCliente"> 
+                            <option value="" selected hidden> <option>    
                         </select>
                     </div>
 

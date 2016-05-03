@@ -11,12 +11,12 @@
 
                 <div class="modal-body">
 
-                   <div class="form-group-sm">
+                    <div class="form-group-sm">
                         <label>Cliente Actual:  </label>
                         {{infoTrans.nombre}}               
                     </div>
                     <br>
-                   <div class="form-group-sm">
+                    <div class="form-group-sm">
                         <label>Equipo:  </label>
                         {{infoTrans.equipo}}                   
                     </div>
@@ -36,6 +36,7 @@
                             ng-model="infoTrans.clienteNvo" 
                             class="form-control" 
                             ng-options="cnvo as cnvo.nombre for cnvo in nomCliente track by cnvo.idCliente"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                     </div>
                     <div class="modal-footer">

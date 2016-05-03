@@ -22,6 +22,7 @@
                             ng-model="infoSuc.eligeCd" 
                             class="form-control" 
                             ng-options="cd as cd.ciudad for cd in nomCiudad track by cd.idCiudad"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                    
                         <label>Cliente</label>
@@ -30,6 +31,7 @@
                             ng-model="infoSuc.seleccionado" 
                             class="form-control" 
                             ng-options="client as client.nombre for client in nomCliente track by client.idCliente"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                     </div> 
                     <div class="modal-footer">

@@ -6,11 +6,7 @@
     }
 ?>  
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html ng-app="icemasAdminApp" ng-controller="iceCtrl">
+<html ng-app="icemAdminApp" ng-controller="icemasCtrl">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -110,36 +106,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="../../angular/librerias/jcs-auto-validate.min.js"></script>
 
         <!-- CONTROLADORES -->
-        <script src="controladores-navegacion/principalAdmin.js"></script>
+        <script src="controladores-navegacion/principal.js"></script>
         <script src="controladores-navegacion/navegacion.js"></script>
-        <script src="controladores-navegacion/sucCtrl.js"></script>
-        <script src="controladores-navegacion/clientesCtrl.js"></script>
-        <script src="controladores-navegacion/ciudadesCtrl.js"></script>
+
+ 
         <script src="controladores-navegacion/serviciosCtrl.js"></script>
-        <script src="controladores-navegacion/marcasCtrl.js"></script>
-        <script src="controladores-navegacion/transferenciaCtrl.js"></script>
-        <script src="controladores-navegacion/tecnicoCtrl.js"></script>
         <script src="controladores-navegacion/equiposCtrl.js"></script>
-        <script src="controladores-navegacion/tServCtrl.js"></script>
-        <script src="controladores-navegacion/usuarioCtrl.js"></script>
-        <script src="controladores-navegacion/perfilCtrl.js"></script>
+        
+     
+        <script src="../administracionSistema/servicios/equipos_servicio.js"></script>
+        <script src="../administracionSistema/servicios/servicios_servicio.js"></script> 
 
-        <script src="controladores-navegacion/subirPdf.js"></script>
-
-        <script src="servicios/ciudades_servicio.js"></script>
-        <script src="servicios/tipoServicio_servicio.js"></script>
-        <script src="servicios/sucursales_servicio.js"></script>
-        <script src="servicios/tecnicos_servicio.js"></script>
-        <script src="servicios/perfiles_servicio.js"></script>
-        <script src="servicios/usuarios_servicio.js"></script>
-        <script src="servicios/clientes_servicio.js"></script>
-        <script src="servicios/equipos_servicio.js"></script>
-        <script src="servicios/servicios_servicio.js"></script> 
-        <script src="servicios/transferencias_servicio.js"></script> 
-
-
-        <!-- SWEET ALERT -->
-        <script src="../../angular/librerias/sweetalert.min.js"></script>
+      
 
     </body>
 </html>

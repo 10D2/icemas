@@ -76,6 +76,7 @@
                             ng-model="infoEquipo.eligeCliente" 
                             class="form-control" 
                             ng-options="persona as persona.nombre for persona in nomCliente track by persona.idCliente"> 
+                            <option value="" selected hidden> <option>   
                         </select>
                         <label>Fecha de la venta</label>
                         <input 

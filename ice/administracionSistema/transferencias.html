@@ -28,6 +28,7 @@
                     <table class="table table-striped table-responsive">
                         <thead>
                             <tr class="tblTitulo">
+                                <th class="text-primary btnEditar">No.</th>
                                 <th>FECHA
                                 <a ng-click="columna3 = 'fechaTransferencia'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
@@ -41,6 +42,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="tranferencia in transferencias.transferencias| filter:busqueda3 | orderBy:columna2:reverse" class="tblLetras">
+                                <td class="btnEditar text-primary"><b>{{$index+1}}</b></td>
                                 <td>{{tranferencia.fechaTransferencia|uppercase}}</td>
                                 <td>{{tranferencia.equipo|uppercase}}</td>
                                 <td>{{tranferencia.serie|uppercase}}</td>

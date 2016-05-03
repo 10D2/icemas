@@ -4,7 +4,7 @@
 
             <div class="box-tools col-sm-4 col-xs-4 visible-lg visible-md hidden-sm hidden-xs" style="float: right">
                 <div class="input-group" style="width: 300px;">
-                    <input type="text" ng-model="busqueda" class="form-control input-sm pull-right" placeholder="Ingrese lo que desea buscar">
+                    <input type="text" ng-model="busqued4" class="form-control input-sm pull-right" placeholder="Ingrese lo que desea buscar">
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                     </div>
@@ -12,7 +12,7 @@
             </div>
             <div class="box-tools col-sm-4 col-xs-4 visible-xs visible-sm hidden-md hidden-lg">
                 <div class="input-group" style="width: 150px;">
-                    <input type="text" ng-model="busqueda" class="form-control input-sm pull-right" placeholder="Buscar">
+                    <input type="text" ng-model="busqued4" class="form-control input-sm pull-right" placeholder="Buscar">
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                     </div>
@@ -23,11 +23,6 @@
             <div class="box box-solid box-primary">
                 <div class="box-header with-border ali">
                     <h3 class="box-title">EQUIPOS</h3>
-                    <div class="input-group" style="float: right">
-                        <a ng-click="mostrarModalEquipo({})" class="btn btn-primary btnNuevo btn-xs">
-                            <i class="fa fa-plus-circle"></i> Agregar
-                        </a>
-                    </div>  
                 </div><!-- /.box-header -->
 
 
@@ -36,11 +31,6 @@
                         <thead>
                             <tr class="tblTitulo">
                                 <th class="btnEditar text-primary">No.</th>
-                                <th class="tblTitulo">CLIENTE
-                                    <a ng-click="columna = 'nombre'; reverse = !reverse;">
-                                        <i class="fa fa-unsorted"></i> 
-                                    </a>
-                                </th>
                                 <th class="text-primary">PROPIETARIO</th>
                                 <th class="text-primary">EQUIPO</th>
                                 <th class="text-primary">MARCA</th>
@@ -52,14 +42,11 @@
                                         <i class="fa fa-unsorted"></i>
                                     </a>
                                 </th>
-                                <th class="text-primary">EDITAR</th>
-                                <th class="text-primary">TRANSFERIR</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="equipo in equipos.equipos| filter:busqueda | orderBy:columna:reverse" class="tblLetras">
+                            <tr ng-repeat="equipo in equipos| filter:busqued4 | orderBy:columna:reverse" class="tblLetras">
                                 <td class="btnEditar text-primary"><b>{{$index+1}}</b></td>
-                                <td>{{equipo.nombre|uppercase}}</td>
                                 <td>{{equipo.propietario|uppercase}}</td>
                                 <td>{{equipo.equipo|uppercase}}</td>
                                 <td>{{equipo.marca|uppercase}}</td>
@@ -67,35 +54,11 @@
                                 <td>{{equipo.serie|uppercase}}</td>
                                 <td>{{equipo.caracteristicas|uppercase}}</td>
                                 <td>{{equipo.fechaVenta|uppercase}}</td>
-                                <td class="btnEditar">
-                                    <a ng-click="mostrarModalEquipo(equipo)" class="btn btn-warning btn-xs">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                </td>
-                                <td style="text-align: center" >
-                                    <a href="#/formularioTrans/{{equipo.idEquipo}}" class="btn btn-success btn-xs">
-                                        <i class=" fa fa-exchange"></i>
-                                    </a>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
-                    <!--       <div class="box-footer clearfix">
-                               <ul class="pagination pagination-sm no-margin pull-right">
-                                   <li><a ng-click="moverY(1)">«</a></li>
-                                   <li 
-                                       ng-repeat="pag in equipos.paginas"
-                                       ng-class="{
-                                                   'active': equipos.pag_actual == pag
-                                               }">
-                                       <a ng-click="moverY(pag)">{{pag}}</a>
-                                   </li>
-                                   <li><a ng-click="moverY(equipos.total_paginas)">»</a></li>
-                               </ul>
-                           </div> -->
                 </div><!-- /.box-body -->   
             </div><!-- /.box -->
-            <div ng-include="'template/modal_equipo.html'" ></div>
         </div>    
     </div>
 </section>

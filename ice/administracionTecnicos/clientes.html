@@ -24,11 +24,6 @@
             <div class="box box-solid box-primary">
                 <div class="box-header with-border ali">
                     <h3 class="box-title">CLIENTES</h3>
-                    <div class="input-group" style="float: right">
-                    <a ng-click="modalCliente({})" class="btn btn-primary btnNuevo btn-xs">
-                        <i class="fa fa-user-plus"></i> Agregar
-                    </a>
-                </div>
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-responsive table-striped">
@@ -44,7 +39,6 @@
                                 <th class="text-primary">TELEFONO</th>
                                 <th class="text-primary">CORREO</th>
                                 <th class="text-primary">CONTACTO</th>
-                                <th class="btnEditar text-primary">EDITAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,20 +49,11 @@
                                 <td>{{cliente.telefono|uppercase}}</td>
                                 <td>{{cliente.correo}}</td>
                                 <td>{{cliente.contacto|uppercase}}</td>
-                                <td class="btnEditar">
-                                    <a ng-click="modalCliente(cliente)" class="btn btn-warning btn-xs">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
-
-
                 </div><!-- /.box-body -->
-
             </div><!-- /.box -->
-            <div ng-include="'template/modal_cliente.html'" ></div>
         </div>    
     </div>
 </section>
