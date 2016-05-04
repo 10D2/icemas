@@ -42,7 +42,7 @@ if (isset($request['usuario']) && isset($request['contrasena'])) { // ACTUALIZAR
         $data_pass = Database::get_valor_query($sql, 'contrasena');
         
         $sql1= "SELECT idPerfil FROM usuarios WHERE usuario = '$user'";
-        $data_id = Database::get_valor_query($sql1, 'idPerfil');
+        $data_idPerfil = Database::get_valor_query($sql1, 'idPerfil');
 
         $sql2 = "SELECT idCliente FROM usuarios WHERE usuario ='$user'";
         $data_idCliente = Database::get_valor_query($sql2, 'idCliente');
@@ -54,12 +54,12 @@ if (isset($request['usuario']) && isset($request['contrasena'])) { // ACTUALIZAR
         
         if ($data_pass == $pass) {
 
-            switch ($data_id) {
+            switch ($data_idPerfil) {
             case '1':
                 $respuesta = array(
                     'err' => false,
                     'mensaje' => 'Login válido',
-                    'url' => '../ice/administracionSistema/index.php',
+                    'url' => '../administracionSistema/index.php',
 //                    'id'=>$data_cliente
                 );
                 break;
@@ -68,8 +68,9 @@ if (isset($request['usuario']) && isset($request['contrasena'])) { // ACTUALIZAR
                 $respuesta = array(
                     'err' => false,
                     'mensaje' => 'Login válido',
-                    'url' => '../ice/administracionClientes/index.php',
-                    'id'=>$data_idCliente
+                    'url' => '../administracionClientes/index.php#/servicios/',
+                    'idPerfil'=>$data_idPerfil,
+                    'idCliente'=>$data_idCliente
                 );
                 break;
 
@@ -77,11 +78,20 @@ if (isset($request['usuario']) && isset($request['contrasena'])) { // ACTUALIZAR
                 $respuesta = array(
                     'err' => false,
                     'mensaje' => 'Login válido',
-                    'url' => '../ice/administracionTecnicos/index.php',
+                    'url' => '../administracionTecnicos/index.php',
 //                    'id'=>$data_cliente
                 );
                 break;
-
+            
+            case '4':
+                $respuesta = array(
+                    'err' => false,
+                    'mensaje' => 'Login válido',
+                    'url' => '../administracionSistema/index.php',
+//                    'id'=>$data_cliente
+                );
+                break;
+            
             default:
                 echo "Hola";
                 break;
@@ -93,22 +103,6 @@ if (isset($request['usuario']) && isset($request['contrasena'])) { // ACTUALIZAR
             $sql = "UPDATE usuarios set ultimoacceso = NOW() where usuario = '$user'";
             Database::ejecutar_idu($sql);
         }
-        
-
-//        if ($data_pass == $pass) {
-//
-//            $respuesta = array(
-//                'err' => false,
-//                'mensaje' => 'Login válido',
-//                'url' => '../ice/administracionSistema/index.php'
-//            );
-//
-//            $_SESSION['user'] = $user;
-//
-//            // actualizar ultimo acceso
-//            $sql = "UPDATE usuarios set ultimoacceso = NOW() where usuario = '$user'";
-//            Database::ejecutar_idu($sql);
-//        }
     }
 }
 

@@ -112,8 +112,9 @@
  
         <script src="controladores-navegacion/serviciosCtrl.js"></script>
         <script src="controladores-navegacion/equiposCtrl.js"></script>
+        <script src="../login/login-js/login.js"></script>
+        <script src="../login/login-js/servicios/login_servicio.js"></script>
         
-     
         <script src="../administracionSistema/servicios/equipos_servicio.js"></script>
         <script src="../administracionSistema/servicios/servicios_servicio.js"></script> 
 

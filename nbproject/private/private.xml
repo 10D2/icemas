@@ -14,12 +14,12 @@
         <group>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consultaTblServicios.php</file>
             <file>file:/C:/xampp/htdocs/icemas/public/login-js/login.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consultaTblEquipos.php</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/servicios.html</file>
-            <file>file:/C:/xampp/htdocs/icemas/public/conexion/class.Database.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/equiposCtrl.js</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/navegacion.js</file>
             <file>file:/C:/xampp/htdocs/icemas/public/php/postVerificar.php</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/index.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/public/login.php</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/serviciosCtrl.js</file>
         </group>
     </open-files>

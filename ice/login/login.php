@@ -83,6 +83,9 @@
         <script src="login-js/login.js"></script>
         <script src="login-js/servicios/login_servicio.js"></script>
 
+        <script src="angular/angular-route.min.js"></script>    
+
+        
     </body>
 </html>
 

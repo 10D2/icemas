@@ -1,7 +1,8 @@
 var app = angular.module('icemAdminApp', [
-    'ngRoute',    
+    'ngRoute',
     'icemasAdminApp.equipos',
-    'icemasAdminApp.servicios'
+    'icemasAdminApp.servicios',
+    'loginApp'
 ]);
 
 angular.module('jcs-autoValidate')
@@ -15,8 +16,9 @@ angular.module('jcs-autoValidate')
         ]);
 
 
-app.controller('icemasCtrl', ['$scope', function ($scope) {
+app.controller('icemasCtrl', ['$scope', '$http' ,function ($scope, $http) {
 
+        
 
         //===================================================
         // FUNCIONES GLOBALES DEL SCOPE
@@ -30,6 +32,10 @@ app.controller('icemasCtrl', ['$scope', function ($scope) {
 
 
         };
+
+
+
+
     }]);
 
 

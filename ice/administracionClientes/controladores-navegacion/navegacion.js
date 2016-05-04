@@ -4,12 +4,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/', {
                     templateUrl: 'servicios.html'
                 })
-                .when('/clientes', {
-                    templateUrl: 'clientes.html'
-                })
-                .when('/servicios/:miID', {
+                .when('/servicios/:idCliente', {
                     templateUrl: 'servicios.html',
-                    controller: 'serviciosCtrl'
+                    controller:'serviciosCtrl'
                 })
                 .when('/equipos', {
                     templateUrl: 'equipos.html'
