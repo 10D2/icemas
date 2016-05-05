@@ -59,23 +59,7 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         $http.get('./php/nombresCiudades.php').success(function (arrayCiudades) {
             $scope.nomCiudad = arrayCiudades;
         });
-//        
-//
-//        //=================================================================
-//        // FUNCION BORRAR
-//        //=================================================================
-//
-//
-//        $scope.borrarCd = function (idSucu) {
-//            console.log(idCiudad);
-//            $http.get('./php/eliminarCiudad.php?id=' + idCiudad).success(function () {
-//
-//                swal("Excelente!", "Registro eliminado!", "success");
-//                $scope.moverB(pag);
-//
-//
-//            });
-//        };
+
 
     }]);
 

@@ -4,7 +4,6 @@ session_start();
 include_once '../../../conexiones/class.Database.php';
 $nc = new Database();
 
-//$codigo = $_GET['c'];
 
 $codigo = $_SESSION['idCli'];
 

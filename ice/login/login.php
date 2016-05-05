@@ -32,7 +32,7 @@
         <div class="login-box" >
             <br>
             <div class="login-logo">
-                <img src="" alt="Logo"/>
+                <img src="../../logos_pco/login.png" alt="Logo"/>
             </div><!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Iniciar Sesión</p>
