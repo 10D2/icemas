@@ -99,6 +99,8 @@ if (isset($request['usuario']) && isset($request['contrasena'])) { // ACTUALIZAR
 
             $_SESSION['user'] = $user;
 
+            $_SESSION['idCli'] = $data_idCliente;
+            
             // actualizar ultimo acceso
             $sql = "UPDATE usuarios set ultimoacceso = NOW() where usuario = '$user'";
             Database::ejecutar_idu($sql);

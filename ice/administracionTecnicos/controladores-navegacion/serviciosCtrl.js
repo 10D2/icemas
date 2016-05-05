@@ -1,4 +1,4 @@
-app.controller('serviciosCtrl', ['$scope', '$http', 'Servicios', '$routeParams', function ($scope, $http, Servicios, $routeParams) {
+app.controller('serviciosTecnicosCtrl', ['$scope', '$http', 'Servicios', '$routeParams', function ($scope, $http, Servicios, $routeParams) {
 
         var pag = $routeParams.pag;
  

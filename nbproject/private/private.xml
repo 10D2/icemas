@@ -12,15 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/template/menu.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/portada.html</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consultaTblServicios.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/public/login-js/login.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/login/login-js/login.js</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consultaTblEquipos.php</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/servicios.html</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/equiposCtrl.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/login/login-js/servicios/login_servicio.js</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/navegacion.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/public/php/postVerificar.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/index.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consulta.php</file>
             <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/serviciosCtrl.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/login/php/postVerificar.php</file>
         </group>
     </open-files>
 </project-private>

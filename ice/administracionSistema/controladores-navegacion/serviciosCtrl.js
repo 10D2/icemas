@@ -1,4 +1,4 @@
-app.controller('serviciosCtrl', ['$scope', '$http', 'Servicios', '$routeParams', function ($scope, $http, Servicios, $routeParams) {
+app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routeParams', function ($scope, $http, Servicios, $routeParams) {
 
         var pag = $routeParams.pag;
         var codigo = $routeParams.idServicio;

@@ -1,9 +1,9 @@
-<section class="sidebar">
+<section class="sidebar" ng-controller="serviciosClientesCtrl">
     <br><br>
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
-        <li ng-class="mServicios"><a href="#servicios/{{idCliente}}"><i class="fa fa-briefcase"></i> <span>SERVICIOS</span></a></li>
-        <li ng-class="mEquipos"><a href="#/equipos"><i class="fa fa-archive "></i> <span>EQUIPOS</span></a></li>
+        <li ng-class="mServicios" ng-controller="serviciosClientesCtrl"><a href="#/servicios"><i class="fa fa-briefcase"></i> <span>SERVICIOS</span></a></li>
+        <li ng-class="mEquipos" ng-controller="equiposClientesCtrl"><a href="#/equipos"><i class="fa fa-archive "></i> <span>EQUIPOS</span></a></li>
         <li role="separator" class="divider"></li>
         <br>
         <li>
@@ -11,7 +11,10 @@
                 <i class="fa fa-sign-out"></i>
                 <span>SALIR</span>
             </a>
+            
         </li>
     </ul><!-- /.sidebar-menu -->
+    
+    
 </section>
 <!-- /.sidebar -->

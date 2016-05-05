@@ -1,9 +1,12 @@
 <?php
 
+session_start();
 include_once '../../../conexiones/class.Database.php';
 $nc = new Database();
 
-$codigo = $_GET['c'];
+//$codigo = $_GET['c'];
+
+$codigo = $_SESSION['idCli'];
 
 $query = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, 
 c.tecnico, s.fechaFinalizacion, e.equipo, e.serie , s.realizado, l.idCliente 
