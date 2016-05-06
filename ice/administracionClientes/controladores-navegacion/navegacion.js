@@ -6,11 +6,11 @@ app.config(['$routeProvider', function ($routeProvider) {
                 })
                 .when('/servicios', {
                     templateUrl: 'servicios.html',
-                    controller:'serviciosClientesCtrl'
+//                    controller:'serviciosClientesCtrl'
                 })
                 .when('/equipos', {
                     templateUrl: 'equipos.html',
-                    controller:'equiposClientesCtrl'
+//                    controller:'equiposClientesCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'

@@ -36,7 +36,7 @@ app.controller('clientesCtrl', ['$scope', '$http', 'Clientes', '$routeParams', f
         
         $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
-            console.log($scope.nomCliente);
+        //    console.log($scope.nomCliente);
             $scope.nomCliente = arrayClientes;
         });
 

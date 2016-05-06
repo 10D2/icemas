@@ -9,6 +9,34 @@
 
             <form ng-submit="guardarServicio(infoServicio)" class="form-horizontal">
                 <div class="modal-body">
+
+                    <div class="form-group-sm form-inline">
+                        <label>Folio</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Número de folio"
+                            required="required"
+                            ng-model="infoServicio.folio"/>
+                        <label>Cliente</label>
+                        <select  
+                            ng-model="infoServicio.nombreSel" 
+                            class="form-control" 
+                            ng-options="nombreS as nombreS.nombre for nombreS in nomCliente track by nombreS.idCliente"> 
+                            <option value="" selected hidden> <option>    
+                        </select>     
+                    </div>
+                    <br>
+                    <div class="form-group-sm">
+                        <label>Equipo</label>
+                        <select  
+                            ng-model="infoServicio.equipoSel" 
+                            class="form-control" 
+                            ng-options="equipo as '' + equipo.equipo + '  ' + '|' + '  ' + equipo.caracteristicas + ' | ' + 'No.Serie:' + '  ' + equipo.serie + '' for equipo in nomEquipo track by equipo.idEquipo"> 
+                            <option value="" selected hidden> <option>   
+                        </select>
+                    </div>
+                    <br>
                     <div class="form-group-sm form-inline">
                         <label>Fecha de Inicio</label>
                         <input 
@@ -25,40 +53,6 @@
                             name="date_control" 
                             required="required"
                             ng-model="infoServicio.fechaFinalizacion"/>
-                  
-                        <label>Folio</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            placeholder="Número de folio"
-                            required="required"
-                            ng-model="infoServicio.folio"/>
-                    </div>
-                    <br>
-                    <div class="form-group-sm">
-                        <p style="text-align: center"><b>Descripción</b></p>
-                        <textarea class="form-control" 
-                            placeholder="Descripción del servicio"
-                            required="required"
-                            ng-model="infoServicio.descripcion"></textarea>
-                    </div>
-                    <br>
-                    <div class="form-group-sm">
-                        <label>Próximo servicio</label>
-                        <input 
-                            type="date" 
-                            name="date_control" 
-                            required="required"
-                            ng-model="infoServicio.proximo"/>
-                    </div>
-                    <br>
-                    <div class="form-group-sm">
-                        <p style="text-align: center"><b>Refacciones</b></p>
-                        <textarea type="text" 
-                            class="form-control" 
-                            placeholder="Refacciones utilizadas"
-                            required="required"
-                            ng-model="infoServicio.refacciones"></textarea>
                     </div>
                     <br>
                     <div class="form-group-sm form-inline">
@@ -69,7 +63,7 @@
                             ng-options="tS as tS.tipo for tS in nomTservicio track by tS.idTipo"> 
                             <option value="" selected hidden> <option>   
                         </select>
-                   
+
                         <label>Técnico</label>
                         <select  
                             ng-model="infoServicio.tecnicoSel" 
@@ -80,16 +74,30 @@
                     </div> 
                     <br>
                     <div class="form-group-sm">
-                        <label>Equipo</label>
-                        <select  
-                            ng-model="infoServicio.equipoSel" 
-                            class="form-control" 
-                            ng-options="equipo as '' +equipo.equipo +'  '+'|'+ '  ' + equipo.caracteristicas +' | '+ 'No.Serie:'+ '  '+equipo.serie+ '' for equipo in nomEquipo track by equipo.idEquipo"> 
-                            <option value="" selected hidden> <option>   
-                        </select>
+                        <label>Descripción</label>
+                        <textarea class="form-control" 
+                                  placeholder="Descripción del servicio"
+                                  required="required"
+                                  ng-model="infoServicio.descripcion"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group-sm">
+                        <label>Refacciones</label>
+                        <textarea type="text" 
+                                  class="form-control" 
+                                  placeholder="Refacciones utilizadas"
+                                  required="required"
+                                  ng-model="infoServicio.refacciones"></textarea>
                     </div>
                     <br>
                     <div class="form-group-sm form-inline">
+                        <label>Próximo servicio</label>
+                        <input 
+                            type="date" 
+                            name="date_control" 
+                            required="required"
+                            ng-model="infoServicio.proximo"/>
+                   
                         <label>Realizado</label>
                         <select  
                             ng-model="infoServicio.selecSiNo" 
@@ -97,21 +105,13 @@
                             ng-options="item as item.name for item in items track by item.id"> 
                             <option value="" selected hidden> <option>   
                         </select>
-                        <label>Cliente</label>
-                        <select  
-                            ng-model="infoServicio.nombreSel" 
-                            class="form-control" 
-                            ng-options="nombreS as nombreS.nombre for nombreS in nomCliente track by nombreS.idCliente"> 
-                            <option value="" selected hidden> <option>    
-                        </select>
                     </div>
-
+          
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-save"></i> Guardar
                         </button>
                     </div>
-                    {{equipo|json}}
                 </div><!-- /.modal-content -->
             </form>
         </div><!-- /.modal-dialog -->

@@ -1,4 +1,4 @@
-app.controller('equiposCtrl', ['$scope', '$http' ,'Equipos', '$routeParams', function ($scope, $http ,Equipos, $routeParams) {
+app.controller('equiposAdminCtrl', ['$scope', '$http' ,'Equipos', '$routeParams', function ($scope, $http ,Equipos, $routeParams) {
 
         var pag = $routeParams.pag;
 

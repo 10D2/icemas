@@ -32,12 +32,12 @@ app1.controller('iniciarCtrl', ['$scope', '$http', 'LoginService', function ($sc
                     $scope.cargando = false;
                     $scope.mensaje = data.mensaje;
                 } else {
-                    console.log("Arreglo que devuelve de postVerificar.php: " + data);
+                //    console.log("Arreglo que devuelve de postVerificar.php: " + data);
 
                     var idCliente = data.idCliente;
                     var idPerfil = data.idPerfil;
 
-                    console.log("MI IDCLIENTE viniendo del PHP: " + data.idCliente);
+                //    console.log("MI IDCLIENTE viniendo del PHP: " + data.idCliente);
 
                     if (idPerfil == 2) {
 

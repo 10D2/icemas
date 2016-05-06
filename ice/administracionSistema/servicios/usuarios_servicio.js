@@ -39,7 +39,7 @@ app.factory('Usuarios', ['$http', '$q', function ($http, $q) {
                     self.total_paginas = data.total_paginas;
                     self.paginas       = data.paginas;
 
-                    console.log(data);
+                //    console.log(data);
                     return d.resolve();
                 });
 

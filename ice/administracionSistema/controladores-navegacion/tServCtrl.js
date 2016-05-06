@@ -12,7 +12,7 @@ app.controller('tipoServ', ['$scope', '$http', 'Tipos', '$routeParams', function
             Tipos.cargarPag(pag).then(function () {
                 $scope.tipos = Tipos.tiposervicio;
                 $scope.ti = Tipos;
-                console.log($scope.tipos);
+               // console.log($scope.tipos);
                 
             });
         };

@@ -7,7 +7,7 @@ app.factory('LoginService', ['$http', '$q', function ($http, $q) {
                 var i = $q.defer();
                 
                 $http.post('./php/postVerificar.php', info).success(function(data){
-                    console.log(data);
+//                    console.log(data);
                     i.resolve(data);
                 });
                 

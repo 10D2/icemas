@@ -1,10 +1,10 @@
 <section class="content">
     <div class="row">
-        <div class="col-sm-12 texto" ng-controller="equiposCtrl">
+        <div class="col-sm-12 texto" ng-controller="equiposTecnicosCtrl">
 
             <div class="box-tools col-sm-4 col-xs-4 visible-lg visible-md hidden-sm hidden-xs" style="float: right">
                 <div class="input-group" style="width: 300px;">
-                    <input type="text" ng-model="busqueda" class="form-control input-sm pull-right" placeholder="Ingrese lo que desea buscar">
+                    <input type="text" ng-model="buscar" class="form-control input-sm pull-right" placeholder="Ingrese lo que desea buscar">
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                     </div>
@@ -12,7 +12,7 @@
             </div>
             <div class="box-tools col-sm-4 col-xs-4 visible-xs visible-sm hidden-md hidden-lg">
                 <div class="input-group" style="width: 150px;">
-                    <input type="text" ng-model="busqueda" class="form-control input-sm pull-right" placeholder="Buscar">
+                    <input type="text" ng-model="buscar" class="form-control input-sm pull-right" placeholder="Buscar">
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                     </div>
@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="equipo in equipos.equipos| filter:busqueda | orderBy:columna:reverse" class="tblLetras">
+                            <tr ng-repeat="equipo in equipos.equipos| filter:buscar | orderBy:columna:reverse" class="tblLetras">
                                 <td class="btnEditar text-primary"><b>{{$index+1}}</b></td>
                                 <td>{{equipo.nombre|uppercase}}</td>
                                 <td>{{equipo.propietario|uppercase}}</td>

@@ -1,5 +1,5 @@
 
-app.controller('serviciosClientesCtrl', ['$scope', '$http', 'Servicios', '$routeParams', function ($scope, $http, Servicios, $routeParams) {
+app.controller('serviciosClientesCtrl', ['$scope', '$http', function ($scope, $http) {
 
         $scope.activar('mServicios');
         $scope.servicios = {};

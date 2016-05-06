@@ -12,17 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/template/menu.html</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/portada.html</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consultaTblServicios.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/login/login-js/login.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consultaTblEquipos.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/servicios.html</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/login/login-js/servicios/login_servicio.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/navegacion.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/php/consulta.php</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/administracionClientes/controladores-navegacion/serviciosCtrl.js</file>
-            <file>file:/C:/xampp/htdocs/icemas/ice/login/php/postVerificar.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/subirImg.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/template/subirImg.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/subirPdf.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/controladores-navegacion/navegacion.js</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/getDocumentoPdf.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/template/subirPdf.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/php/getImagenEquipo.php</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionSistema/equipos.html</file>
+            <file>file:/C:/xampp/htdocs/icemas/ice/administracionTecnicos/controladores-navegacion/navegacion.js</file>
         </group>
     </open-files>
 </project-private>
