@@ -11,11 +11,11 @@
                         <label>Cliente</label>
                         <br>
                         <select 
-                            type="text"
+                            
                             ng-model="infoUser.selecciona" 
                             class="form-control" 
                             ng-options="clnt as clnt.nombre for clnt in nomCliente track by clnt.idCliente"> 
-                            <option value="" selected hidden> <option>   
+                            <option value=""> <option>   
                         </select>
                     </div>                     
                     <div class="form-group-sm">
@@ -40,7 +40,6 @@
                         <select  
                             ng-model="infoUser.seleccionar" 
                             class="form-control" 
-                            ng-change="obtenerInfoPerfil();"
                             ng-options="per as per.perfil for per in nomPerfil track by per.idPerfil"> 
                             <option value="" selected hidden> <option>     
                         </select>

@@ -5,6 +5,8 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         $scope.activar('mSucursales');
         $scope.sucursales = {};
         $scope.infoSuc = {};
+        $scope.eligeCd = {};
+        $scope.seleccionado = {};
 
 
         $scope.moverP = function (pag) {
@@ -24,7 +26,8 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         $scope.mostrarSucursal = function (sucursal) {
             //console.log(ciudad);
             angular.copy(sucursal, $scope.infoSuc);
-
+            $scope.eligeCd.idCliente = sucursal.idCliente;
+            $scope.seleccionado.idCiudad = sucursal.idCiudad;
             $("#modal_sucursales").modal();
 
         };
@@ -42,16 +45,15 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         //=================================================================
 
         $scope.guardarSuc = function (sucursal) {
-
-            Sucursales.guardarSucursal(sucursal).then(function () {
+            $scope.infoSuc.idCliente = $scope.eligeCd;
+            $scope.infoSuc.idCiudad = $scope.seleccionado;
+            Sucursales.guardarSucursal($scope.infoSuc).then(function () {
                 $("#modal_sucursales").modal('hide');
-
-
                 $scope.infoSuc = {};
                 // console.log(seleccion);
                 console.log(sucursal);
             });
-
+             $scope.moverP(pag);
         };
 
 

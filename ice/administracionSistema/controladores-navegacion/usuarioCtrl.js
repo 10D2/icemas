@@ -5,8 +5,8 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
         $scope.activar('mUsuarios');
         $scope.usuarios = {};
         $scope.infoUser = {};
-
-
+        $scope.valorCliente = {};
+        $scope.seleccionarPerfil = {};
         $scope.moverF = function (pag) {
             Usuarios.cargarP(pag).then(function () {
                 $scope.usuarios = Usuarios;
@@ -23,9 +23,12 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
 
         $scope.mostrarModalUsuario = function (usuario) {
             angular.copy(usuario, $scope.infoUser);
-
+            $scope.valorCliente.idCliente = usuario.idCliente;
+            $scope.seleccionarPerfil.idPerfil = usuario.idPerfil;
+           
+            
+                    
             $("#modal_usuarios").modal();
-
         };
 
         $scope.nomCliente = {};
@@ -40,31 +43,38 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
 
 
 
-        $scope.obtenerInfoPerfil = function () {
-            $scope.idPerfil = $scope.infoUser.seleccionar.idPerfil;
-            console.log($scope.idPerfil);
-            $http.post("./php/getPerfilesModal.php?idPerfil=" + $scope.idPerfil).success(function (info) {
-                $scope.arrayPerfiles1 = info;
-            });
-        };
-
-
 
         //=================================================================
         // FUNCION GUARDAR DATOS
         //=================================================================
 
         $scope.guardarUser = function (usuario) {
-
-            Usuarios.guardarUsuarios(usuario).then(function () {
+            $scope.infoUser.idCliente = $scope.valorCliente;
+            $scope.infoUser.idPerfil = $scope.seleccionarPerfil;
+            Usuarios.guardarUsuarios($scope.infoUser).then(function () {
                 $("#modal_usuarios").modal('hide');
-
-
                 $scope.infoUser = {};
-                console.log(usuario);
+//                console.log(usuario);
             });
+//            Usuarios.guardarUsuarios(usuario).then(function () {
+//                $("#modal_usuarios").modal('hide');
+//
+//
+//                $scope.infoUser = {};
+//                console.log(usuario);
+//            });
+            $scope.moverF(pag);
 
         };
+
+
+        $scope.valor = function () {
+//            alert(id);
+            alert($scope.valorCliente);
+        };
+
+
+
 //
 //        //=================================================================
 //        // FUNCION BORRAR

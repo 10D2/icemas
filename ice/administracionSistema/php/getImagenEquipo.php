@@ -6,20 +6,19 @@ $cn->Conectarse();
 
 $codigo = $_GET['c'];
 
-$query = "SELECT idImagen,idServicio, nombreArchivo FROM archivospdf WHERE idServicio = '$codigo'";
+$query = "SELECT idEquipo,imagen FROM equipos WHERE idEquipo = '$codigo'";
 
 $result = mysql_query($query);
 
-$arrayDocPdf = array();
+$arrayImagen = array();
 
 while ($row = mysql_fetch_array($result)) {
-    $docPdf = new stdClass();
-    $docPdf->idImagen = $row["idImagen"];
-    $docPdf->idServicio = $row["idServicio"];
-    $docPdf->nombreArchivo = utf8_encode($row["nombreArchivo"]);
-    $arrayDocPdf[] = $docPdf;
+    $imgEquipo = new stdClass();
+    $imgEquipo->idEquipo = $row["idEquipo"];
+    $imgEquipo->imagen = utf8_encode($row["imagen"]);
+    $arrayImagen[] = $imgEquipo;
 }
 
 //# JSON-encode the response
-echo $json_response = json_encode($arrayDocPdf);
+echo $json_response = json_encode($arrayImagen);
 ?>

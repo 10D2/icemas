@@ -1,7 +1,7 @@
-app.controller('equiposAdminCtrl', ['$scope', '$http' ,'Equipos', '$routeParams', function ($scope, $http ,Equipos, $routeParams) {
+app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams', 'carga', function ($scope, $http, Equipos, $routeParams, carga) {
 
         var pag = $routeParams.pag;
-
+        var codigo = $routeParams.idEquipo;
 
         $scope.activar('mEquipos');
         $scope.equipos = {};
@@ -28,8 +28,8 @@ app.controller('equiposAdminCtrl', ['$scope', '$http' ,'Equipos', '$routeParams'
             $("#modal_equipos").modal();
 
         };
-        
-        
+
+
         //=================================================================
         // 
         //=================================================================
@@ -39,7 +39,7 @@ app.controller('equiposAdminCtrl', ['$scope', '$http' ,'Equipos', '$routeParams'
             //  console.log($scope.nomCliente);
             $scope.nomCliente = arrayClientes;
         });
-        
+
         $scope.nomEquipo = {};
         $http.get('./php/nombresEquipos.php').success(function (arrayEquipos) {
             $scope.nomEquipo = arrayEquipos;
@@ -54,14 +54,62 @@ app.controller('equiposAdminCtrl', ['$scope', '$http' ,'Equipos', '$routeParams'
 
             Equipos.equiposGuardar(equipo).then(function () {
                 $("#modal_equipos").modal('hide');
+
+                var name = JSON.stringify($scope.infoEquipo);
+                var file = $scope.file;
+                carga.equipoImg(file, name);
+                console.log(file);
+                console.log(name);
                 $scope.infoEquipo = {};
+//                $http.get('./php/getImagenEquipo.php?c=' + codigo).success(function (data) {
+//                    $scope.formNota.images = data;
+//                    $scope.actualizar = true;
+//                });
             });
 
         };
 
+    }])
+
+        //FIN DE CONTROLADOR 
+
+        .directive('uploaderModel', ["$parse", function ($parse) {
+                return {
+                    restrict: 'A',
+                    link: function (scope, iElement, iAttrs)
+                    {
+                        iElement.on("change", function (e)
+                        {
+                            $parse(iAttrs.uploaderModel).assign(scope, iElement[0].files[0]);
+                        });
+                    }
+                };
+            }]).service('carga', ["$http", "$q", function ($http, $q)
+    {
+        this.equipoImg = function (file, name)
+        {
+            var deferred = $q.defer();
+            var fd = new FormData();
+            fd.append("name", name);
+            fd.append("file", file);
+            return $http.post("./php/guardarEquipo.php", fd, {
+                headers: {
+                    "Content-type": undefined
+                },
+                transformRequest: angular.identity
+            })
+                    .success(function (res)
+                    {
+                        deferred.resolve(res);
+                    })
+                    .error(function (msg, code)
+                    {
+                        deferred.reject(msg);
+                    });
+            return deferred.promise;
+        };
+
     }]);
-
-
 
 
 

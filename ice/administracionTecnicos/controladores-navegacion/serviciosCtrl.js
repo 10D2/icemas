@@ -4,7 +4,6 @@ app.controller('serviciosTecnicosCtrl', ['$scope', '$http', 'Servicios', '$route
  
         $scope.activar('mServicios');
         $scope.servicios = {};
-        $scope.infoServicio = {};
 
 
         $scope.moverX = function (pag) {

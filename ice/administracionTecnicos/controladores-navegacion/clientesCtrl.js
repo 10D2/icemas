@@ -4,8 +4,6 @@ app.controller('clientesCtrl', ['$scope', '$http', 'Clientes', '$routeParams', f
 
         $scope.activar('mClientes');
         $scope.clientes = {};
-        $scope.infoCliente = {};
-
 
         $scope.moverZ = function (pag) {
             Clientes.paginaCliente(pag).then(function () {

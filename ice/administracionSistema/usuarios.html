@@ -1,7 +1,7 @@
 <section class="content">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 texto" ng-controller="userCtrl">
-                <div class="box-tools col-sm-4 col-xs-4 visible-lg visible-md hidden-sm hidden-xs" style="margin-left: 300px;">
+            <div class="box-tools col-sm-4 col-xs-4 visible-lg visible-md hidden-sm hidden-xs" style="margin-left: 300px;">
                 <div class="input-group" style="width: 300px;">
                     <input type="text" ng-model="busqueda4" class="form-control input-sm pull-right" placeholder="Ingrese lo que desea buscar">
                     <div class="input-group-btn">
@@ -46,8 +46,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="usuario in usuarios.usuarios | filter:busqueda4 | orderBy:columna4:reverse" class="tblLetras">
-                                <td class="btnEditar text-primary"><b>{{$index+1}}</b></td>
+                            <tr ng-repeat="usuario in usuarios.usuarios| filter:busqueda4 | orderBy:columna4:reverse" class="tblLetras">
+                                <td class="btnEditar text-primary"><b>{{$index + 1}}</b></td>
                                 <td>{{usuario.nombre|uppercase}}</td>
                                 <td>{{usuario.usuario|uppercase}}</td>
                                 <td>{{usuario.contrasena}}</td>
@@ -65,22 +65,103 @@
                             </tr>
                         </tbody>
                     </table>
-         <!--           <div class="box-footer clearfix">
-                        <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a ng-click="moverF(1)">«</a></li>
-                            <li 
-                                ng-repeat="pag in usuarios.paginas"
-                                ng-class="{
-                                    'active': usuarios.pag_actual == pag
-                                }">
-                                <a ng-click="moverF(pag)">{{pag}}</a>
-                            </li>
-                            <li><a ng-click="moverF(usuarios.total_paginas)">»</a></li>
-                        </ul>
-                    </div>-->
+                    <!--           <div class="box-footer clearfix">
+                                   <ul class="pagination pagination-sm no-margin pull-right">
+                                       <li><a ng-click="moverF(1)">«</a></li>
+                                       <li 
+                                           ng-repeat="pag in usuarios.paginas"
+                                           ng-class="{
+                                               'active': usuarios.pag_actual == pag
+                                           }">
+                                           <a ng-click="moverF(pag)">{{pag}}</a>
+                                       </li>
+                                       <li><a ng-click="moverF(usuarios.total_paginas)">»</a></li>
+                                   </ul>
+                               </div>-->
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
-            <div ng-include="'template/modal_usuarios.html'" ></div>
+
+
+         
+
+
+
+
+            <div class="modal fade" id="modal_usuarios">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Usuarios:</h4>
+                        </div>
+                        <form ng-submit="guardarUser(infoUser)">
+                            <div class="modal-body">
+                                <div class="form-group-sm form-inline">
+                                    <label>Cliente</label>
+                                    <br>
+                                    <select
+                                        class="form-control"
+                                        ng-model="valorCliente"
+                                        ng-options="cliente.idCliente as cliente.nombre for cliente in nomCliente track by cliente.idCliente"
+                                        >
+                                        <option value="">Selecciona un Cliente</option>
+                                    </select>
+                                  </div>                     
+                                <div class="form-group-sm">
+                                    <label>Usuario</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           ng-model="infoUser.usuario" 
+                                           placeholder="Nombre del usuario" 
+                                           required="required"/>
+                                </div>                   
+                                <div class="form-group-sm">
+                                    <label>Contraseña</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           ng-model="infoUser.contrasena" 
+                                           placeholder="Contraseña" 
+                                           required="required"/>
+                                </div>                 
+                                <div class="form-group-sm form-inline">
+                                    <label>Perfil</label>
+                                    <br>
+                                    <select  
+                                        ng-model="seleccionarPerfil" 
+                                        class="form-control" 
+                                        ng-options="per as per.perfil for per in nomPerfil track by per.idPerfil"> 
+                                        <option value="">Selecciona un Perfil<option>     
+                                    </select>
+                                </div> 
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-save"></i> Guardar
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </form>
+                    </div><!-- /.modal-dialog -->
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--<div ng-include="'template/modal_usuarios.html'" ></div>-->
 
         </div>    
     </div>

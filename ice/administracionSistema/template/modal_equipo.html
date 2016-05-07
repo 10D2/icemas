@@ -10,7 +10,21 @@
             <form ng-submit="guardarEquipo(infoEquipo)">
 
                 <div class="modal-body">
+
                     <div class="form-group-sm">
+<!--                        <div class="row">
+                            <div class="col-lg-4" ng-repeat="imagen in infoEquipo">
+                                <img class="previa thumbnail" ng-src="../../{{imagen.imagen}}"/>
+                            </div> 
+                        </div>-->
+                        <input
+                            class="col-sm-"
+                            type="file" 
+                            name="file"
+                            uploader-model="file"
+                            required="required"/>
+                    </div>  
+                    <div class="form-group-sm form-inline">
                         <label>Equipo</label>
                         <input 
                             type="text" 
@@ -19,7 +33,34 @@
                             required="required"
                             ng-model="infoEquipo.equipo"/>
                     </div>
-                    
+                    <div class="form-group-sm form-inline">
+                        <label>Marca</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Marca del equipo"
+                            required="required"
+                            ng-model="infoEquipo.marca"/>
+                    </div>
+                    <div class="form-group-sm form-inline">
+                        <label>Modelo</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Modelo del equipo"
+                            required="required"
+                            ng-model="infoEquipo.modelo"/>
+                    </div>
+                    <div class="form-group-sm form-inline">
+                        <label>Serie</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Serie del equipo"
+                            required="required"
+                            ng-model="infoEquipo.serie"/>
+                    </div>
+
                     <div class="form-group-sm">
                         <label>Características</label>
                         <input 
@@ -29,37 +70,6 @@
                             required="required"
                             ng-model="infoEquipo.caracteristicas"/>
                     </div>
-
-                    <div class="form-group-sm">
-                        <label>Marca</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            placeholder="Marca del equipo"
-                            required="required"
-                            ng-model="infoEquipo.marca"/>
-                    </div>
-                    
-                    <div class="form-group-sm">
-                        <label>Modelo</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            placeholder="Modelo del equipo"
-                            required="required"
-                            ng-model="infoEquipo.modelo"/>
-                    </div>
-                    
-                    <div class="form-group-sm">
-                        <label>Serie</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            placeholder="Serie del equipo"
-                            required="required"
-                            ng-model="infoEquipo.serie"/>
-                    </div>
-                    
                     <div class="form-group-sm">
                         <label>Propietario</label>
                         <input 
@@ -85,9 +95,7 @@
                             required="required"
                             ng-model="infoEquipo.fechaVenta"/>
                     </div> 
-                    
-                   
-                    
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-save"></i> Guardar

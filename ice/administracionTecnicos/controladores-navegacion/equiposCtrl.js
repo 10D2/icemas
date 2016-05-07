@@ -5,7 +5,6 @@ app.controller('equiposTecnicosCtrl', ['$scope', '$http' ,'Equipos', '$routePara
 
         $scope.activar('mEquipos');
         $scope.equipos = {};
-        $scope.infoEquipo = {};
 
 
         $scope.moverY = function (pag) {
