@@ -332,11 +332,19 @@ class Database {
                 $sql = "SELECT idCliente, nombre, direccion, telefono, contacto, correo FROM clientes ORDER BY nombre ASC";
                 break;
             case 'equipos':
-                $sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, e.fechaVenta FROM equipos e INNER JOIN clientes c ON c.idCliente = e.idCliente ORDER BY c.nombre ASC ";
+                $sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, c.idCliente ,e.fechaVenta FROM equipos e INNER JOIN clientes c ON c.idCliente = e.idCliente ORDER BY c.nombre ASC ";
                 break;
             case 'servicios':
-                $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, 
-c.tecnico, s.fechaFinalizacion, e.equipo, e.serie , s.realizado, l.nombre, p.nombreArchivo 
+//                $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, 
+//c.tecnico, s.fechaFinalizacion, e.equipo, e.serie , s.realizado, l.nombre, p.nombreArchivo 
+//FROM servicios s 
+//LEFT JOIN tiposervicio t ON t.idTipo = s.idTipo 
+//LEFT JOIN tecnicos c ON c.idTecnico = s.idTecnico 
+//LEFT JOIN equipos e ON e.idEquipo = s.idEquipo 
+//LEFT JOIN archivospdf p ON p.idServicio = s.idServicio
+//LEFT JOIN clientes l ON l.idCliente = s.idCliente ORDER BY s.folio ASC";
+                $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, t.idTipo, 
+c.tecnico, c.idTecnico, s.fechaFinalizacion, e.equipo, e.idEquipo ,e.serie , s.realizado, l.nombre, l.idCliente ,p.nombreArchivo 
 FROM servicios s 
 LEFT JOIN tiposervicio t ON t.idTipo = s.idTipo 
 LEFT JOIN tecnicos c ON c.idTecnico = s.idTecnico 

@@ -9,8 +9,8 @@ $request = (array) $request;
 
 
 $sucursalC = $request['sucursal'];
-$idC = $request['seleccionado'];
-$idCiudad = $request['eligeCd'];
+$id = $request['idCliente'];
+$idCiu = $request['idCiudad'];
 $idSucursal = $request['idSucursal'];
 
 
@@ -20,11 +20,11 @@ $idSucursal = $request['idSucursal'];
 //     }
 //}
 
-
-$id=$idC->idCliente;
-$idCiu = $idCiudad->idCiudad;
+//$id=$idC->idCliente;
+//$idCiu = $idCiudad->idCiudad;
 if (isset($request['idSucursal'])) { //ACTUALIZAR
-    $sql = "UPDATE sucursales SET sucursal='$sucursalC', idCliente = '$id', idCiudad = '$idCiu' WHERE sucursales.idSucursal = $idSucursal";
+    $sql = "UPDATE sucursales SET sucursal='$sucursalC', idCliente='$id', idCiudad='$idCiu' WHERE sucursales.idSucursal= $idSucursal";
+
 
     $hecho = Database::ejecutar_idu($sql);
 

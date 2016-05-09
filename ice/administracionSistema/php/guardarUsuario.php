@@ -16,9 +16,9 @@ $idUsuario = $request['idUsuario'];
 
 //$id = $idC->idCliente;
 //$idP = $idPerfil->idPerfil;
-
 if (isset($request['idUsuario'])) { //ACTUALIZAR
-    $sql = "UPDATE usuarios SET usuario='$usuarioC', contrasena = '$contrasenaC', idPerfil = '$idP', idCliente = '$id'  WHERE usuarios.idUsuario = $idUsuario";
+    $sql = "UPDATE usuarios SET usuario='$usuarioC', contrasena='$contrasenaC', idPerfil='$idP', idCliente='$id' WHERE usuarios.idUsuario= $idUsuario";
+
 
     $hecho = Database::ejecutar_idu($sql);
 

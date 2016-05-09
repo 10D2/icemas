@@ -35,7 +35,7 @@
                                 <th class="text-primary">SUCURSAL</th>
                                 <th class="text-primary">CIUDAD</th>
                                 <th>CLIENTE
-                                <a ng-click="columna5 = 'nombre'; reverse = !reverse;">
+                                    <a ng-click="columna5 = 'nombre'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
                                     </a>
                                 </th>
@@ -43,7 +43,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="sucursal in sucursales.sucursales| filter:busqueda5| orderBy:columna5:reverse" class="tblLetras">
+                            <tr ng-repeat="sucursal in sucursales.sucursales | filter:busqueda5 | orderBy:columna5:reverse" class="tblLetras">
                                 <td>{{sucursal.sucursal|uppercase}}</td>
                                 <td>{{sucursal.ciudad|uppercase}}</td>
                                 <td>{{sucursal.nombre|uppercase}}</td>
@@ -55,25 +55,56 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <!--     <div class="box-footer clearfix">
-                             <ul class="pagination pagination-sm no-margin pull-right">
-                                 <li><a ng-click="moverP(1)">«</a></li>
-                                 <li 
-                                     ng-repeat="pag in sucursales.paginas"
-                                     ng-class="{
-                                         'active': sucursales.pag_actual == pag
-                                     }">
-                                     <a ng-click="moverP(pag)">{{pag}}</a>
-                                 </li>
-                                 <li><a ng-click="moverP(sucursales.total_paginas)">»</a></li>
-                             </ul>
-                         </div> -->
-
                 </div><!-- /.box-body -->
 
             </div><!-- /.box -->
-            <div ng-include="'template/modal_sucursal.html'" ></div>
+            <!-- <div ng-include="'template/modal_sucursal.html'" ></div>-->
+
+            <div class="modal fade" id="modal_sucursales">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Sucursales:</h4>
+                        </div>
+                        <form ng-submit="guardarSuc(infoSuc)">
+                            <div class="modal-body">
+                                <div class="form-group-sm">
+                                    <label>Sucursal</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           ng-model="infoSuc.sucursal" 
+                                           placeholder="Nombre de la sucursal" 
+                                           required="required"/>
+                                </div>
+                                <br>
+                                <div class="form-group-sm form-inline">
+                                    <label>Ciudad</label>
+                                    <select  
+                                        ng-model="eligeCd" 
+                                        class="form-control" 
+                                        ng-options="cd.idCiudad as cd.ciudad for cd in nomCiudad track by cd.idCiudad"> 
+                                        <option value="">Selecciona una Ciudad<option>     
+                                    </select> 
+                                    <label>Cliente</label>
+                                    <select  
+                                        ng-model="seleccionado" 
+                                        class="form-control" 
+                                        ng-options="client.idCliente as client.nombre for client in nomCliente track by client.idCliente"> 
+                                        <option value="">Selecciona un Cliente<option>     
+                                    </select>
+                                </div> 
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-save"></i> Guardar
+                                    </button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </form>           
+                    </div><!-- /.modal-dialog -->
+                </div>
+            </div>
+
         </div>    
     </div>
 </section>

@@ -125,7 +125,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="controladores-navegacion/perfilCtrl.js"></script>
 
         <script src="controladores-navegacion/subirPdf.js"></script>
-
+        <script src="controladores-navegacion/subirImg.js"></script>
+        
         <script src="servicios/ciudades_servicio.js"></script>
         <script src="servicios/tipoServicio_servicio.js"></script>
         <script src="servicios/sucursales_servicio.js"></script>

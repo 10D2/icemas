@@ -1,4 +1,4 @@
-app.controller('subirImgCtrl', ['$scope', '$routeParams', '$http', 'subirImg', function ($scope, $routeParams, $http, subirImg) {
+app.controller('subirImgCtrl', ['$scope', '$routeParams', '$http', 'cargar', function ($scope, $routeParams, $http, cargar) {
 
 
         var codigo = $routeParams.idEquipo;
@@ -7,24 +7,25 @@ app.controller('subirImgCtrl', ['$scope', '$routeParams', '$http', 'subirImg', f
         $scope.subirImagen = function (idEquipo) {
             var name = JSON.stringify(idEquipo);
             var file = $scope.file;
-            subirImg.archivo(file, codigo);
+            cargar.foto(file, codigo);
 
             $scope.actualiza = true;
             swal("Excelente!", "Archivo guardado!", "success");
             
             return window.location.href = "#/equipos";
-
+            console.log(name);
+            console.log(file);
         };
-
-        $scope.docImg = {};
-
-
-//        $scope.visualizar = function (codigo) {
-        $http.get('./php/getDocumentoPdf.php?c=' + codigo).success(function (data) {
-
-
-            $scope.docImg = data;
-        });
+//
+//        $scope.docPdf = {};
+//
+//
+////        $scope.visualizar = function (codigo) {
+//        $http.get('./php/getDocumentoPdf.php?c=' + codigo).success(function (data) {
+//
+//
+//            $scope.docPdf = data;
+//        });
 //        };
 
     }])
@@ -39,15 +40,15 @@ app.controller('subirImgCtrl', ['$scope', '$routeParams', '$http', 'subirImg', f
                         });
                     }
                 };
-            }]).service('subirImg', ["$http", "$q", function ($http, $q)
+            }]).service('cargar', ["$http", "$q", function ($http, $q)
     {
-        this.archivo = function (file, idServicio)
+        this.foto = function (file, idEquipo)
         {
             var deferred = $q.defer();
-            var pdf = new FormData();
-            pdf.append("file", file);
+            var im = new FormData();
+            im.append("file", file);
 
-            return $http.post("./php/insertarPdf.php?id=" + idServicio, pdf, {
+            return $http.post("./php/insertarImg.php?id=" + idEquipo, im, {
                 headers: {
                     "Content-type": undefined
                 },

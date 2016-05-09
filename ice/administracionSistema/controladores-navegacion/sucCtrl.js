@@ -26,12 +26,10 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         $scope.mostrarSucursal = function (sucursal) {
             //console.log(ciudad);
             angular.copy(sucursal, $scope.infoSuc);
-            $scope.eligeCd.idCliente = sucursal.idCliente;
-            $scope.seleccionado.idCiudad = sucursal.idCiudad;
+            $scope.eligeCd.idCiudad = sucursal.idCiudad;
+            $scope.seleccionado.idCliente = sucursal.idCliente;
             $("#modal_sucursales").modal();
-
         };
-
         $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
             //  console.log($scope.nomCliente);
@@ -45,15 +43,16 @@ app.controller('sucCtrl', ['$scope', '$http', 'Sucursales', '$routeParams', func
         //=================================================================
 
         $scope.guardarSuc = function (sucursal) {
-            $scope.infoSuc.idCliente = $scope.eligeCd;
-            $scope.infoSuc.idCiudad = $scope.seleccionado;
+            $scope.infoSuc.idCiudad = $scope.eligeCd;
+            $scope.infoSuc.idCliente = $scope.seleccionado;
             Sucursales.guardarSucursal($scope.infoSuc).then(function () {
                 $("#modal_sucursales").modal('hide');
                 $scope.infoSuc = {};
                 // console.log(seleccion);
-                console.log(sucursal);
+               //  console.log(sucursal);
             });
-             $scope.moverP(pag);
+            $scope.infoSuc = {};
+            $scope.moverP(pag);
         };
 
 

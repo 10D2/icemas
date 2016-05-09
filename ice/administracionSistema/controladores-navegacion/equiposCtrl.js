@@ -6,6 +6,7 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
         $scope.activar('mEquipos');
         $scope.equipos = {};
         $scope.infoEquipo = {};
+       $scope.eligeCliente = {};
 
 
         $scope.moverY = function (pag) {
@@ -24,7 +25,7 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
         $scope.mostrarModalEquipo = function (equipo) {
             //console.log(ciudad);
             angular.copy(equipo, $scope.infoEquipo);
-
+            $scope.eligeCliente.idCliente = equipo.idCliente;
             $("#modal_equipos").modal();
 
         };
@@ -51,22 +52,22 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
 
 
         $scope.guardarEquipo = function (equipo) {
-
-            Equipos.equiposGuardar(equipo).then(function () {
+                $scope.infoEquipo.idCliente = $scope.eligeCliente;
+            Equipos.equiposGuardar($scope.infoEquipo).then(function () {
                 $("#modal_equipos").modal('hide');
-
-                var name = JSON.stringify($scope.infoEquipo);
-                var file = $scope.file;
-                carga.equipoImg(file, name);
-                console.log(file);
-                console.log(name);
+//                var name = JSON.stringify($scope.infoEquipo);
+//                var file = $scope.file;
+//                carga.equipoImg(file, name);
+//                console.log(file);
+//                console.log(name);
                 $scope.infoEquipo = {};
 //                $http.get('./php/getImagenEquipo.php?c=' + codigo).success(function (data) {
 //                    $scope.formNota.images = data;
 //                    $scope.actualizar = true;
 //                });
             });
-
+                  $scope.moverY(pag);
+                  $scope.infoEquipo = {};
         };
 
     }])

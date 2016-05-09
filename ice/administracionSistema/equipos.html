@@ -59,9 +59,9 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="equipo in equipos.equipos| filter:busqueda | orderBy:columna:reverse" class="tblLetras">
-                                <td class="btnEditar text-primary"><b>{{$index+1}}</b></td>
+                                <td class="btnEditar text-primary"><b>{{$index + 1}}</b></td>
                                 <td>
-                                    <a ng-if="!equipo.nombreArchivo" href="#/subirImg/{{equipo.idEquipo}}" class="btn btn-xs btn-primary">
+                                    <a ng-if="!equipo.nombreImagen" href="#/subirImg/{{equipo.idEquipo}}" class="btn btn-xs btn-primary">
                                         <i class="fa fa-arrow-circle-up"></i>
                                     </a>
                                 </td>
@@ -86,22 +86,126 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!--       <div class="box-footer clearfix">
-                               <ul class="pagination pagination-sm no-margin pull-right">
-                                   <li><a ng-click="moverY(1)">«</a></li>
-                                   <li 
-                                       ng-repeat="pag in equipos.paginas"
-                                       ng-class="{
-                                                   'active': equipos.pag_actual == pag
-                                               }">
-                                       <a ng-click="moverY(pag)">{{pag}}</a>
-                                   </li>
-                                   <li><a ng-click="moverY(equipos.total_paginas)">»</a></li>
-                               </ul>
-                           </div> -->
                 </div><!-- /.box-body -->   
             </div><!-- /.box -->
-            <div ng-include="'template/modal_equipo.html'" ></div>
+            <!--    <div ng-include="'template/modal_equipo.html'" ></div-->
+            <div class="modal fade" id="modal_equipos">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Equipos:</h4>
+                        </div>
+
+                        <form ng-submit="guardarEquipo(infoEquipo)">
+
+                            <div class="modal-body">
+
+                                <!--    <div class="form-group-sm">
+                                <!--                        <div class="row">
+                                                            <div class="col-lg-4" ng-repeat="imagen in infoEquipo">
+                                                                <img class="previa thumbnail" ng-src="../../{{imagen.imagen}}"/>
+                                                            </div> 
+                                                        </div>-->
+                                <!--     <input
+                                          class="col-sm-"
+                                          type="file" 
+                                          name="file"
+                                          ng-model="infoEquipo.imagen"
+                                          uploader-model="file"
+                                          required="required"/> -->
+                                <!--   </div> -->
+                                <div class="col-sm-12">
+                                    <div class="col-sm-8 thumbnail imgEquipo">
+                                        <img>
+                                    </div>
+                                    <div class="col-sm-4 col-sm-offset-8">
+                                        <div class="form-group-sm form-inline">
+                                            <label>Equipo</label>
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                placeholder="Nombre del equipo"
+                                                required="required"
+                                                ng-model="infoEquipo.equipo"/>
+                                        </div>
+                                        <div class="form-group-sm form-inline">
+                                            <label>Marca</label>
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                placeholder="Marca del equipo"
+                                                required="required"
+                                                ng-model="infoEquipo.marca"/>
+                                        </div>
+                                        <div class="form-group-sm form-inline">
+                                            <label>Modelo</label>
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                placeholder="Modelo del equipo"
+                                                required="required"
+                                                ng-model="infoEquipo.modelo"/>
+                                        </div>
+                                        <div class="form-group-sm form-inline">
+                                            <label>Serie</label>
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                placeholder="Serie del equipo"
+                                                required="required"
+                                                ng-model="infoEquipo.serie"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="form-group-sm">
+                                    <label>Características</label>
+                                    <textarea 
+                                        class="form-control" 
+                                        placeholder="Características"
+                                        required="required"
+                                        ng-model="infoEquipo.caracteristicas"></textarea>
+                                </div>
+                                <div class="form-group-sm">
+                                    <label>Propietario</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Nombre del propietario"
+                                        required="required"
+                                        ng-model="infoEquipo.propietario"/>
+                                </div>
+                                <br>
+                                <div class="form-group-sm form-inline">
+                                    <label>Cliente</label>
+                                    <select  
+                                        ng-model="eligeCliente" 
+                                        class="form-control" 
+                                        ng-options="persona.idCliente as persona.nombre for persona in nomCliente track by persona.idCliente"> 
+                                        <option value="">Selecciona un Cliente<option>     
+                                    </select>
+                                    <label>Fecha de la venta</label>
+                                    <input 
+                                        type="date" 
+                                        name="date_control" 
+                                        required="required"
+                                        ng-model="infoEquipo.fechaVenta"/>
+                                </div> 
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-save"></i> Guardar
+                                    </button>
+                                </div>
+
+                            </div><!-- /.modal-content -->
+                        </form>
+                    </div><!-- /.modal-dialog -->
+                </div>
+            </div>
         </div>    
     </div>
 </section>

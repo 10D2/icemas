@@ -24,10 +24,7 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
         $scope.mostrarModalUsuario = function (usuario) {
             angular.copy(usuario, $scope.infoUser);
             $scope.valorCliente.idCliente = usuario.idCliente;
-            $scope.seleccionarPerfil.idPerfil = usuario.idPerfil;
-           
-            
-                    
+            $scope.seleccionarPerfil.idPerfil = usuario.idPerfil;         
             $("#modal_usuarios").modal();
         };
 

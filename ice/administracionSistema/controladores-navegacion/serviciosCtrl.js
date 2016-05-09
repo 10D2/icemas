@@ -5,7 +5,11 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
         $scope.activar('mServicios');
         $scope.servicios = {};
         $scope.infoServicio = {};
-
+        $scope.clienteSele = {};
+        $scope.equipoSel = {};
+        $scope.tipoSel = {};
+        $scope.tecnicoSel = {};
+       // $scope.selecSiNo = {};
 
         $scope.moverX = function (pag) {
             Servicios.cargarServicios(pag).then(function () {
@@ -30,6 +34,11 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
 
         $scope.mostrarModalServicio = function (servicio) {
             angular.copy(servicio, $scope.infoServicio);
+            $scope.clienteSele.idCliente = servicio.idCliente;
+            $scope.equipoSel.idEquipo = servicio.idEquipo;
+            $scope.tipoSel.idTipo = servicio.idTipo;
+            $scope.tecnicoSel.idTecnico = servicio.idTecnico;
+          //  $scope.selecSiNo.id = servicio.id;
 
             $("#modal_servicios").modal();
 
@@ -65,15 +74,18 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
         //=================================================================
 
         $scope.guardarServicio = function (servicio) {
-
+            $scope.infoServicio.idCliente = $scope.clienteSele;
+            $scope.infoServicio.idEquipo = $scope.equipoSel;
+            $scope.infoServicio.idTipo = $scope.tipoSel;
+            $scope.infoServicio.idTecnico = $scope.tecnicoSel;
+        //    $scope.infoServicio.id = $scope.selecSiNo;
             Servicios.serviciosGuardar(servicio).then(function () {
                 $("#modal_servicios").modal('hide');
                 $scope.infoServicio = {};
             });
-
         };
-        
-        
+
+
 
     }]);
 

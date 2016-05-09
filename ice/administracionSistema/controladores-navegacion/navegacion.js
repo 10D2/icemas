@@ -46,6 +46,9 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/subirPdf/:idServicio', {
                     templateUrl: 'template/subirPdf.html'
                 })
+                .when('/subirImg/:idEquipo', {
+                    templateUrl: 'template/subirImg.html'
+                })
                 .when('/visor', {
                     templateUrl: 'template/visor.html'
                 })
