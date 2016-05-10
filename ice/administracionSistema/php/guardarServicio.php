@@ -17,7 +17,7 @@ $idT = $request['idTipo'];
 $idTe = $request['idTecnico'];
 $ff = $request['fechaFinalizacion'];
 $idE = $request['idEquipo'];
-$idR = $request['id'];
+$idR  = $request['realizado'];
 $idC = $request['idCliente'];
 $idServicio = $request['idServicio'];
 
@@ -25,10 +25,10 @@ $idServicio = $request['idServicio'];
 //$idTe = $idTecnico->idTecnico;
 //$idE  = $idEquipo->idEquipo;
 //$idC  = $idCliente->idCliente;
-//$idR  = $realizado->id;
+//$idR  = $realizado->realizado;
 
 if (isset($request['idServicio'])) { //ACTUALIZAR
-    $sql = "UPDATE servicios SET fechaInicio='$fechaInicio', folio='$folio', descripcion='$descripcion', proximo='$proximo', refacciones='$refacciones', idTipo='$idT', idTecnico='$idTe', fechaFinalizacion='$ff', idEquipo='$idE', id='$idR', idCliente='$idC' WHERE servicios.idServicio=$idServicio";
+    $sql = "UPDATE servicios SET fechaInicio='$fechaInicio', folio='$folio', descripcion='$descripcion', proximo='$proximo', refacciones='$refacciones', idTipo='$idT', idTecnico='$idTe', fechaFinalizacion='$ff', idEquipo='$idE', id='$idR', idCliente='$idC' WHERE servicios.idServicio= $idServicio";
 
 
     $hecho = Database::ejecutar_idu($sql);

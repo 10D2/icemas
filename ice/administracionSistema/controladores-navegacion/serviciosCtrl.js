@@ -9,7 +9,6 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
         $scope.equipoSel = {};
         $scope.tipoSel = {};
         $scope.tecnicoSel = {};
-       // $scope.selecSiNo = {};
 
         $scope.moverX = function (pag) {
             Servicios.cargarServicios(pag).then(function () {
@@ -21,13 +20,17 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
         $scope.moverX(pag);
 
 
+
+
         $scope.items = [
-            {id: 1, name: 'Realizado'},
-            {id: 0, name: 'No Realizado'}
+            {realizado: 1, name: 'Realizado'},
+            {realizado: 0, name: 'No Realizado'}
         ];
 
-        $scope.selecSiNo = null;
-
+        $scope.selecSiNo = {};
+        
+            
+            
         //================================================================
         // MOSTRAR MODAL 
         //================================================================
@@ -38,7 +41,15 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
             $scope.equipoSel.idEquipo = servicio.idEquipo;
             $scope.tipoSel.idTipo = servicio.idTipo;
             $scope.tecnicoSel.idTecnico = servicio.idTecnico;
-          //  $scope.selecSiNo.id = servicio.id;
+            $scope.selecSiNo.realizado = servicio.realizado;
+            console.log("MODAL: " + $scope.infoServicio);
+            console.log("SERVICIO: " + servicio.realizado);
+            if (servicio.realizado == 1) {
+                $scope.items.name = "Realizado";
+                
+            } else {
+               $scope.items.name = "No Realizado";
+            }
 
             $("#modal_servicios").modal();
 
@@ -78,7 +89,7 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
             $scope.infoServicio.idEquipo = $scope.equipoSel;
             $scope.infoServicio.idTipo = $scope.tipoSel;
             $scope.infoServicio.idTecnico = $scope.tecnicoSel;
-        //    $scope.infoServicio.id = $scope.selecSiNo;
+            //    $scope.infoServicio.id = $scope.selecSiNo;
             Servicios.serviciosGuardar(servicio).then(function () {
                 $("#modal_servicios").modal('hide');
                 $scope.infoServicio = {};

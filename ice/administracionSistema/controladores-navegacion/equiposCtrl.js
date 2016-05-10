@@ -1,12 +1,12 @@
 app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams', 'carga', function ($scope, $http, Equipos, $routeParams, carga) {
 
         var pag = $routeParams.pag;
-        var codigo = $routeParams.idEquipo;
+        var codigo = $routeParams.idImagen;
 
         $scope.activar('mEquipos');
         $scope.equipos = {};
         $scope.infoEquipo = {};
-       $scope.eligeCliente = {};
+        $scope.eligeCliente = {};
 
 
         $scope.moverY = function (pag) {
@@ -45,6 +45,18 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
         $http.get('./php/nombresEquipos.php').success(function (arrayEquipos) {
             $scope.nomEquipo = arrayEquipos;
         });
+        
+        $scope.imgEquipo = {};
+        $http.get('./php/getImagenEquipo.php?c=' + codigo).success(function(data){
+            $scope.imgEquipo = data;
+        });
+        
+        $scope.modalImagen = function (idEquipo) {
+            
+            $("#modal_imagen").modal();
+
+        };
+        
 
         //=================================================================
         // FUNCION GUARDAR DATOS

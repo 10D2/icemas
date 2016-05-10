@@ -36,8 +36,8 @@
                         <thead>
                             <tr class="tblTitulo">
                                 <th class="btnEditar text-primary">No.</th>
-                                <th>IMAGEN</th>
-                                <th class="tblTitulo">CLIENTE
+                                <th class="btnEditar text-primary">VER</th>
+                                <th>CLIENTE
                                     <a ng-click="columna = 'nombre'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i> 
                                     </a>
@@ -47,12 +47,13 @@
                                 <th class="text-primary">MARCA</th>
                                 <th class="text-primary">MODELO</th>
                                 <th class="text-primary">SERIE</th>
-                                <th class="text-primary">CARACTERISTICAS</th>
-                                <th class="col-sm-1">VENTA
+                                <!-- <th class="text-primary">CARACTERISTICAS</th>
+                               <th class="col-sm-1">VENTA
                                     <a ng-click="columna = 'fechaVenta'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
                                     </a>
-                                </th>
+                                </th>-->
+                                <th class="btnEditar text-primary">IMAGEN</th>
                                 <th class="text-primary">EDITAR</th>
                                 <th class="text-primary">TRANSFERIR</th>
                             </tr>
@@ -60,10 +61,10 @@
                         <tbody>
                             <tr ng-repeat="equipo in equipos.equipos| filter:busqueda | orderBy:columna:reverse" class="tblLetras">
                                 <td class="btnEditar text-primary"><b>{{$index + 1}}</b></td>
-                                <td>
-                                    <a ng-if="!equipo.nombreImagen" href="#/subirImg/{{equipo.idEquipo}}" class="btn btn-xs btn-primary">
-                                        <i class="fa fa-arrow-circle-up"></i>
-                                    </a>
+                                <td class="btnEditar">
+                                    <a ng-if="equipo.nombreImagen" ng-href="{{equipo.nombreImagen}}"  class="btn btn-xs btn-openid">
+                                        <i class="fa fa-file-photo-o" ></i> 
+                                    </a>                              
                                 </td>
                                 <td>{{equipo.nombre|uppercase}}</td>
                                 <td>{{equipo.propietario|uppercase}}</td>
@@ -71,8 +72,13 @@
                                 <td>{{equipo.marca|uppercase}}</td>
                                 <td>{{equipo.modelo|uppercase}}</td>
                                 <td>{{equipo.serie|uppercase}}</td>
-                                <td>{{equipo.caracteristicas|uppercase}}</td>
-                                <td>{{equipo.fechaVenta|uppercase}}</td>
+                                <!--   <td>{{equipo.caracteristicas|uppercase}}</td>
+                                   <td>{{equipo.fechaVenta|uppercase}}</td -->
+                                <td class="btnEditar">
+                                    <a ng-if="!equipo.nombreImagen" href="#/subirImg/{{equipo.idEquipo}}" class="btn btn-xs btn-primary">
+                                        <i class="fa fa-arrow-circle-up"></i>
+                                    </a>
+                                </td>
                                 <td class="btnEditar">
                                     <a ng-click="mostrarModalEquipo(equipo)" class="btn btn-warning btn-xs">
                                         <i class="fa fa-edit"></i>
@@ -206,6 +212,17 @@
                     </div><!-- /.modal-dialog -->
                 </div>
             </div>
+            
+            <div class="modal fade" id="modal_imagen">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="archivos/{{equipo.nombreImagen}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>    
     </div>
 </section>

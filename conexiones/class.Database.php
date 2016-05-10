@@ -332,7 +332,10 @@ class Database {
                 $sql = "SELECT idCliente, nombre, direccion, telefono, contacto, correo FROM clientes ORDER BY nombre ASC";
                 break;
             case 'equipos':
-                $sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, c.idCliente ,e.fechaVenta FROM equipos e INNER JOIN clientes c ON c.idCliente = e.idCliente ORDER BY c.nombre ASC ";
+                //$sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, c.idCliente ,e.fechaVenta FROM equipos e INNER JOIN clientes c ON c.idCliente = e.idCliente ORDER BY c.nombre ASC ";
+                $sql = "SELECT e.idEquipo, e.equipo,e.caracteristicas ,e.marca, e.modelo, e.serie, e.propietario, c.nombre, 
+c.idCliente ,e.fechaVenta, i.nombreImagen FROM equipos e LEFT JOIN clientes c ON c.idCliente = e.idCliente 
+LEFT JOIN imagenes i ON i.idEquipo = e.idEquipo ORDER BY c.nombre ASC";
                 break;
             case 'servicios':
 //                $sql = "SELECT s.idServicio, s.fechaInicio, s.folio, s.descripcion, s.proximo, s.refacciones, t.tipo, 
