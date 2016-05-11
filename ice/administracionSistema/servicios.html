@@ -140,11 +140,14 @@
                                 <br>
                                 <div class="form-group-sm form-inline">
                                     <label>Fecha de Inicio</label>
-                                    <input 
+                                  <input 
                                         type="date" 
                                         name="date_control" 
                                         required="required"
-                                        ng-model="infoServicio.fechaInicio"/>
+                                        min="2016-01-01"
+                                        max="2025-01-01"
+                                        ng-model="infoServicio.fechaInicio"/> 
+                                 {{infoServicio.fechaInicio}}
                                 </div>
                                 <br>
                                 <div class="form-group-sm form-inline">
@@ -154,6 +157,7 @@
                                         name="date_control" 
                                         required="required"
                                         ng-model="infoServicio.fechaFinalizacion"/>
+                                     {{infoServicio.fechaFinalizacion}}
                                 </div>
                                 <br>
                                 <div class="form-group-sm form-inline">
@@ -198,12 +202,13 @@
                                         name="date_control" 
                                         required="required"
                                         ng-model="infoServicio.proximo"/>
+                                    {{infoServicio.proximo}}
 
                                 <label>Realizado</label>
                                     <select  
                                         ng-model="selecSiNo" 
                                         class="form-control" 
-                                        ng-options="item as item.name for item in items track by item.realizado"> 
+                                        ng-options="item.realizado as item.name for item in items track by item.realizado"> 
                                         <option value="" selected hidden> <option>   
                                     </select>
                                 </div>

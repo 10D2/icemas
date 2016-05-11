@@ -7,7 +7,7 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $request = (array) $request;
 
-$valor = $request->usuario;
+//$valor = $request->usuario;
 $usuarioC = $request['usuario'];
 $contrasenaC = $request['contrasena'];
 $idP = $request['idPerfil'];

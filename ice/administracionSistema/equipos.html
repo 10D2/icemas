@@ -62,7 +62,7 @@
                             <tr ng-repeat="equipo in equipos.equipos| filter:busqueda | orderBy:columna:reverse" class="tblLetras">
                                 <td class="btnEditar text-primary"><b>{{$index + 1}}</b></td>
                                 <td class="btnEditar">
-                                    <a ng-if="equipo.nombreImagen" ng-href="{{equipo.nombreImagen}}"  class="btn btn-xs btn-openid">
+                                    <a ng-if="equipo.nombreImagen" ng-href="{{equipo.nombreImagen}}" target="_blank" class="btn btn-xs btn-openid">
                                         <i class="fa fa-file-photo-o" ></i> 
                                     </a>                              
                                 </td>

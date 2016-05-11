@@ -36,13 +36,14 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
         //================================================================
 
         $scope.mostrarModalServicio = function (servicio) {
+            $scope.infoServicio = {};
             angular.copy(servicio, $scope.infoServicio);
             $scope.clienteSele.idCliente = servicio.idCliente;
             $scope.equipoSel.idEquipo = servicio.idEquipo;
             $scope.tipoSel.idTipo = servicio.idTipo;
             $scope.tecnicoSel.idTecnico = servicio.idTecnico;
             $scope.selecSiNo.realizado = servicio.realizado;
-            console.log("MODAL: " + $scope.infoServicio);
+            console.log("MODAL: " + $scope.infoServicio.fechaInicio);
             console.log("SERVICIO: " + servicio.realizado);
             if (servicio.realizado == 1) {
                 $scope.items.name = "Realizado";
@@ -52,6 +53,7 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
             }
 
             $("#modal_servicios").modal();
+            
 
         };
 
@@ -79,21 +81,27 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
             $scope.nomCliente = arrayClientes;
         });
 
-
         //=================================================================
         // FUNCION GUARDAR DATOS
         //=================================================================
 
         $scope.guardarServicio = function (servicio) {
-            $scope.infoServicio.idCliente = $scope.clienteSele;
-            $scope.infoServicio.idEquipo = $scope.equipoSel;
-            $scope.infoServicio.idTipo = $scope.tipoSel;
-            $scope.infoServicio.idTecnico = $scope.tecnicoSel;
-            //    $scope.infoServicio.id = $scope.selecSiNo;
+//            $scope.infoServicio.idCliente = $scope.clienteSele;
+//            $scope.infoServicio.idEquipo = $scope.equipoSel;
+//            $scope.infoServicio.idTipo = $scope.tipoSel;
+//            $scope.infoServicio.idTecnico = $scope.tecnicoSel;
+//            $scope.infoServicio.realizado = $scope.selecSiNo;
             Servicios.serviciosGuardar(servicio).then(function () {
                 $("#modal_servicios").modal('hide');
-                $scope.infoServicio = {};
+                
             });
+// 
+//            $scope.infoServicio = {};
+//            $scope.clienteSele = {};
+//            $scope.equipoSel = {};
+//            $scope.tipoSel = {};
+//            $scope.tecnicoSel = {};
+//            $scope.selecSiNo = {};
         };
 
 

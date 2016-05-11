@@ -7,8 +7,8 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $request = (array) $request;
 
-
 $fechaInicio = $request['fechaInicio'];
+//$fInicio = date("Y-m-d", $fechaInicio);
 $folio = $request['folio'];
 $descripcion = $request['descripcion'];
 $proximo = $request['proximo'];
@@ -17,19 +17,15 @@ $idT = $request['idTipo'];
 $idTe = $request['idTecnico'];
 $ff = $request['fechaFinalizacion'];
 $idE = $request['idEquipo'];
-$idR  = $request['realizado'];
+$idR = $request['realizado'];
 $idC = $request['idCliente'];
 $idServicio = $request['idServicio'];
 
-//$idT  = $idTipo->idTipo;
-//$idTe = $idTecnico->idTecnico;
-//$idE  = $idEquipo->idEquipo;
-//$idC  = $idCliente->idCliente;
-//$idR  = $realizado->realizado;
+
 
 if (isset($request['idServicio'])) { //ACTUALIZAR
-    $sql = "UPDATE servicios SET fechaInicio='$fechaInicio', folio='$folio', descripcion='$descripcion', proximo='$proximo', refacciones='$refacciones', idTipo='$idT', idTecnico='$idTe', fechaFinalizacion='$ff', idEquipo='$idE', id='$idR', idCliente='$idC' WHERE servicios.idServicio= $idServicio";
-
+    //   $sql = "UPDATE servicios SET fechaInicio='$fechaInicio', folio='$folio', descripcion='$descripcion', proximo='$proximo', refacciones='$refacciones', idTipo='$idT', idTecnico='$idTe', fechaFinalizacion='$ff', idEquipo='$idE', realizado='$idR', idCliente='$idC' WHERE servicios.idServicio=$idServicio";
+    $sql = "UPDATE servicios SET fechaInicio='$fechaInicio', folio='$folio', descripcion='$descripcion', proximo='$proximo', refacciones='$refacciones', idTipo='$idT', idTecnico='$idTe', fechaFinalizacion='$ff', idEquipo='$idE', realizado='$idR', idCliente='$idC' WHERE servicios.idServicio=$idServicio";
 
     $hecho = Database::ejecutar_idu($sql);
 
@@ -39,7 +35,8 @@ if (isset($request['idServicio'])) { //ACTUALIZAR
         $respuesta = array('err' => true, 'Mensaje' => $hecho);
     }
 } else { //INSERTAR
-    $sql = "INSERT INTO servicios (fechaInicio, folio, descripcion, proximo, refacciones, idTipo, idTecnico, fechaFinalizacion, idEquipo, id, idCliente) VALUES ('$fechaInicio', '$folio', '$descripcion', '$proximo', '$refacciones', '$idT', '$idTe', '$ff', '$idE', '$idR', '$idC')";
+    $sql = "INSERT INTO servicios (fechaInicio, folio, descripcion, proximo, refacciones, idTipo, idTecnico, fechaFinalizacion, idEquipo, realizado, idCliente) VALUES ('$fechaInicio', '$folio', '$descripcion', '$proximo', '$refacciones', '$idT', '$idTe', '$ff', '$idE', '$idR', '$idC')";
+
     $hecho = Database::ejecutar_idu($sql);
 
     if (is_numeric($hecho) OR $hecho == true) {
@@ -52,4 +49,6 @@ if (isset($request['idServicio'])) { //ACTUALIZAR
 }
 echo json_encode($respuesta);
 ?>
+
+
 
