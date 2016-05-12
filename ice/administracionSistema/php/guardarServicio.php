@@ -21,7 +21,11 @@ $idR = $request['realizado'];
 $idC = $request['idCliente'];
 $idServicio = $request['idServicio'];
 
-
+//$idTipo=$idT->idTipo;
+//$idTec=$idTe->idTecnico;
+//$idEqp=$idE->idEquipo;
+//$idCli=$idC->idCliente;
+//$idReal=$idR->realizado;
 
 if (isset($request['idServicio'])) { //ACTUALIZAR
     //   $sql = "UPDATE servicios SET fechaInicio='$fechaInicio', folio='$folio', descripcion='$descripcion', proximo='$proximo', refacciones='$refacciones', idTipo='$idT', idTecnico='$idTe', fechaFinalizacion='$ff', idEquipo='$idE', realizado='$idR', idCliente='$idC' WHERE servicios.idServicio=$idServicio";

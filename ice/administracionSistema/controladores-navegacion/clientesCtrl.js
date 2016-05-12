@@ -53,8 +53,6 @@ app.controller('clientesCtrl', ['$scope', '$http', 'Clientes', '$routeParams', f
             Clientes.clientesGuardar(cliente).then(function () {
                 $("#modal_clientes").modal('hide');
                 $scope.infoCliente = {};
-                
-                console.log(cliente);
             });
 
         };

@@ -123,7 +123,7 @@
                                     <select  
                                         ng-model="clienteSele" 
                                         class="form-control" 
-                                        ng-options="nombreS.idCliente as nombreS.nombre for nombreS in nomCliente track by nombreS.idCliente"> 
+                                        ng-options="nombreS.idCliente as nombreS.nombre for nombreS in nomCliente"> 
                                         <option value="" selected hidden> <option>    
                                     </select>     
                                 </div>
@@ -133,7 +133,7 @@
                                     <select  
                                         ng-model="equipoSel" 
                                         class="form-control" 
-                                        ng-options="equipo.idEquipo as '' + equipo.equipo + '  ' + '|' + '  ' + equipo.caracteristicas + ' | ' + 'No.Serie:' + '  ' + equipo.serie + '' for equipo in nomEquipo track by equipo.idEquipo"> 
+                                        ng-options="equipo.idEquipo as '' + equipo.equipo + '  ' + '|' + '  ' + equipo.caracteristicas + ' | ' + 'No.Serie:' + '  ' + equipo.serie + '' for equipo in nomEquipo"> 
                                         <option value="" selected hidden> <option>   
                                     </select>
                                 </div>
@@ -165,7 +165,7 @@
                                     <select  
                                         ng-model="tipoSel" 
                                         class="form-control" 
-                                        ng-options="tS.idTipo as tS.tipo for tS in nomTservicio track by tS.idTipo"> 
+                                        ng-options="tS.idTipo as tS.tipo for tS in nomTservicio"> 
                                         <option value="" selected hidden> <option>   
                                     </select>
 
@@ -173,7 +173,7 @@
                                     <select  
                                         ng-model="tecnicoSel" 
                                         class="form-control" 
-                                        ng-options="tec.idTecnico as tec.tecnico for tec in nomTecnicos track by tec.idTecnico"> 
+                                        ng-options="tec.idTecnico as tec.tecnico for tec in nomTecnicos"> 
                                         <option value="" selected hidden> <option>    
                                     </select>
                                 </div> 
@@ -208,7 +208,7 @@
                                     <select  
                                         ng-model="selecSiNo" 
                                         class="form-control" 
-                                        ng-options="item.realizado as item.name for item in items track by item.realizado"> 
+                                        ng-options="item.realizado as item.name for item in items"> 
                                         <option value="" selected hidden> <option>   
                                     </select>
                                 </div>

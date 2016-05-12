@@ -1,3 +1,23 @@
-<div ng-controller="equiposAdminCtrl">
-    <img ng-src="archivos/{{equipo.nombreImagen}}">
-</div>
+<section class="content">
+
+    <div class="col-sm-8 col-sm-offset-2" ng-controller="equiposAdminCtrl">
+        <div class="thumbnail">
+            <div class="row">
+                <div class="col-sm-8">
+                    <img ng-src="{{imgEquipo.nombreImagen}}" alt="" class="img-responsive imgEquipo">
+                </div><br><br>
+                <div class="col-sm-4">
+                    <h4><b>EQUIPO:  </b>  {{imgEquipo.equipo|uppercase}}.</h4>
+                    <h4><b>MARCA:  </b>  {{imgEquipo.marca|uppercase}}.</h4>
+                    <h4><b>MODELO:  </b>  {{imgEquipo.modelo|uppercase}}.</h4>
+                    <h4><b>SERIE:  </b>  {{imgEquipo.serie|uppercase}}.</h4>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!-- /.col-sm-8 2 -->
+
+
+</section>
+<!-- /Contenido -->

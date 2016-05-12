@@ -10,14 +10,14 @@ $request = (array) $request;
 //$valor = $request->usuario;
 $usuarioC = $request['usuario'];
 $contrasenaC = $request['contrasena'];
-$idP = $request['idPerfil'];
-$id = $request['idCliente'];
+$idPerfil = $request['idPerfil'];
+$idC = $request['idCliente'];
 $idUsuario = $request['idUsuario'];
 
 //$id = $idC->idCliente;
 //$idP = $idPerfil->idPerfil;
 if (isset($request['idUsuario'])) { //ACTUALIZAR
-    $sql = "UPDATE usuarios SET usuario='$usuarioC', contrasena='$contrasenaC', idPerfil='$idP', idCliente='$id' WHERE usuarios.idUsuario= $idUsuario";
+    $sql = "UPDATE usuarios SET usuario='$usuarioC', contrasena='$contrasenaC', idPerfil='$idPerfil', idCliente='$idC' WHERE usuarios.idUsuario= $idUsuario";
 
 
     $hecho = Database::ejecutar_idu($sql);
@@ -28,7 +28,7 @@ if (isset($request['idUsuario'])) { //ACTUALIZAR
         $respuesta = array('err' => true, 'Mensaje' => $hecho);
     }
 } else { //INSERTAR
-    $sql = "INSERT INTO usuarios (usuario, contrasena, idPerfil, idCliente) VALUES ('$usuarioC', '$contrasenaC', '$idP', '$id')";
+    $sql = "INSERT INTO usuarios (usuario, contrasena, idPerfil, idCliente) VALUES ('$usuarioC', '$contrasenaC', '$idPerfil', '$idC')";
 
     $hecho = Database::ejecutar_idu($sql);
 

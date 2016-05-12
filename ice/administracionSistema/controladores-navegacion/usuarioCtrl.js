@@ -5,8 +5,8 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
         $scope.activar('mUsuarios');
         $scope.usuarios = {};
         $scope.infoUser = {};
-        $scope.valorCliente = {};
-        $scope.seleccionarPerfil = {};
+        $scope.valorCliente = "";
+        $scope.seleccionarPerfil = "";
         $scope.moverF = function (pag) {
             Usuarios.cargarP(pag).then(function () {
                 $scope.usuarios = Usuarios;
@@ -23,8 +23,11 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
 
         $scope.mostrarModalUsuario = function (usuario) {
             angular.copy(usuario, $scope.infoUser);
-            $scope.valorCliente.idCliente = usuario.idCliente;
-            $scope.seleccionarPerfil.idPerfil = usuario.idPerfil;         
+
+            $scope.valorCliente = "" + usuario.idCliente + "";
+//           alert($scope.valorCliente);
+            console.log(usuario.idPerfil);
+            $scope.seleccionarPerfil = "" + usuario.idPerfil + "";
             $("#modal_usuarios").modal();
         };
 
@@ -60,15 +63,13 @@ app.controller('userCtrl', ['$scope', '$http', 'Usuarios', '$routeParams', funct
 //                $scope.infoUser = {};
 //                console.log(usuario);
 //            });
+            $scope.infoUser = {};
+            $scope.valorCliente = {};
+            $scope.seleccionarPerfil = {};
             $scope.moverF(pag);
 
         };
 
-
-        $scope.valor = function () {
-//            alert(id);
-            alert($scope.valorCliente);
-        };
 
 
 

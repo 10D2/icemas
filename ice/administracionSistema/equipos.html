@@ -62,7 +62,7 @@
                             <tr ng-repeat="equipo in equipos.equipos| filter:busqueda | orderBy:columna:reverse" class="tblLetras">
                                 <td class="btnEditar text-primary"><b>{{$index + 1}}</b></td>
                                 <td class="btnEditar">
-                                    <a ng-if="equipo.nombreImagen" ng-href="{{equipo.nombreImagen}}" target="_blank" class="btn btn-xs btn-openid">
+                                    <a ng-if="equipo.nombreImagen" href="#/vistaImagen/{{equipo.idImagen}}" class="btn btn-xs btn-openid">
                                         <i class="fa fa-file-photo-o" ></i> 
                                     </a>                              
                                 </td>
@@ -107,63 +107,40 @@
                         <form ng-submit="guardarEquipo(infoEquipo)">
 
                             <div class="modal-body">
-
-                                <!--    <div class="form-group-sm">
-                                <!--                        <div class="row">
-                                                            <div class="col-lg-4" ng-repeat="imagen in infoEquipo">
-                                                                <img class="previa thumbnail" ng-src="../../{{imagen.imagen}}"/>
-                                                            </div> 
-                                                        </div>-->
-                                <!--     <input
-                                          class="col-sm-"
-                                          type="file" 
-                                          name="file"
-                                          ng-model="infoEquipo.imagen"
-                                          uploader-model="file"
-                                          required="required"/> -->
-                                <!--   </div> -->
-                                <div class="col-sm-12">
-                                    <div class="col-sm-8 thumbnail imgEquipo">
-                                        <img>
-                                    </div>
-                                    <div class="col-sm-4 col-sm-offset-8">
-                                        <div class="form-group-sm form-inline">
-                                            <label>Equipo</label>
-                                            <input 
-                                                type="text" 
-                                                class="form-control" 
-                                                placeholder="Nombre del equipo"
-                                                required="required"
-                                                ng-model="infoEquipo.equipo"/>
-                                        </div>
-                                        <div class="form-group-sm form-inline">
-                                            <label>Marca</label>
-                                            <input 
-                                                type="text" 
-                                                class="form-control" 
-                                                placeholder="Marca del equipo"
-                                                required="required"
-                                                ng-model="infoEquipo.marca"/>
-                                        </div>
-                                        <div class="form-group-sm form-inline">
-                                            <label>Modelo</label>
-                                            <input 
-                                                type="text" 
-                                                class="form-control" 
-                                                placeholder="Modelo del equipo"
-                                                required="required"
-                                                ng-model="infoEquipo.modelo"/>
-                                        </div>
-                                        <div class="form-group-sm form-inline">
-                                            <label>Serie</label>
-                                            <input 
-                                                type="text" 
-                                                class="form-control" 
-                                                placeholder="Serie del equipo"
-                                                required="required"
-                                                ng-model="infoEquipo.serie"/>
-                                        </div>
-                                    </div>
+                                <div class="form-group-sm form-inline">
+                                    <label>Equipo</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Nombre del equipo"
+                                        required="required"
+                                        ng-model="infoEquipo.equipo"/>
+                                
+                                    <label>Marca</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Marca del equipo"
+                                        required="required"
+                                        ng-model="infoEquipo.marca"/>
+                                </div>
+                                <br>
+                                <div class="form-group-sm form-inline">
+                                    <label>Modelo</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Modelo del equipo"
+                                        required="required"
+                                        ng-model="infoEquipo.modelo"/>
+                              
+                                    <label>Serie</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Serie del equipo"
+                                        required="required"
+                                        ng-model="infoEquipo.serie"/>
                                 </div>
 
                                 <br>
@@ -190,7 +167,7 @@
                                     <select  
                                         ng-model="eligeCliente" 
                                         class="form-control" 
-                                        ng-options="persona.idCliente as persona.nombre for persona in nomCliente track by persona.idCliente"> 
+                                        ng-options="persona.idCliente as persona.nombre for persona in nomCliente"> 
                                         <option value="">Selecciona un Cliente<option>     
                                     </select>
                                     <label>Fecha de la venta</label>
@@ -212,7 +189,7 @@
                     </div><!-- /.modal-dialog -->
                 </div>
             </div>
-            
+
             <div class="modal fade" id="modal_imagen">
                 <div class="modal-dialog">
                     <div class="modal-content">

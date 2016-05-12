@@ -29,11 +29,11 @@ class conexion {
     
     
 //    function Conectarse() {
-//        if (!($link = mysql_connect("localhost", "darias66", "Oriente65"))) {
+//        if (!($link = mysql_connect("localhost", "icemasAdmin", "icemasadmin"))) {
 //            echo "Error conectando a la base de datos.";
 //            exit();
 //        }
-//        if (!mysql_select_db("elvocero", $link)) {
+//        if (!mysql_select_db("webicemas", $link)) {
 //            echo "NOO SELECCIONO LA BASE DE DATOS";
 //            exit();
 //        }

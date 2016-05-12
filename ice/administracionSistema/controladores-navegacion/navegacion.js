@@ -49,7 +49,7 @@ app.config(['$routeProvider', function ($routeProvider) {
                 .when('/subirImg/:idEquipo', {
                     templateUrl: 'template/subirImg.html'
                 })
-                .when('/vistaImagen/:nombreImagen', {
+                .when('/vistaImagen/:idImagen', {
                     templateUrl: 'template/vistaImagen.html'
                 })
                 .otherwise({

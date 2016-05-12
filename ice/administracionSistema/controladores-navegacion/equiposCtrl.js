@@ -6,7 +6,7 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
         $scope.activar('mEquipos');
         $scope.equipos = {};
         $scope.infoEquipo = {};
-        $scope.eligeCliente = {};
+        $scope.eligeCliente = "";
 
 
         $scope.moverY = function (pag) {
@@ -25,7 +25,7 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
         $scope.mostrarModalEquipo = function (equipo) {
             //console.log(ciudad);
             angular.copy(equipo, $scope.infoEquipo);
-            $scope.eligeCliente.idCliente = equipo.idCliente;
+            $scope.eligeCliente = "" + equipo.idCliente + "";
             $("#modal_equipos").modal();
 
         };
@@ -45,18 +45,18 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
         $http.get('./php/nombresEquipos.php').success(function (arrayEquipos) {
             $scope.nomEquipo = arrayEquipos;
         });
-        
+
         $scope.imgEquipo = {};
-        $http.get('./php/getImagenEquipo.php?c=' + codigo).success(function(data){
+        $http.get('./php/getImagenEquipo.php?c=' + codigo).success(function (data) {
             $scope.imgEquipo = data;
         });
-        
-        $scope.modalImagen = function (idEquipo) {
-            
+
+        $scope.modalImagen = function () {
+
             $("#modal_imagen").modal();
 
         };
-        
+
 
         //=================================================================
         // FUNCION GUARDAR DATOS
@@ -64,7 +64,7 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
 
 
         $scope.guardarEquipo = function (equipo) {
-                $scope.infoEquipo.idCliente = $scope.eligeCliente;
+            $scope.infoEquipo.idCliente = $scope.eligeCliente;
             Equipos.equiposGuardar($scope.infoEquipo).then(function () {
                 $("#modal_equipos").modal('hide');
 //                var name = JSON.stringify($scope.infoEquipo);
@@ -78,8 +78,9 @@ app.controller('equiposAdminCtrl', ['$scope', '$http', 'Equipos', '$routeParams'
 //                    $scope.actualizar = true;
 //                });
             });
-                  $scope.moverY(pag);
-                  $scope.infoEquipo = {};
+            $scope.moverY(pag);
+            $scope.infoEquipo = {};
+            $scope.eligeCliente = {};
         };
 
     }])

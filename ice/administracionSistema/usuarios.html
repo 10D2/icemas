@@ -102,7 +102,7 @@
                                     <select
                                         class="form-control"
                                         ng-model="valorCliente"
-                                        ng-options="cliente.idCliente as cliente.nombre for cliente in nomCliente track by cliente.idCliente"
+                                        ng-options="cliente.idCliente as cliente.nombre for cliente in nomCliente"
                                         >
                                         <option value="">Selecciona un Cliente</option>
                                     </select>
@@ -129,7 +129,7 @@
                                     <select  
                                         ng-model="seleccionarPerfil" 
                                         class="form-control" 
-                                        ng-options="per.idPerfil as per.perfil for per in nomPerfil track by per.idPerfil"> 
+                                        ng-options="per.idPerfil as per.perfil for per in nomPerfil"> 
                                         <option value="">Selecciona un Perfil<option>     
                                     </select>
                                 </div> 

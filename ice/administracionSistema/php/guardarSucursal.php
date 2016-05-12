@@ -9,8 +9,8 @@ $request = (array) $request;
 
 
 $sucursalC = $request['sucursal'];
-$id = $request['idCliente'];
-$idCiu = $request['idCiudad'];
+$idC = $request['idCliente'];
+$idCiudad = $request['idCiudad'];
 $idSucursal = $request['idSucursal'];
 
 
@@ -23,7 +23,7 @@ $idSucursal = $request['idSucursal'];
 //$id=$idC->idCliente;
 //$idCiu = $idCiudad->idCiudad;
 if (isset($request['idSucursal'])) { //ACTUALIZAR
-    $sql = "UPDATE sucursales SET sucursal='$sucursalC', idCliente='$id', idCiudad='$idCiu' WHERE sucursales.idSucursal= $idSucursal";
+    $sql = "UPDATE sucursales SET sucursal='$sucursalC', idCliente='$idC', idCiudad='$idCiudad' WHERE sucursales.idSucursal= $idSucursal";
 
 
     $hecho = Database::ejecutar_idu($sql);
@@ -34,7 +34,7 @@ if (isset($request['idSucursal'])) { //ACTUALIZAR
         $respuesta = array('err' => true, 'Mensaje' => $hecho);
     }
 } else { //INSERTAR
-    $sql = "INSERT INTO sucursales (sucursal, idCliente, idCiudad) VALUES ('$sucursalC', '$id', '$idCiu')";
+    $sql = "INSERT INTO sucursales (sucursal, idCliente, idCiudad) VALUES ('$sucursalC', '$idC', '$idCiudad')";
     $hecho = Database::ejecutar_idu($sql);
 
     if (is_numeric($hecho) OR $hecho == true) {

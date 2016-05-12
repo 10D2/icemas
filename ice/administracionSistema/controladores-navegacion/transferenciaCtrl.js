@@ -51,7 +51,7 @@ app.controller('transCtrl', ['$scope', '$http', 'Transferencias', '$routeParams'
 
         $scope.guardarTrans = function ( idCliente ) {
             $http.post('./php/guardarTransferencia.php', $scope.infoTrans).success(function () {
-                console.log($scope.infoTrans);
+               // console.log($scope.infoTrans);
             });
             $scope.actualiza = true;
             swal("Excelente!", "Transferencia Realizada!", "success")
