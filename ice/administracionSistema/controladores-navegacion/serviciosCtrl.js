@@ -1,7 +1,8 @@
 app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routeParams', function ($scope, $http, Servicios, $routeParams) {
 
         var pag = $routeParams.pag;
-
+       // var codigo = $routeParams.idCliente;
+        
         $scope.activar('mServicios');
         $scope.servicios = {};
         $scope.infoServicio = {};
@@ -18,8 +19,6 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
         };
 
         $scope.moverX(pag);
-
-
 
 
         $scope.items = [
@@ -44,8 +43,8 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
             $scope.tecnicoSel = "" + servicio.idTecnico + "";
             //$scope.selecSiNo = "" + servicio.realizado + "";
             $scope.selecSiNo.realizado = servicio.realizado;
-            console.log("MODAL: " + $scope.infoServicio.fechaInicio);
-            console.log("SERVICIO: " + servicio.realizado);
+            console.log("EQUIPO: " + $scope.equipoSel);
+            console.log("CLIENTE: " +  $scope.clienteSele);
             if (servicio.realizado == 1) {
                 $scope.items.name = "Realizado";
 
@@ -57,6 +56,25 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
 
 
         };
+        
+        
+        
+        // $scope que acciona el ng-change
+        $scope.mostrarFiltroEquipos = function (clienteSele) {
+            console.log("Parametro desde SERVICIOS: "+clienteSele);
+            // $scope.selCategorias NOS TRAE EL VALOR DEL SELECT DE CATEGORIAS
+            $scope.anidaEquipo = {};
+            $http.get('./php/equiposAnidados.php?c=' + clienteSele)
+                    .success(function (equiposAnidados) {
+                        $scope.anidaEquipo = equiposAnidados;
+                    });
+                    
+          console.log("Los equipos del Cliente: "+ $scope.anidaEquipo.equipo) ;     
+        };
+
+
+       
+        
 
         //=================================================================
         // CONSULTAS (Combos)
@@ -72,10 +90,10 @@ app.controller('serviciosAdminCtrl', ['$scope', '$http', 'Servicios', '$routePar
             $scope.nomTecnicos = arrayTecnicos;
         });
 
-        $scope.nomEquipo = {};
-        $http.get('./php/nombresEquipos.php').success(function (arrayEquipos) {
-            $scope.nomEquipo = arrayEquipos;
-        });
+//        $scope.nomEquipo = {};
+//        $http.get('./php/nombresEquipos.php').success(function (arrayEquipos) {
+//            $scope.nomEquipo = arrayEquipos;
+//        });
 
         $scope.nomCliente = {};
         $http.get('./php/nombresClientes.php').success(function (arrayClientes) {
