@@ -37,12 +37,17 @@
                                 </th>
                                 <th class="btnEditar text-primary"> VER</th>
                                 <th class="col-sm-1">FECHA
-                                    <a ng-click="columna2 = 'fechaInicio'; reverse = !reverse;">
+                                    <a ng-click="columna2 = 'fechaFinalizacion'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
                                     </a>
                                 </th>
                                 <th>CLIENTE
                                     <a ng-click="columna2 = 'nombre'; reverse = !reverse;">
+                                        <i class="fa fa-unsorted"></i>
+                                    </a>
+                                </th>
+                                <th>SUCURSAL
+                                    <a ng-click="columna2 = 'sucursal'; reverse = !reverse;">
                                         <i class="fa fa-unsorted"></i>
                                     </a>
                                 </th>
@@ -62,8 +67,9 @@
                                         <i class="fa fa-file-pdf-o" ></i> 
                                     </a>
                                 </td>
-                                <td>{{servicio.fechaInicio}}</td>
+                                <td>{{servicio.fechaFinalizacion}}</td>
                                 <td>{{servicio.nombre|uppercase}}</td>
+                                <td>{{servicio.sucursal|uppercase}}</td>
                                 <td>{{servicio.equipo|uppercase}}</td>
                                 <td>{{servicio.serie|uppercase}}</td>
                                 <td>{{servicio.descripcion|uppercase}}</td>
@@ -108,7 +114,7 @@
                             <h4 class="modal-title">Servicios:</h4>
                         </div>
 
-                        <form ng-submit="guardarServicio(infoServicio)" class="form-horizontal">
+                        <form ng-submit="guardarServicio(infoServicio)" class="form-horizontal" ng-hide="mostrarCaja">
                             <div class="modal-body">
 
                                 <div class="form-group-sm form-inline">
@@ -119,48 +125,58 @@
                                         placeholder="Número de folio"
                                         required="required"
                                         ng-model="infoServicio.folio"/>
-                                    <label>Cliente</label>
-                                    <select  
-                                        ng-model="clienteSele" 
-                                        class="form-control"
-                                        ng-change="mostrarFiltroEquipos(clienteSele)"
-                                        ng-options="nombreS.idCliente as nombreS.nombre for nombreS in nomCliente"> 
-                                        <option value="" selected hidden> <option>    
-                                    </select>     
-                                </div>
-                                <br>
-                                <div class="form-group-sm">
-                                    <label>Equipo</label>
-                                    <select  
-                                        ng-model="equipoSel"
-                                        ng-init="equipoSel"
-                                        class="form-control" 
-                                        ng-options="equipo.idEquipo as '' + equipo.equipo + '  ' + '|' + '  ' + equipo.caracteristicas + ' | ' + 'No.Serie:' + '  ' + equipo.serie + '' for equipo in anidaEquipo"> 
-                                        <option value="" selected hidden> <option>   
-                                    </select>
-                                </div>
-                                <br>
-                                <div class="form-group-sm form-inline">
-                                    <label>Fecha de Inicio</label>
-                                  <input 
-                                        type="date" 
-                                        name="date_control" 
-                                        required="required"
-                                        min="2016-01-01"
-                                        max="2025-01-01"
-                                        ng-model="infoServicio.fechaInicio"/> 
-                              
-                                </div>
-                                <br>
-                                <div class="form-group-sm form-inline">
                                     <label>Fecha de Finalización</label>
                                     <input 
                                         type="date" 
                                         name="date_control" 
                                         required="required"
-                                        ng-model="infoServicio.fechaFinalizacion"/>
-                                    
+                                        ng-model="infoServicio.fechaFinalizacion"/>   
                                 </div>
+                                <br>
+                                <div class="form-group-sm form-inline">
+                                    <label>Cliente</label>
+                                    <select  
+                                        ng-model="clienteSele" 
+                                        class="form-control"
+                                        ng-change="mostrarFiltroSucursales(clienteSele)"
+                                        ng-options="nombreS.idCliente as nombreS.nombre for nombreS in nomCliente"> 
+                                        <option value="">Selecciona un Cliente<option>    
+                                    </select> 
+                                    <a ng-click="mostrarClientess()" class="btn btn-warning btn-xs btnemg texto">
+                                        <i class="fa fa-edit">Agregar</i>
+                                    </a>    
+                                </div>
+                                
+                                <br>
+                                <div class="form-group-sm form-inline">
+                                    <label>Sucursal</label>
+                                    <select  
+                                        ng-model="eligeSucursal" 
+                                        class="form-control"
+
+                                        ng-options="tiendas.idSucursal as tiendas.sucursal for tiendas in anidaSuc"> 
+                                        <option value="">Selecciona una Sucursal<option>     
+                                    </select>
+                                    <a href="" class="btn btn-warning btn-xs btnemg texto">
+                                        <i class="fa fa-edit"> Agregar</i>
+                                    </a> 
+                                </div>
+                                <br>
+                                <div class="form-group-sm form-horizontal">
+                                    <label>Equipo</label>
+                                    <a href="" class="btn btn-warning btn-xs btnemg texto">
+                                        <i class="fa fa-edit"> Agregar</i>
+                                    </a> 
+                                    <select  
+                                        ng-model="equipoSel"
+                                        ng-init="equipoSel"
+                                        class="form-control" 
+                                        ng-options="equipo.idEquipo as '' +   equipo.equipo +   '  ' +   '|' +   '  ' +   equipo.caracteristicas +   ' | ' +   'No.Serie:' +   '  ' +   equipo.serie +   '' for equipo in anidaEquipo"> 
+                                        <option value="">Selecciona un Equipo <option>   
+                                    </select>
+                                    <div ng-if="infoServicio.idEquipo"> <label class="text-red">Equipo Seleccionado:</label> {{infoServicio.equipo}}. <label class="text-red"> No.Serie:</label> {{infoServicio.serie}}. </div>
+                                </div>
+
                                 <br>
                                 <div class="form-group-sm form-inline">
                                     <label>Tipo de servicio</label>
@@ -168,7 +184,7 @@
                                         ng-model="tipoSel" 
                                         class="form-control" 
                                         ng-options="tS.idTipo as tS.tipo for tS in nomTservicio"> 
-                                        <option value="" selected hidden> <option>   
+                                        <option value="">Selecciona un Servicio<option>   
                                     </select>
 
                                     <label>Técnico</label>
@@ -176,7 +192,7 @@
                                         ng-model="tecnicoSel" 
                                         class="form-control" 
                                         ng-options="tec.idTecnico as tec.tecnico for tec in nomTecnicos"> 
-                                        <option value="" selected hidden> <option>    
+                                        <option value="">Selecciona un Técnico <option>    
                                     </select>
                                 </div> 
                                 <br>
@@ -193,7 +209,7 @@
                                     <textarea type="text" 
                                               class="form-control" 
                                               placeholder="Refacciones utilizadas"
-                                              required="required"
+
                                               ng-model="infoServicio.refacciones"></textarea>
                                 </div>
                                 <br>
@@ -204,9 +220,9 @@
                                         name="date_control" 
                                         required="required"
                                         ng-model="infoServicio.proximo"/>
-                            
 
-                                <label>Realizado</label>
+
+                                    <label>Realizado</label>
                                     <select  
                                         ng-model="selecSiNo" 
                                         class="form-control" 
@@ -222,6 +238,63 @@
                                 </div>
                             </div><!-- /.modal-content -->
                         </form>
+                        <div ng-show="mostrarCaja">
+                     <form ng-submit="guardarCliente(infoCliente)" class="form-horizontal"> 
+                                    <div class="modal-body">
+
+                                        <div class="form-group-sm">
+                                            <label>Cliente</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   ng-model="infoCliente.nombre" 
+                                                   placeholder="Nombre del cliente" 
+                                                   required="required"/>
+                                        </div>
+
+                                        <div class="form-group-sm">
+                                            <label>Dirección</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   ng-model="infoCliente.direccion" 
+                                                   placeholder="Dirección completa (Calle. Cruzamientos. Número. Colonia. C.P. Ciudad.)" 
+                                                   required="required"/>
+                                        </div>
+
+                                        <div class="form-group-sm">
+                                            <label>Teléfono</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   ng-model="infoCliente.telefono" 
+                                                   placeholder="Teléfono del cliente" 
+                                                   />
+                                        </div> 
+
+                                        <div class="form-group-sm">
+                                            <label>Contacto</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   ng-model="infoCliente.contacto" 
+                                                   placeholder="Contacto" 
+                                                   required="required"/>
+                                        </div>
+
+                                        <div class="form-group-sm">
+                                            <label>Correo</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   ng-model="infoCliente.correo" 
+                                                   placeholder="Correo del cliente" 
+                                                   />
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" >
+                                                <i class="fa fa-save"></i> Guardar
+                                            </button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                     </form>
+                                </div>
                     </div><!-- /.modal-dialog -->
                 </div>
             </div>
